@@ -20,22 +20,26 @@ public class IsRotation {
 	public static void main(String[] args) {
 		IsRotation test = new IsRotation();
 		String str = "waterbottle";
-		String subStr = "";
+		String subStr = "erbottlewat";
 		
 		
-		System.out.println(test.isSubstring(str, subStr));
+		System.out.println(test.checkReverseEqual(str, subStr));
 	}
 	
 	public boolean checkReverseEqual(String s1, String s2) {
-		if(s1 == null || s2 == null){
-			
+		if(s1 == null && s2 == null){
+			return true;
+		}else if(s1 == null || s2 == null){
+            return false;
+        }
+		
+		if(s1.length() != s2.length()){
+			return false;
 		}
 		
+		String s3 = s1 + s1;
 		
-		
-		
-		
-		return false;
+		return isSubstring(s3, s2);
     }
 	
 	
