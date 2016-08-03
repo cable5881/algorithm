@@ -5,7 +5,7 @@ public class SortUtils {
 	public static void main(String[] args) {
 		int[] a = { 1, 5, 4, 9, 6, 8, 2, 3, 7 };
 		// int[] a = {1,2,3,4,0,6,7,8,9};
-		shellSort(a);
+		anotherShellSort(a);
 
 		for (int i : a) {
 			System.out.println(i);
@@ -42,6 +42,26 @@ public class SortUtils {
 		// }
 		// }
 		// }
+	}
+
+	public static void anotherShellSort(int[] a) {
+		int h = a.length / 2;
+		
+		while(h > 0) {
+			for (int i = h; i < a.length; i += h) {
+				int t = a[i];
+				int j = i - h;
+				
+				while(j >= 0 && a[j] > t){
+					a[j + h] = a[j];
+					j -= h;
+				}
+				
+				a[j + h] = t;
+			}
+			
+			h /= 2;
+		}
 	}
 
 	public static void qSort(int[] a, int low, int high) {
@@ -152,7 +172,7 @@ public class SortUtils {
 		int outerLoop = 0;
 		int innerLoop = 0;
 		int swapTimes = 0;
-		
+
 		for (int i = 1; i < a.length && flag; i++) {
 			flag = false;
 			outerLoop++;
