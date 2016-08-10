@@ -31,20 +31,19 @@ public class FindValuePathOfBTree {
 		t3.right = t7;
 
 		FindValuePathOfBTree f = new FindValuePathOfBTree();
-		f.FindPath(t1, 10);
+		f.findPath(t1, 10);
 		System.out.println(f.paths);
 	}
 
-	ArrayList<ArrayList<Integer>> paths = new ArrayList<>();
+	private ArrayList<ArrayList<Integer>> paths = new ArrayList<>();
 
-	public ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
+	public ArrayList<ArrayList<Integer>> findPath(TreeNode root, int target) {
 
 		if (root == null || root.val > target) {
 			return paths;
 		}
 
 		addPath(root, 0, target, new ArrayList<Integer>());
-
 		return paths;
 	}
 
@@ -63,7 +62,7 @@ public class FindValuePathOfBTree {
 		path.add(node.val);
 
 		if (sum == target) {
-			//注意没有到达树的根结点就形成的路径不叫路径
+			//注意没有到达树的叶子结点就形成的路径不叫路径（除非题目特殊说明可以不需要到达根节点）
 			if( node.left == null || node.right == null ){
 				//注意不能直接把path的引用直接添加进来！需要复制新的
 				ArrayList<Integer> pathCopy = new ArrayList<>(path); 
