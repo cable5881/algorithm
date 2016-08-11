@@ -17,6 +17,7 @@ public class BinInsert {
 	public static void main(String[] args) {
 		BinInsert test = new BinInsert();
 		System.out.println(test.binInsert(1024, 19, 2, 6));
+		System.out.println(test.binInsert(4355, 4, 2, 7));//4370
 	}
 
 	public int binInsert(int n, int m, int j, int i) {
@@ -30,7 +31,7 @@ public class BinInsert {
 		int allOnes = ~0;
 		
 		int left = allOnes << (j + 1);
-		int right = 1 << (m - 1);
+		int right = (1 << m) - 1;
 		int mask = left | right;
 		
 		return mask;
