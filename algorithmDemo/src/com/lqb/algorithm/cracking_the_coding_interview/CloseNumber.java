@@ -19,13 +19,13 @@ public class CloseNumber {
 	public static void main(String[] args) throws Exception {
 		// two solutions
 		System.out.println(Arrays.toString(getCloseNumber(2)));
-		System.out.println(Arrays.toString(getCloseNumber2(2)));
+		System.out.println(Arrays.toString(getCloseNumber2(76351)));
 	}
 
 	// bit operation
 	public static int[] getCloseNumber2(int n) {
 		int[] closeNumbers = new int[2];
-		closeNumbers[0] = getPre(n);
+		closeNumbers[0] = getPre(n);//76415 ---- > 76284
 		closeNumbers[1] = getNext(n);
 		return closeNumbers;
 	}
@@ -93,19 +93,15 @@ public class CloseNumber {
 			t >>= 1;
 		}
 
-		int p = c0 + c1;// 需要翻转的位置
-		int mask = 1 << p;
-		n = n ^ mask;
-
 		// 2.将该位右边的所有清0（掩码应用）
-		mask -= 1;
-		mask = ~mask;
+		int p = c0 + c1;// 需要翻转的位置
+		int mask = ~0 << (p + 1);
 		n = n & mask;
 
 		// 3.将该位右边补上C1 + 1 个 1(紧挨着该位)
 		int fix = 1 << (c1 + 1);
 		fix -= 1;
-		n |= fix;
+		n |= fix << (c0 - 1);
 
 		return n;
 	}
