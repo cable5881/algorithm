@@ -5,7 +5,7 @@ public class SortUtils {
 	public static void main(String[] args) {
 		int[] a = { 1, 5, 4, 9, 6, 8, 2, 3, 7 };
 		// int[] a = {1,2,3,4,0,6,7,8,9};
-		anotherShellSort(a);
+		shellSort(a);
 
 		for (int i : a) {
 			System.out.println(i);
@@ -13,53 +13,29 @@ public class SortUtils {
 	}
 
 	public static void shellSort(int[] a) {
-
-		int j = ~2;
-		int temp = 0;
-		for (int h = a.length / 2; h > 0; h /= 2) {
-			for (int i = h; i < a.length; i++) {
-				temp = a[i];
-				for (j = i; j >= h; j -= h) {
-					if (temp < a[j - h]) {
-						a[j] = a[j - h];
-					} else {
-						break;
-					}
-				}
-				a[j] = temp;
-			}
-		}
-
-		// int temp;
-		// int h = a.length;
-		// for (h /= 2; h > 0; h--) {
-		// for (int i = 0; i < h; i++) {
-		// temp = a[i];
-		// for (int j = 0; j < h; j++) {
-		// if(a[j+i]<a[h-j]){
-		// swap(a,i,j);
-		// }
-		// }
-		// }
-		// }
-	}
-
-	public static void anotherShellSort(int[] a) {
 		int h = a.length / 2;
-		
-		while(h > 0) {
-			for (int i = h; i < a.length; i += h) {
+
+		while (h > 0) {
+			// 注意一开始i为h
+			for (int i = h; i < a.length; i++) {
 				int t = a[i];
 				int j = i - h;
 				
-				while(j >= 0 && a[j] > t){
-					a[j + h] = a[j];
+				while (j >= 0) {
+					// 注意每次是和t比,和a[j + h]比就错
+					if (t < a[j]) {
+						a[j + h] = a[j];
+					} else {
+						//因为之前的已经排好序了,如果比前一个大,那么肯定比前一个之前的都大
+						break;
+					}
+					
 					j -= h;
 				}
 				
 				a[j + h] = t;
 			}
-			
+
 			h /= 2;
 		}
 	}
