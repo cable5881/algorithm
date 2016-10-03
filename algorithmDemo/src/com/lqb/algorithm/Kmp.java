@@ -1,5 +1,7 @@
 package com.lqb.algorithm;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 public class Kmp {
@@ -7,35 +9,40 @@ public class Kmp {
 	@Test
 	public void test() {
 
-		char[] a = "ilovefucking".toCharArray();
-		char[] b = "fu".toCharArray();
+		// char[] a = "ilovefucking".toCharArray();
+		// char[] b = "fu".toCharArray();
+		//
+		// boolean contains = kmp(a, b);
+		// System.out.println(contains);
 
-		boolean contains = kmp(a, b);
-		System.out.println(contains);
+		char[] p = "ababaaaba".toCharArray();
+		int[] next = new int[p.length];
+		getNext(next, p);
+		System.out.println(Arrays.toString(next));
 	}
-	
+
 	@Test
-	public void testNext(){
+	public void testNext() {
 		char[] a = "ababab".toCharArray();
-		int next = next(a,4);
+		int next = next(a, 4);
 		System.out.println(next);
 	}
 
 	public int next(char[] a, int end) {
-		//a b a b a b
-		int i = end/2;
+		// a b a b a b
+		int i = end / 2;
 		int j = 0;
 		int k = 0;
 
-		while (j <= end/2 && i < end) {
+		while (j <= end / 2 && i < end) {
 			if (a[j] == a[i]) {
 				k++;
 
-//				for (int m = i, n = j; m < end && n < i; i++, j++) {
-//					if (a[++m] == a[++n]) {
-//						k++;
-//					}
-//				}
+				// for (int m = i, n = j; m < end && n < i; i++, j++) {
+				// if (a[++m] == a[++n]) {
+				// k++;
+				// }
+				// }
 
 				j++;
 				i++;
@@ -88,4 +95,26 @@ public class Kmp {
 		return false;
 	}
 
+	public void getNext(int[] next, char[] p) {
+		int i = 1;
+		int j = 0;
+
+		next[0] = 0;
+
+		while (i < p.length) {
+			if (j == 0 || p[i] == p[j]) {
+				i++;
+				j++;
+				
+				next[i] = j;
+//				if (p[i] != p[j]) {
+//					next[i] = j;
+//				} else {
+//					next[i] = next[j];
+//				}
+			} else {
+				j = next[j];
+			}
+		}
+	}
 }
