@@ -10,10 +10,13 @@ import java.util.ArrayList;
 public class Permutation {
 
 	public static void main(String[] args) {
-		String s1 = "abc";
+//		String s1 = "abc";
+//		
+//		ArrayList<String> permutation = getPermutation(s1.toCharArray());
+//		System.out.println(permutation);
 		
-		ArrayList<String> permutation = getPermutation(s1.toCharArray());
-		System.out.println(permutation);
+		int[] a = {1,2,3,4};
+		System.out.println(fun(a));
 	}
 	
 	public static ArrayList<String> getPermutation(char[] ch) {
@@ -50,6 +53,30 @@ public class Permutation {
 		char t = ch[i];
 		ch[i] = ch[j];
 		ch[j] = t;
+	}
+	
+	
+	/**
+	 * a = {1,2,3,4} 组成多少个3位数？ 
+	 * @author:JackBauer
+	 * @date:2016年10月18日  下午4:02:27
+	 */
+	public static int fun(int[] a) {
+		int count = 0;
+		
+		for(int i = 0; i < a.length; i++) {
+			for(int j = 0; j < a.length; j++) {
+				for(int k = 0; k < a.length; k++) {
+					if(i != j && j != k && k != i) {
+						count++;
+						System.out.println(a[i] + "" + a[j] + "" + a[k]);
+					}
+				}
+			}
+		}
+		
+		
+		return count;
 	}
 
 }
