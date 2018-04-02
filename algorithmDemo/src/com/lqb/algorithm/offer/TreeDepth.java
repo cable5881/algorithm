@@ -3,10 +3,10 @@ package com.lqb.algorithm.offer;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * ����һ�ö����������������ȡ�
- * �Ӹ���㵽Ҷ������ξ����Ľ�㣨������Ҷ��㣩�γ�����һ��·�����·���ĳ���Ϊ������ȡ�
+ * 输入一棵二叉树，求该树的深度。
+ * 从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
  * @author:JackBauer
- * @date:2016��6��17�� ����2:47:57
+ * @date:2016年6月17日 下午2:47:57
  */
 public class TreeDepth {
 

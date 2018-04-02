@@ -1,10 +1,10 @@
 package com.lqb.ctrip;
 
 /**
- * ¼ÙÈçÒ»¸öÊý×éÖÐ´æ´¢ÁËÒ»¸ö¹ÉÆ±£¬ÔÚÒ»Ìì½»Ò×´°¿ÚÄÚ¸÷Ê±¼äµãµÄ¹ÉÆ±¼Û¸ñ£¨ÕýÕûÊý£©¡£Ö»ÔÊÐíÒ»´ÎÂòÈëºÍÒ»´ÎÂô³ö£¬ÇëÌá¹©Ò»¸öËã·¨£¬
- * ¼ÆËã³öÍ¨¹ýÂô³öºÍÂòÈë¿ÉÒÔµÃµ½µÄ×î´óÀûÈó
+ * å‡å¦‚ä¸€ä¸ªæ•°ç»„ä¸­å­˜å‚¨äº†ä¸€ä¸ªè‚¡ç¥¨ï¼Œåœ¨ä¸€å¤©äº¤æ˜“çª—å£å†…å„æ—¶é—´ç‚¹çš„è‚¡ç¥¨ä»·æ ¼ï¼ˆæ­£æ•´æ•°ï¼‰ã€‚åªå…è®¸ä¸€æ¬¡ä¹°å…¥å’Œä¸€æ¬¡å–å‡ºï¼Œè¯·æä¾›ä¸€ä¸ªç®—æ³•ï¼Œ
+ * è®¡ç®—å‡ºé€šè¿‡å–å‡ºå’Œä¹°å…¥å¯ä»¥å¾—åˆ°çš„æœ€å¤§åˆ©æ¶¦
  * 
- * @Date:2016Äê9ÔÂ17ÈÕ ÏÂÎç8:16:49
+ * @Date:2016å¹´9æœˆ17æ—¥ ä¸‹åˆ8:16:49
  */
 public class Stock {
 
@@ -39,7 +39,7 @@ public class Stock {
 	}
 
 	public static int getMaxProfit2(int[] a) {
-		// ²»ÓÃTreeMapÊÇÒòÎªÖØ¸´¼Û¸ñ»á±»È¥µô
+		// ä¸ç”¨TreeMapæ˜¯å› ä¸ºé‡å¤ä»·æ ¼ä¼šè¢«åŽ»æŽ‰
 		int[][] b = new int[2][a.length];
 		setIntoSorted2DArray(b, a);
 		

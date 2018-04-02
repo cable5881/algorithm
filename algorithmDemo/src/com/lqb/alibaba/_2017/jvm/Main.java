@@ -15,7 +15,7 @@ public class Main {
 		
 		Thread.sleep(2000);
 		
-		o1.setReferred(false);// Ê§È¥ÒıÓÃ
+		o1.setReferred(false);// å¤±å»å¼•ç”¨
 		o2.setReferred(false);
 		
 		JVM_Object o4 = new JVM_Object(800);

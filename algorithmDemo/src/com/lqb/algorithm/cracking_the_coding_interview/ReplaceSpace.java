@@ -1,19 +1,19 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * ���дһ�����������ַ����еĿո�ȫ���滻Ϊ��%20����
- * �ٶ����ַ������㹻�Ŀռ����������ַ�������֪���ַ�������ʵ����(С�ڵ���1000)��ͬʱ��֤�ַ����ɴ�Сд��Ӣ����ĸ��ɡ�
- * ����һ��string iniString Ϊԭʼ�Ĵ����Լ����ĳ��� int len, �����滻���string��
- * ����������
+ * 请编写一个方法，将字符串中的空格全部替换为“%20”。
+ * 假定该字符串有足够的空间存放新增的字符，并且知道字符串的真实长度(小于等于1000)，同时保证字符串由大小写的英文字母组成。
+ * 给定一个string iniString 为原始的串，以及串的长度 int len, 返回替换后的string。
+ * 测试样例：
  * 
- * "Mr John Smith��,13
- * ���أ�"Mr%20John%20Smith"
+ * "Mr John Smith”,13
+ * 返回："Mr%20John%20Smith"
  * 
- * ��Hello  World��,12
- * ���أ���Hello%20%20World��
+ * ”Hello  World”,12
+ * 返回：”Hello%20%20World”
  * 
  * @Author:JackBauer
- * @Date:2016��7��22�� ����4:32:55
+ * @Date:2016年7月22日 下午4:32:55
  */
 public class ReplaceSpace {
 	

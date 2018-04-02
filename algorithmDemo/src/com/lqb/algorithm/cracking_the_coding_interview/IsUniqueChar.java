@@ -4,18 +4,18 @@ import java.util.Arrays;
 import java.util.Formatter;
 
 /**
- * ÇëÊµÏÖÒ»¸öËã·¨£¬È·¶¨Ò»¸ö×Ö·û´®µÄËùÓÐ×Ö·ûÊÇ·ñÈ«¶¼²»Í¬¡£ÕâÀïÎÒÃÇÒªÇó²»ÔÊÐíÊ¹ÓÃ¶îÍâµÄ´æ´¢½á¹¹¡£
- * ¸ø¶¨Ò»¸östring iniString£¬Çë·µ»ØÒ»¸öboolÖµ,True´ú±íËùÓÐ×Ö·ûÈ«¶¼²»Í¬£¬False´ú±í´æÔÚÏàÍ¬µÄ×Ö·û¡£±£Ö¤×Ö·û´®ÖÐµÄ×Ö·ûÎªASCII×Ö·û¡£×Ö·û´®µÄ³¤¶ÈÐ¡ÓÚµÈÓÚ3000¡£
- * ²âÊÔÑùÀý£º
+ * è¯·å®žçŽ°ä¸€ä¸ªç®—æ³•ï¼Œç¡®å®šä¸€ä¸ªå­—ç¬¦ä¸²çš„æ‰€æœ‰å­—ç¬¦æ˜¯å¦å…¨éƒ½ä¸åŒã€‚è¿™é‡Œæˆ‘ä»¬è¦æ±‚ä¸å…è®¸ä½¿ç”¨é¢å¤–çš„å­˜å‚¨ç»“æž„ã€‚
+ * ç»™å®šä¸€ä¸ªstring iniStringï¼Œè¯·è¿”å›žä¸€ä¸ªboolå€¼,Trueä»£è¡¨æ‰€æœ‰å­—ç¬¦å…¨éƒ½ä¸åŒï¼ŒFalseä»£è¡¨å­˜åœ¨ç›¸åŒçš„å­—ç¬¦ã€‚ä¿è¯å­—ç¬¦ä¸²ä¸­çš„å­—ç¬¦ä¸ºASCIIå­—ç¬¦ã€‚å­—ç¬¦ä¸²çš„é•¿åº¦å°äºŽç­‰äºŽ3000ã€‚
+ * æµ‹è¯•æ ·ä¾‹ï¼š
  * 
  * "aeiou"
- * ·µ»Ø£ºTrue
+ * è¿”å›žï¼šTrue
  * 
  * "BarackObama"
- * ·µ»Ø£ºFalse
+ * è¿”å›žï¼šFalse
  * 
  * @Author:JackBauer
- * @Date:2016Äê7ÔÂ25ÈÕ ÉÏÎç9:30:17
+ * @Date:2016å¹´7æœˆ25æ—¥ ä¸Šåˆ9:30:17
  */
 public class IsUniqueChar {
 
@@ -72,9 +72,9 @@ public class IsUniqueChar {
     }
 	
 	/**
-	 * ±©Á¦ËÑË÷
+	 * æš´åŠ›æœç´¢
 	 * @author:JackBauer
-	 * @date:2016Äê10ÔÂ16ÈÕ
+	 * @date:2016å¹´10æœˆ16æ—¥
 	 * @param str
 	 * @return
 	 */

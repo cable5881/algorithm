@@ -3,9 +3,9 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 import java.util.Random;
 
 /**
- * @Description:¸ø³öÒ»¸ö²úÉú0-4Ëæ»úÊıµÄrandom5º¯Êı£¬Çórandom7
+ * @Description:ç»™å‡ºä¸€ä¸ªäº§ç”Ÿ0-4éšæœºæ•°çš„random5å‡½æ•°ï¼Œæ±‚random7
  * @Author:JackBauer
- * @Date:2016Äê8ÔÂ10ÈÕ
+ * @Date:2016å¹´8æœˆ10æ—¥
  */
 public class Random7 {
 

@@ -4,9 +4,9 @@ import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
  * 
- * @Description:ĞòÁĞ»¯ºÍ·´ĞòÁĞ»¯¶ş²æÊ÷
+ * @Description:åºåˆ—åŒ–å’Œååºåˆ—åŒ–äºŒå‰æ ‘
  * @Author:JackBauer
- * @Date:2016Äê7ÔÂ13ÈÕ ÏÂÎç2:59:08
+ * @Date:2016å¹´7æœˆ13æ—¥ ä¸‹åˆ2:59:08
  */
 public class SerializeBTree {
 

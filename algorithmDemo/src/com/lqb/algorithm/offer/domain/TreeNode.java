@@ -76,7 +76,7 @@ public class TreeNode {
     /**
      * @Description: print current node's value
      * @Author:JackBauer
-     * @Date:2016Äê7ÔÂ2ÈÕÏÂÎç3:17:08
+     * @Date:2016å¹´7æœˆ2æ—¥ä¸‹åˆ3:17:08
      */
     public void print(){
     	System.out.print(val);

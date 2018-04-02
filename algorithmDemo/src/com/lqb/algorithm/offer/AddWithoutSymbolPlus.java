@@ -1,9 +1,9 @@
 package com.lqb.algorithm.offer;
 
 /**
- * Ğ´Ò»¸öº¯Êı£¬ÇóÁ½¸öÕûÊıÖ®ºÍ£¬ÒªÇóÔÚº¯ÊıÌåÄÚ²»µÃÊ¹ÓÃ+¡¢-¡¢*¡¢/ËÄÔòÔËËã·ûºÅ¡£ 
+ * å†™ä¸€ä¸ªå‡½æ•°ï¼Œæ±‚ä¸¤ä¸ªæ•´æ•°ä¹‹å’Œï¼Œè¦æ±‚åœ¨å‡½æ•°ä½“å†…ä¸å¾—ä½¿ç”¨+ã€-ã€*ã€/å››åˆ™è¿ç®—ç¬¦å·ã€‚ 
  * @author:JackBauer
- * @date:2016Äê6ÔÂ25ÈÕ ÉÏÎç9:38:58
+ * @date:2016å¹´6æœˆ25æ—¥ ä¸Šåˆ9:38:58
  */
 public class AddWithoutSymbolPlus {
 
@@ -14,7 +14,7 @@ public class AddWithoutSymbolPlus {
 	
 	public int add(int num1, int num2){
 		/*
-		 * Òª¿¼ÂÇ¸ºÊıµÄÇé¿ö
+		 * è¦è€ƒè™‘è´Ÿæ•°çš„æƒ…å†µ
 		 */
 		while(num2 != 0){
 			int addWithoutMoveBit = num1 ^ num2;

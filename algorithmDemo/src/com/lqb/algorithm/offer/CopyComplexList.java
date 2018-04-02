@@ -1,10 +1,10 @@
 package com.lqb.algorithm.offer;
 
 /**
- * ÊäÈëÒ»¸ö¸´ÔÓÁ´±í£¨Ã¿¸ö½ÚµãÖĞÓĞ½ÚµãÖµ£¬ÒÔ¼°Á½¸öÖ¸Õë£¬Ò»¸öÖ¸ÏòÏÂÒ»¸ö½Úµã£¬ÁíÒ»¸öÌØÊâÖ¸ÕëÖ¸ÏòÈÎÒâÒ»¸ö½Úµã£©¡£
+ * è¾“å…¥ä¸€ä¸ªå¤æ‚é“¾è¡¨ï¼ˆæ¯ä¸ªèŠ‚ç‚¹ä¸­æœ‰èŠ‚ç‚¹å€¼ï¼Œä»¥åŠä¸¤ä¸ªæŒ‡é’ˆï¼Œä¸€ä¸ªæŒ‡å‘ä¸‹ä¸€ä¸ªèŠ‚ç‚¹ï¼Œå¦ä¸€ä¸ªç‰¹æ®ŠæŒ‡é’ˆæŒ‡å‘ä»»æ„ä¸€ä¸ªèŠ‚ç‚¹ï¼‰ã€‚
  * 
  * @author:JackBauer
- * @date:2016Äê6ÔÂ14ÈÕ ÏÂÎç1:33:47
+ * @date:2016å¹´6æœˆ14æ—¥ ä¸‹åˆ1:33:47
  */
 public class CopyComplexList {
 
@@ -54,7 +54,7 @@ public class CopyComplexList {
 		RandomListNode q = p.next;
 
 		while (true) {
-			//random¿ÉÄÜÎªnull
+			//randomå¯èƒ½ä¸ºnull
 			if (p.random != null) {
 				q.random = p.random;
 			}

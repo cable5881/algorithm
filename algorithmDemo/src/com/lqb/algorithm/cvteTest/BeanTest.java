@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description:½«HashMapÖĞµÄÊı¾İ·â×°µ½TargetVoÖĞ
+ * @Description:å°†HashMapä¸­çš„æ•°æ®å°è£…åˆ°TargetVoä¸­
  * @author:JackBauer
- * @date:2016Äê3ÔÂ18ÈÕ ÏÂÎç3:01:58
+ * @date:2016å¹´3æœˆ18æ—¥ ä¸‹åˆ3:01:58
  */
 public class BeanTest {
 	public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class BeanTest {
 	}
 
 	public static TargetVo getTargetVo(Map<String, Object> map) throws Exception {
-		//Òì³£ĞèÒª´¦ÀíÎªÁË¼òµ¥Ö±½ÓÅ×³öÈ¥ÁË
+		//å¼‚å¸¸éœ€è¦å¤„ç†ä¸ºäº†ç®€å•ç›´æ¥æŠ›å‡ºå»äº†
 		TargetVo targetVo = new TargetVo();
 
 		Class<? extends TargetVo> targetVoClass = targetVo.getClass();

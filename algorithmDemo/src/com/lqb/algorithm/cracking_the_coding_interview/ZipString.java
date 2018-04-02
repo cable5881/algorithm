@@ -1,20 +1,20 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * �����ַ��ظ����ֵĴ�������дһ��������ʵ�ֻ������ַ���ѹ�����ܡ�
- * ���磬�ַ�����aabcccccaaa����ѹ�����ɡ�a2b1c5a3������ѹ������ַ���û�б�̣��򷵻�ԭ�ȵ��ַ�����
- * ����һ��string iniStringΪ��ѹ���Ĵ�(����С�ڵ���3000)��
- * ��֤�����ַ����ɴ�СдӢ����ĸ��ɣ�����һ��string��Ϊ�����ѹ�����δ�仯�Ĵ���
- * ��������:
+ * 利用字符重复出现的次数，编写一个方法，实现基本的字符串压缩功能。
+ * 比如，字符串“aabcccccaaa”经压缩会变成“a2b1c5a3”。若压缩后的字符串没有变短，则返回原先的字符串。
+ * 给定一个string iniString为待压缩的串(长度小于等于3000)，
+ * 保证串内字符均由大小写英文字母组成，返回一个string，为所求的压缩后或未变化的串。
+ * 测试样例:
  * 
  * "aabcccccaaa"
- * ���أ�"a2b1c5a3"
+ * 返回："a2b1c5a3"
  * 
  * "welcometonowcoderrrrr"
- * ���أ�"welcometonowcoderrrrr"
+ * 返回："welcometonowcoderrrrr"
  * 
  * @Author:JackBauer
- * @Date:2016��7��22�� ����4:49:49
+ * @Date:2016年7月22日 下午4:49:49
  */
 public class ZipString {
 

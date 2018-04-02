@@ -3,10 +3,10 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * ÇëÊµÏÖÒ»¸öº¯Êý£¬¼ì²éÒ»¿Ã¶þ²æÊ÷ÊÇ·ñÎª¶þ²æ²éÕÒÊ÷¡£
- * ¸ø¶¨Ê÷µÄ¸ù½áµãÖ¸ÕëTreeNode* root£¬Çë·µ»ØÒ»¸öbool£¬´ú±í¸ÃÊ÷ÊÇ·ñÎª¶þ²æ²éÕÒÊ÷¡£
+ * è¯·å®žçŽ°ä¸€ä¸ªå‡½æ•°ï¼Œæ£€æŸ¥ä¸€æ£µäºŒå‰æ ‘æ˜¯å¦ä¸ºäºŒå‰æŸ¥æ‰¾æ ‘ã€‚
+ * ç»™å®šæ ‘çš„æ ¹ç»“ç‚¹æŒ‡é’ˆTreeNode* rootï¼Œè¯·è¿”å›žä¸€ä¸ªboolï¼Œä»£è¡¨è¯¥æ ‘æ˜¯å¦ä¸ºäºŒå‰æŸ¥æ‰¾æ ‘ã€‚
  * @Author:JackBauer
- * @Date:2016Äê8ÔÂ12ÈÕ
+ * @Date:2016å¹´8æœˆ12æ—¥
  */
 public class IsBST {
 
@@ -38,7 +38,7 @@ public class IsBST {
 		System.out.println(checkBST_2(t1));
 	}
 	
-	//´íÎó½â·¨¡£Ã»ÓÐ¿¼ÂÇµ½×Ó½ÚµãÐ¡ÓÚËùÓÐ¸¸½ÚµãºÍ×æ×Ú½áµãµÄÇé¿ö
+	//é”™è¯¯è§£æ³•ã€‚æ²¡æœ‰è€ƒè™‘åˆ°å­èŠ‚ç‚¹å°äºŽæ‰€æœ‰çˆ¶èŠ‚ç‚¹å’Œç¥–å®—ç»“ç‚¹çš„æƒ…å†µ
 	public boolean checkBST(TreeNode root) {
 		if(root == null){
 			return true;
@@ -53,7 +53,7 @@ public class IsBST {
 		}
 		
 		//warning!!!
-		//Èç¹ûÊÇ¸ùÔªËØµÄ×ó×ÓÊ÷£¬Ôò×ó×ÓÊ÷ÏÂµÄËùÓÐÔªËØ¶¼²»ÄÜ´óÓÚ¸ùÔªËØ£»¸ùÔªËØµÄÓÒ×ÓÊ÷ÒÔ´ËÀàÍÆ
+		//å¦‚æžœæ˜¯æ ¹å…ƒç´ çš„å·¦å­æ ‘ï¼Œåˆ™å·¦å­æ ‘ä¸‹çš„æ‰€æœ‰å…ƒç´ éƒ½ä¸èƒ½å¤§äºŽæ ¹å…ƒç´ ï¼›æ ¹å…ƒç´ çš„å³å­æ ‘ä»¥æ­¤ç±»æŽ¨
 		if(flag == -1 && node.val > rootV){
 			return false;
 		}else if(flag == 1 && node.val < rootV){
@@ -81,9 +81,9 @@ public class IsBST {
 	
 	private static int lastPrinted = Integer.MIN_VALUE;
 	/**
-	 * @Description:ÖÐÐò±éÀú½â·¨
+	 * @Description:ä¸­åºéåŽ†è§£æ³•
 	 * @Author:JackBauer
-	 * @Date:2016Äê8ÔÂ12ÈÕ
+	 * @Date:2016å¹´8æœˆ12æ—¥
 	 */
 	public static boolean checkBST_1(TreeNode root) {
 		if(root == null){
@@ -92,7 +92,7 @@ public class IsBST {
 		
 		boolean left = checkBST_1(root.left);
 		/*
-		 * 	¿ÉÒÔÕâÑù¸Ä½ø£¬Ö»ÒªÊÇfalse¾Í²»±Ø¼ÌÐøÖ´ÐÐÁË
+		 * 	å¯ä»¥è¿™æ ·æ”¹è¿›ï¼Œåªè¦æ˜¯falseå°±ä¸å¿…ç»§ç»­æ‰§è¡Œäº†
 		 
 		 	if(!checkBST_1(root.left)){
 		 		return false;
@@ -120,9 +120,9 @@ public class IsBST {
 	}
 	
 	/**
-	 * @Description:´«µÝ×îÐ¡ÖµºÍ×î´óÖµ·¨
+	 * @Description:ä¼ é€’æœ€å°å€¼å’Œæœ€å¤§å€¼æ³•
 	 * @Author:JackBauer
-	 * @Date:2016Äê8ÔÂ12ÈÕ
+	 * @Date:2016å¹´8æœˆ12æ—¥
 	 */
 	public static boolean checkBST_2_Core(TreeNode node, int min, int max){
 		if(node == null){

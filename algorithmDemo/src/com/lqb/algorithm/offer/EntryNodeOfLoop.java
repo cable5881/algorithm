@@ -3,10 +3,10 @@ package com.lqb.algorithm.offer;
 import com.lqb.algorithm.offer.domain.ListNode;
 
 /**
- * Ò»¸öÁ´±íÖĞ°üº¬»·£¬ÇëÕÒ³ö¸ÃÁ´±íµÄ»·µÄÈë¿Ú½áµã¡£
+ * ä¸€ä¸ªé“¾è¡¨ä¸­åŒ…å«ç¯ï¼Œè¯·æ‰¾å‡ºè¯¥é“¾è¡¨çš„ç¯çš„å…¥å£ç»“ç‚¹ã€‚
  * 
  * @author:JackBauer
- * @date:2016Äê6ÔÂ25ÈÕ ÉÏÎç9:40:31
+ * @date:2016å¹´6æœˆ25æ—¥ ä¸Šåˆ9:40:31
  */
 public class EntryNodeOfLoop {
 

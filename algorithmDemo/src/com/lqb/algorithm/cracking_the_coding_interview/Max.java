@@ -1,18 +1,18 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * Çë±àÐ´Ò»¸ö·½·¨£¬ÕÒ³öÁ½¸öÊý×ÖÖÐ×î´óµÄÄÇ¸ö¡£Ìõ¼þÊÇ²»µÃÊ¹ÓÃif-elseµÈ±È½ÏºÍÅÐ¶ÏÔËËã·û¡£
- * ¸ø¶¨Á½¸öint aºÍb£¬Çë·µ»Ø½Ï´óµÄÒ»¸öÊý¡£ÈôÁ½ÊýÏàÍ¬Ôò·µ»ØÈÎÒâÒ»¸ö¡£
+ * è¯·ç¼–å†™ä¸€ä¸ªæ–¹æ³•ï¼Œæ‰¾å‡ºä¸¤ä¸ªæ•°å­—ä¸­æœ€å¤§çš„é‚£ä¸ªã€‚æ¡ä»¶æ˜¯ä¸å¾—ä½¿ç”¨if-elseç­‰æ¯”è¾ƒå’Œåˆ¤æ–­è¿ç®—ç¬¦ã€‚
+ * ç»™å®šä¸¤ä¸ªint aå’Œbï¼Œè¯·è¿”å›žè¾ƒå¤§çš„ä¸€ä¸ªæ•°ã€‚è‹¥ä¸¤æ•°ç›¸åŒåˆ™è¿”å›žä»»æ„ä¸€ä¸ªã€‚
  * 
  * @author:JackBauer
- * @date:2016Äê10ÔÂ14ÈÕ
+ * @date:2016å¹´10æœˆ14æ—¥
  */
 public class Max {
 	public int getMax(int a, int b) {
 		b = a - b;
 		
-		// £¨1£©µ±a>=bÊ±£¬(a-b)·ûºÅÎ»Îª0£¬(a-b)ÓÒÒÆ31Î»£¬¸ßÎ»²¹0£¬ÓÒÒÆºóµÄ½á¹ûÎª0£»
-		// £¨2£©µ±a<bÊ±£¬(a-b)·ûºÅÎ»Îª1£¬(a-b)ÓÒÒÆ31Î»£¬¸ßÎ»²¹1£¬¹ÊÓÒÒÆºóµÄ½á¹û²»ÊÇ ÎÒÃÇÏëµ±È»µÄ1,¶øÊÇ-1¡£  
+		// ï¼ˆ1ï¼‰å½“a>=bæ—¶ï¼Œ(a-b)ç¬¦å·ä½ä¸º0ï¼Œ(a-b)å³ç§»31ä½ï¼Œé«˜ä½è¡¥0ï¼Œå³ç§»åŽçš„ç»“æžœä¸º0ï¼›
+		// ï¼ˆ2ï¼‰å½“a<bæ—¶ï¼Œ(a-b)ç¬¦å·ä½ä¸º1ï¼Œ(a-b)å³ç§»31ä½ï¼Œé«˜ä½è¡¥1ï¼Œæ•…å³ç§»åŽçš„ç»“æžœä¸æ˜¯ æˆ‘ä»¬æƒ³å½“ç„¶çš„1,è€Œæ˜¯-1ã€‚  
 		return a + (b >> 31) * b;
 	}
 }

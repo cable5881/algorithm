@@ -1,16 +1,16 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * ÓÐÁ½¸ö32Î»ÕûÊýnºÍm£¬Çë±àÐ´Ëã·¨½«mµÄ¶þ½øÖÆÊýÎ»²åÈëµ½nµÄ¶þ½øÖÆµÄµÚjµ½µÚiÎ»,ÆäÖÐ¶þ½øÖÆµÄÎ»Êý´ÓµÍÎ»Êýµ½¸ßÎ»ÇÒÒÔ0¿ªÊ¼¡£
- * ¸ø¶¨Á½¸öÊýint nºÍint m£¬Í¬Ê±¸ø¶¨int jºÍint i£¬ÒâÒåÈçÌâËùÊö£¬
- * Çë·µ»Ø²Ù×÷ºóµÄÊý£¬±£Ö¤nµÄµÚjµ½µÚiÎ»¾ùÎªÁã£¬ÇÒmµÄ¶þ½øÖÆÎ»ÊýÐ¡ÓÚµÈÓÚi-j+1¡£
+ * æœ‰ä¸¤ä¸ª32ä½æ•´æ•°nå’Œmï¼Œè¯·ç¼–å†™ç®—æ³•å°†mçš„äºŒè¿›åˆ¶æ•°ä½æ’å…¥åˆ°nçš„äºŒè¿›åˆ¶çš„ç¬¬jåˆ°ç¬¬iä½,å…¶ä¸­äºŒè¿›åˆ¶çš„ä½æ•°ä»Žä½Žä½æ•°åˆ°é«˜ä½ä¸”ä»¥0å¼€å§‹ã€‚
+ * ç»™å®šä¸¤ä¸ªæ•°int nå’Œint mï¼ŒåŒæ—¶ç»™å®šint jå’Œint iï¼Œæ„ä¹‰å¦‚é¢˜æ‰€è¿°ï¼Œ
+ * è¯·è¿”å›žæ“ä½œåŽçš„æ•°ï¼Œä¿è¯nçš„ç¬¬jåˆ°ç¬¬iä½å‡ä¸ºé›¶ï¼Œä¸”mçš„äºŒè¿›åˆ¶ä½æ•°å°äºŽç­‰äºŽi-j+1ã€‚
  * 
- * ²âÊÔÑùÀý£º
- * 1024£¬19£¬2£¬6
- * ·µ»Ø£º1100
+ * æµ‹è¯•æ ·ä¾‹ï¼š
+ * 1024ï¼Œ19ï¼Œ2ï¼Œ6
+ * è¿”å›žï¼š1100
  * 
  * @Author:JackBauer
- * @Date:2016Äê8ÔÂ10ÈÕ
+ * @Date:2016å¹´8æœˆ10æ—¥
  */
 public class BinInsert {
 

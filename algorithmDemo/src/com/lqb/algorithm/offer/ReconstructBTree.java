@@ -5,19 +5,19 @@ import com.lqb.algorithm.offer.domain.TreeNode;
 public class ReconstructBTree {
 
 	public static void main(String[] args) {
-		//Õı³£
+		//æ­£å¸¸
 //		int[] pre = {1,2,4,7,3,5,6,8};
 //		int[] in = {4,7,2,1,5,3,8,6};
 		
-		//Ö»ÓĞ×ó×ÓÊ÷
+		//åªæœ‰å·¦å­æ ‘
 //		int[] pre = {1,2,3,4,5,6,7,8};
 //		int[] in = {8,7,6,5,4,3,2,1};
 		
-		//Ö»ÓĞÓÒ×ÓÊ÷
+		//åªæœ‰å³å­æ ‘
 //		int[] pre = {1,2,3,4,5,6,7,8};
 //		int[] in = {1,2,3,4,5,6,7,8};
 		
-		//×óÓÒ×ÓÊ÷²»Æ¥Åä
+		//å·¦å³å­æ ‘ä¸åŒ¹é…
 		int[] pre = {1,2,4,7,3,5,6,8};
 		int[] in = {9,7,2,1,5,3,8,6};
 		
@@ -47,7 +47,7 @@ public class ReconstructBTree {
 			return null;
 		}
 		
-		//×¢ÒârootStartÓĞ¿ÉÄÜÔ½½ç
+		//æ³¨æ„rootStartæœ‰å¯èƒ½è¶Šç•Œ
 		while( inStart < inEnd && pre[preStart] != in[rootStart] && rootStart <= preEnd){
 			rootStart++;
 		}

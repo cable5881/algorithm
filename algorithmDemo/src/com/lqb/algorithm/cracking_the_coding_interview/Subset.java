@@ -10,7 +10,7 @@ public class Subset {
 		System.out.println(test.getSubsets2(A, 3));
 	}
 	
-	// ÅÅÁĞ×éºÏ·¨
+	// æ’åˆ—ç»„åˆæ³•
 	public ArrayList<ArrayList<Integer>> getSubsets2(int[] A, int n) {
 		ArrayList<ArrayList<Integer>> subsets = new ArrayList<>();
 		if(A == null) {

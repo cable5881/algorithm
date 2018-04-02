@@ -16,17 +16,17 @@ public class SortUtils {
 		int h = a.length / 2;
 
 		while (h > 0) {
-			// ×¢ÒâÒ»¿ªÊ¼iÎªh
+			// æ³¨æ„ä¸€å¼€å§‹iä¸ºh
 			for (int i = h; i < a.length; i++) {
 				int t = a[i];
 				int j = i - h;
 				
 				while (j >= 0) {
-					// ×¢ÒâÃ¿´ÎÊÇºÍt±È,ºÍa[j + h]±È¾Í´í
+					// æ³¨æ„æ¯æ¬¡æ˜¯å’Œtæ¯”,å’Œa[j + h]æ¯”å°±é”™
 					if (t < a[j]) {
 						a[j + h] = a[j];
 					} else {
-						//ÒòÎªÖ®Ç°µÄÒÑ¾­ÅÅºÃĞòÁË,Èç¹û±ÈÇ°Ò»¸ö´ó,ÄÇÃ´¿Ï¶¨±ÈÇ°Ò»¸öÖ®Ç°µÄ¶¼´ó
+						//å› ä¸ºä¹‹å‰çš„å·²ç»æ’å¥½åºäº†,å¦‚æœæ¯”å‰ä¸€ä¸ªå¤§,é‚£ä¹ˆè‚¯å®šæ¯”å‰ä¸€ä¸ªä¹‹å‰çš„éƒ½å¤§
 						break;
 					}
 					
@@ -42,7 +42,7 @@ public class SortUtils {
 
 	public static void qSort(int[] a, int low, int high) {
 		if (high <= low) {
-			return;// Õâ¸öÅĞ¶ÏÒªÊ×ÏÈ·Åµ½¿ªÍ·£¬ÒòÎªlowÓĞ¿ÉÄÜÎª¸ºÊı£¬ËùÒÔÏÂÃæµÄint temp = a[low];»á³ö´í
+			return;// è¿™ä¸ªåˆ¤æ–­è¦é¦–å…ˆæ”¾åˆ°å¼€å¤´ï¼Œå› ä¸ºlowæœ‰å¯èƒ½ä¸ºè´Ÿæ•°ï¼Œæ‰€ä»¥ä¸‹é¢çš„int temp = a[low];ä¼šå‡ºé”™
 		}
 
 		int temp = a[low];
@@ -55,8 +55,8 @@ public class SortUtils {
 				r--;
 			}
 			if (l < r) {
-				// swap(a, l, r);²»ÓÃ½»»»Öµ£¬ËüµÄÎ»ÖÃ¾ÍÊÇÏÂÒ»¸ö½«Òª¸²¸ÇµÄÎ»ÖÃ
-				a[l++] = a[r];// ÕâÊÇ++ºÍÏÂÃæµÄ--Ò²²»ÊÇ±ØĞëµÄ£¬Ö»ÊÇÃ¿»Ø¿ÉÒÔÉÙÒ»´ÎµÄ±È½Ï
+				// swap(a, l, r);ä¸ç”¨äº¤æ¢å€¼ï¼Œå®ƒçš„ä½ç½®å°±æ˜¯ä¸‹ä¸€ä¸ªå°†è¦è¦†ç›–çš„ä½ç½®
+				a[l++] = a[r];// è¿™æ˜¯++å’Œä¸‹é¢çš„--ä¹Ÿä¸æ˜¯å¿…é¡»çš„ï¼Œåªæ˜¯æ¯å›å¯ä»¥å°‘ä¸€æ¬¡çš„æ¯”è¾ƒ
 			}
 
 			while (l < r && temp >= a[l]) {
@@ -137,9 +137,9 @@ public class SortUtils {
 	}
 
 	/**
-	 * @Description: ¸ß¶ËÃ°ÅİÅÅĞò£¬½áÂÛÊÇÓĞĞ§¼õÉÙÑ­»·´ÎÊı£¬½»»»´ÎÊı²»±ä
+	 * @Description: é«˜ç«¯å†’æ³¡æ’åºï¼Œç»“è®ºæ˜¯æœ‰æ•ˆå‡å°‘å¾ªç¯æ¬¡æ•°ï¼Œäº¤æ¢æ¬¡æ•°ä¸å˜
 	 * @author:JackBauer
-	 * @Date:2016Äê3ÔÂ13ÈÕÏÂÎç2:19:33
+	 * @Date:2016å¹´3æœˆ13æ—¥ä¸‹åˆ2:19:33
 	 */
 	public static void bubbleSort(int[] a) {
 		// 8 64 4
@@ -152,7 +152,7 @@ public class SortUtils {
 		for (int i = 1; i < a.length && flag; i++) {
 			flag = false;
 			outerLoop++;
-			for (int j = 1; j < a.length; j++) {// ×¢Òâ²»ÊÇj=i
+			for (int j = 1; j < a.length; j++) {// æ³¨æ„ä¸æ˜¯j=i
 				innerLoop++;
 				if (a[j - 1] > a[j]) {
 					swapTimes++;
@@ -170,24 +170,24 @@ public class SortUtils {
 	}
 
 	/**
-	 * @Description: ²åÈëÅÅĞò£¨´ÓÓÒÏò×ó±È£©
+	 * @Description: æ’å…¥æ’åºï¼ˆä»å³å‘å·¦æ¯”ï¼‰
 	 * @author:JackBauer
-	 * @Date:2016Äê3ÔÂ13ÈÕÏÂÎç1:53:20
+	 * @Date:2016å¹´3æœˆ13æ—¥ä¸‹åˆ1:53:20
 	 */
 	public static void seniorInsertSort(int[] a) {
 		if (a == null) {
 			return;
 		}
 		for (int i = 1; i < a.length; i++) {
-			int temp = a[i], j = i;// tempÊÇ±¾ÂÖ½ÓÊÜ±È½ÏµÄÖµ
-			if (a[j - 1] > temp) // ºÍÓëÏàÁÚµÄÒ»¸öÊı½øĞĞ±È½Ï
+			int temp = a[i], j = i;// tempæ˜¯æœ¬è½®æ¥å—æ¯”è¾ƒçš„å€¼
+			if (a[j - 1] > temp) // å’Œä¸ç›¸é‚»çš„ä¸€ä¸ªæ•°è¿›è¡Œæ¯”è¾ƒ
 			{
 				while (j >= 1 && a[j - 1] > temp) {
-					a[j] = a[j - 1];// Êı×éÍùÓÒÒÆ
+					a[j] = a[j - 1];// æ•°ç»„å¾€å³ç§»
 					j--;
 				}
 			}
-			a[j] = temp;// ±¾ÂÖ±È½ÏµÄ×îĞ¡Öµ·ÅÔÚ×î×ó±ß£¬¼´ÒÆ¿ªµÄ¿ÕÎ»
+			a[j] = temp;// æœ¬è½®æ¯”è¾ƒçš„æœ€å°å€¼æ”¾åœ¨æœ€å·¦è¾¹ï¼Œå³ç§»å¼€çš„ç©ºä½
 		}
 	}
 
@@ -220,8 +220,8 @@ public class SortUtils {
 		int n = a.length;
 
 		for (int i = 0; i < n; i++) {
-			temp = a[i];// ´æ·Å×îĞ¡Öµ
-			flag = i;// ´æ·Å×îĞ¡Öµ¶ÔÓ¦µÄÏÂ±ê
+			temp = a[i];// å­˜æ”¾æœ€å°å€¼
+			flag = i;// å­˜æ”¾æœ€å°å€¼å¯¹åº”çš„ä¸‹æ ‡
 			for (int j = i + 1; j < n; j++) {
 				if (a[j] < temp) {
 					temp = a[j];
@@ -252,14 +252,14 @@ public class SortUtils {
 
 	/**
 	 * 
-	 * @Description: µ¥Á´±íµÄÑ¡ÔñÅÅĞò
+	 * @Description: å•é“¾è¡¨çš„é€‰æ‹©æ’åº
 	 * @author:JackBauer
-	 * @Date:2016Äê3ÔÂ13ÈÕÉÏÎç9:55:45
+	 * @Date:2016å¹´3æœˆ13æ—¥ä¸Šåˆ9:55:45
 	 */
 	public static void selectSort2(LinkedList<Integer> list) {
 		/**
-		 * ÕıÈ·×ö·¨£º minµÄÀàĞÍ²»Ó¦Îªint£¬ÎŞ·¨½»»»cur½ÚµãºÍmin¶ÔÓ¦½ÚµãµÄÖµ£¬½»»»µÄÖ»ÊÇminµÄÖµ
-		 * beginĞèÒªÔÚÄÚ²ãÑ­»·¿ªÊ¼Ê±µİ½ø£¬min½ÚµãÒ²ÒªÔÚÃ¿Ò»´ÎÄÚ²ãÑ­»·½áÊøºóµİ½ø
+		 * æ­£ç¡®åšæ³•ï¼š minçš„ç±»å‹ä¸åº”ä¸ºintï¼Œæ— æ³•äº¤æ¢curèŠ‚ç‚¹å’Œminå¯¹åº”èŠ‚ç‚¹çš„å€¼ï¼Œäº¤æ¢çš„åªæ˜¯minçš„å€¼
+		 * beginéœ€è¦åœ¨å†…å±‚å¾ªç¯å¼€å§‹æ—¶é€’è¿›ï¼ŒminèŠ‚ç‚¹ä¹Ÿè¦åœ¨æ¯ä¸€æ¬¡å†…å±‚å¾ªç¯ç»“æŸåé€’è¿›
 		 */
 		Node<Integer> begin = list.head;
 		Node<Integer> cur = null;

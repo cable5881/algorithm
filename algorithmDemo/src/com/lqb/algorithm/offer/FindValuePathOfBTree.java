@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * ����һ�Ŷ�������һ����������ӡ���������н��ֵ�ĺ�Ϊ��������������·����
- * ·������Ϊ�����ĸ���㿪ʼ����һֱ��Ҷ����������Ľ���γ�һ��·���� 
+ * 输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。
+ * 路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。 
  * @author:JackBauer
- * @date:2016��6��14�� ����1:26:42
+ * @date:2016年6月14日 下午1:26:42
  */
 public class FindValuePathOfBTree {
 
@@ -62,9 +62,9 @@ public class FindValuePathOfBTree {
 		path.add(node.val);
 
 		if (sum == target) {
-			//ע��û�е�������Ҷ�ӽ����γɵ�·������·����������Ŀ����˵�����Բ���Ҫ������ڵ㣩
+			//注意没有到达树的叶子结点就形成的路径不叫路径（除非题目特殊说明可以不需要到达根节点）
 			if( node.left == null || node.right == null ){
-				//ע�ⲻ��ֱ�Ӱ�path������ֱ�����ӽ�������Ҫ�����µ�
+				//注意不能直接把path的引用直接添加进来！需要复制新的
 				ArrayList<Integer> pathCopy = new ArrayList<>(path); 
 				paths.add(pathCopy);
 			}

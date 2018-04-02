@@ -1,9 +1,9 @@
 package com.lqb.alibaba._2017.jvm;
 
 public class JVM_Object {
-	private int size;// ¶ÔÏóÄÚ´æ´óĞ¡
-	private boolean isReferred;// ÊÇ·ñ±»ÒıÓÃ 
-	private int age;// ¶ÔÏóÔÚYoungÇøµÄÄêÁä£¬ÓÃÓÚÅĞ¶ÏÊÇ·ñ×ã¹»ÀÏ
+	private int size;// å¯¹è±¡å†…å­˜å¤§å°
+	private boolean isReferred;// æ˜¯å¦è¢«å¼•ç”¨ 
+	private int age;// å¯¹è±¡åœ¨YoungåŒºçš„å¹´é¾„ï¼Œç”¨äºåˆ¤æ–­æ˜¯å¦è¶³å¤Ÿè€
 	
 	public JVM_Object(int size) {
 		this.size = size;

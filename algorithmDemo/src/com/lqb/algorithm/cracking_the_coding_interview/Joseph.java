@@ -1,12 +1,12 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * Ô¼Éª·òÎÊÌâÊÇÒ»¸ö·Ç³£ÖøÃûµÄÈ¤Ìâ£¬¼´ÓÉn¸öÈË×ø³ÉÒ»È¦£¬°´Ë³Ê±ÕëÓÉ1¿ªÊ¼¸øËûÃÇ±àºÅ¡£
- * È»ºóÓÉµÚÒ»¸öÈË¿ªÊ¼±¨Êý£¬Êýµ½mµÄÈË³ö¾Ö¡£ÏÖÔÚÐèÒªÇóµÄÊÇ×îºóÒ»¸ö³ö¾ÖµÄÈËµÄ±àºÅ¡£ 
- * ¸ø¶¨Á½¸öint nºÍm£¬´ú±íÓÎÏ·µÄÈËÊý¡£Çë·µ»Ø×îºóÒ»¸ö³ö¾ÖµÄÈËµÄ±àºÅ¡£±£Ö¤nºÍmÐ¡ÓÚµÈÓÚ1000¡£
+ * çº¦ç‘Ÿå¤«é—®é¢˜æ˜¯ä¸€ä¸ªéžå¸¸è‘—åçš„è¶£é¢˜ï¼Œå³ç”±nä¸ªäººåæˆä¸€åœˆï¼ŒæŒ‰é¡ºæ—¶é’ˆç”±1å¼€å§‹ç»™ä»–ä»¬ç¼–å·ã€‚
+ * ç„¶åŽç”±ç¬¬ä¸€ä¸ªäººå¼€å§‹æŠ¥æ•°ï¼Œæ•°åˆ°mçš„äººå‡ºå±€ã€‚çŽ°åœ¨éœ€è¦æ±‚çš„æ˜¯æœ€åŽä¸€ä¸ªå‡ºå±€çš„äººçš„ç¼–å·ã€‚ 
+ * ç»™å®šä¸¤ä¸ªint nå’Œmï¼Œä»£è¡¨æ¸¸æˆçš„äººæ•°ã€‚è¯·è¿”å›žæœ€åŽä¸€ä¸ªå‡ºå±€çš„äººçš„ç¼–å·ã€‚ä¿è¯nå’Œmå°äºŽç­‰äºŽ1000ã€‚
  * 
  * @author:JackBauer
- * @date:2016Äê10ÔÂ12ÈÕ
+ * @date:2016å¹´10æœˆ12æ—¥
  */
 public class Joseph {
 

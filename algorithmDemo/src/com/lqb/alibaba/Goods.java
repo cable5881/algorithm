@@ -1,7 +1,7 @@
 package com.lqb.alibaba;
 
 /**
- * @Description:ÉÌÆ·Àà
+ * @Description:å•†å“ç±»
  */
 public abstract class Goods {
 

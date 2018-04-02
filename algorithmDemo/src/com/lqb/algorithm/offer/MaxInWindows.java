@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * @Description:»¬¶¯´°¿Ú×î´óÖµ
+ * @Description:æ»‘åŠ¨çª—å£æœ€å¤§å€¼
  * @Author:JackBauer
- * @Date:2016Äê7ÔÂ13ÈÕ ÏÂÎç3:41:43
+ * @Date:2016å¹´7æœˆ13æ—¥ ä¸‹åˆ3:41:43
  */
 public class MaxInWindows {
 
@@ -41,7 +41,7 @@ public class MaxInWindows {
 		}
 		
 		while(windowStart < num.length){
-			maxs.add(num[maxQ.peek()]);//×¢ÒâÒ»¿ªÊ¼¾ÍÒªÏÈÌí¼Ó
+			maxs.add(num[maxQ.peek()]);//æ³¨æ„ä¸€å¼€å§‹å°±è¦å…ˆæ·»åŠ 
 			
 			while(!maxQ.isEmpty() && num[windowStart] > num[maxQ.peekLast()]){
 				maxQ.removeLast();
@@ -55,7 +55,7 @@ public class MaxInWindows {
 			windowStart++;
 		}
 		
-		maxs.add(num[maxQ.peek()]);//×¢Òâ×îºó»¹ÒªÔÙÌí¼ÓÒ»´Î
+		maxs.add(num[maxQ.peek()]);//æ³¨æ„æœ€åè¿˜è¦å†æ·»åŠ ä¸€æ¬¡
 		
 		return maxs;
 	}

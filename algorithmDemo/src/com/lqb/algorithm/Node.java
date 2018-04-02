@@ -1,7 +1,7 @@
 package com.lqb.algorithm;
 
 /**
- * Node�ڵ�
+ * Node鑺傜偣
  */
 class Node<E> {
 	Node<E> next = null;

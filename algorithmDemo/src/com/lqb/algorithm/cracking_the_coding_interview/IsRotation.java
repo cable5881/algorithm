@@ -1,19 +1,19 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * �ٶ����Ƕ�֪���ǳ���Ч���㷨�����һ�������Ƿ�Ϊ�����ַ������Ӵ���
- * �뽫����㷨��д��һ�����������������ַ���s1��s2�����д������s2�Ƿ�Ϊs1��ת���ɣ�Ҫ��ֻ�ܵ���һ�μ���Ӵ��ĺ�����
- * ���������ַ���s1,s2,�뷵��boolֵ����s2�Ƿ���s1��ת���ɡ�
- * �ַ������ַ�ΪӢ����ĸ�Ϳո����ִ�Сд���ַ�������С�ڵ���1000��
- * ����������
+ * 假定我们都知道非常高效的算法来检查一个单词是否为其他字符串的子串。
+ * 请将这个算法编写成一个函数，给定两个字符串s1和s2，请编写代码检查s2是否为s1旋转而成，要求只能调用一次检查子串的函数。
+ * 给定两个字符串s1,s2,请返回bool值代表s2是否由s1旋转而成。
+ * 字符串中字符为英文字母和空格，区分大小写，字符串长度小于等于1000。
+ * 测试样例：
  * 
  * "Hello world","worldhello "
- * ���أ�false
+ * 返回：false
  * 
  * "waterbottle","erbottlewat"
- * ���أ�true
+ * 返回：true
  * @Author:JackBauer
- * @Date:2016��7��25�� ����5:05:07
+ * @Date:2016年7月25日 下午5:05:07
  */
 public class IsRotation {
 

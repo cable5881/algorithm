@@ -6,10 +6,10 @@ import java.util.Stack;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * ��ʵ��һ����������֮���δ�ӡ��������
- * ����һ�а��մ����ҵ�˳���ӡ���ڶ��㰴�մ��������˳���ӡ�������а��մ����ҵ�˳���ӡ���������Դ����ơ�
+ * 请实现一个函数按照之字形打印二叉树，
+ * 即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
  * @Author:JackBauer
- * @Date:2016��7��3�� ����3:40:01
+ * @Date:2016年7月3日 下午3:40:01
  */
 public class PrintTreesInZigzag {
 

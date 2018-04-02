@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * ÊäÈëÒ»¸ö×Ö·û´®,°´×ÖµäÐò´òÓ¡³ö¸Ã×Ö·û´®ÖÐ×Ö·ûµÄËùÓÐÅÅÁÐ¡£
- * ÀýÈçÊäÈë×Ö·û´®abc,Ôò´òÓ¡³öÓÉ×Ö·ûa,b,cËùÄÜÅÅÁÐ³öÀ´µÄËùÓÐ×Ö·û´®abc,acb,bac,bca,cabºÍcba¡£ 
- * ½á¹ûÇë°´×ÖÄ¸Ë³ÐòÊä³ö¡£ 
- * @Description:ÊäÈëÒ»¸ö×Ö·û´®,³¤¶È²»³¬¹ý9(¿ÉÄÜÓÐ×Ö·ûÖØ¸´),×Ö·ûÖ»°üÀ¨´óÐ¡Ð´×ÖÄ¸¡£
+ * è¾“å…¥ä¸€ä¸ªå­—ç¬¦ä¸²,æŒ‰å­—å…¸åºæ‰“å°å‡ºè¯¥å­—ç¬¦ä¸²ä¸­å­—ç¬¦çš„æ‰€æœ‰æŽ’åˆ—ã€‚
+ * ä¾‹å¦‚è¾“å…¥å­—ç¬¦ä¸²abc,åˆ™æ‰“å°å‡ºç”±å­—ç¬¦a,b,cæ‰€èƒ½æŽ’åˆ—å‡ºæ¥çš„æ‰€æœ‰å­—ç¬¦ä¸²abc,acb,bac,bca,cabå’Œcbaã€‚ 
+ * ç»“æžœè¯·æŒ‰å­—æ¯é¡ºåºè¾“å‡ºã€‚ 
+ * @Description:è¾“å…¥ä¸€ä¸ªå­—ç¬¦ä¸²,é•¿åº¦ä¸è¶…è¿‡9(å¯èƒ½æœ‰å­—ç¬¦é‡å¤),å­—ç¬¦åªåŒ…æ‹¬å¤§å°å†™å­—æ¯ã€‚
  * @author:JackBauer
- * @date:2016Äê6ÔÂ14ÈÕ ÏÂÎç1:39:50
+ * @date:2016å¹´6æœˆ14æ—¥ ä¸‹åˆ1:39:50
  */
 public class Permutation {
 
@@ -31,17 +31,17 @@ public class Permutation {
 		
 		/*
 		 
-			 ´ð°¸´íÎó:ÄúÌá½»µÄ³ÌÐòÃ»ÓÐÍ¨¹ýËùÓÐµÄ²âÊÔÓÃÀý
+			 ç­”æ¡ˆé”™è¯¯:æ‚¨æäº¤çš„ç¨‹åºæ²¡æœ‰é€šè¿‡æ‰€æœ‰çš„æµ‹è¯•ç”¨ä¾‹
 	
-			caseÍ¨¹ýÂÊÎª50.00%
-			²âÊÔÓÃÀý:
+			caseé€šè¿‡çŽ‡ä¸º50.00%
+			æµ‹è¯•ç”¨ä¾‹:
 			abc
 			
-			¶ÔÓ¦Êä³öÓ¦¸ÃÎª:
+			å¯¹åº”è¾“å‡ºåº”è¯¥ä¸º:
 			
 			["abc","acb","bac","bca","cab","cba"]
 			
-			ÄãµÄÊä³öÎª:
+			ä½ çš„è¾“å‡ºä¸º:
 			
 			["abc","acb","bac","bca","cba","cab"]
 

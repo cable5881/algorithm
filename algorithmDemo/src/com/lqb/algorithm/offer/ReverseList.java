@@ -32,7 +32,7 @@ public class ReverseList {
 		ListNode pNext = head.next;
 		
 		head.next = null;
-		//注意尾节点的next要设置为null，否则会进入死循环，因为尾节点原为首节点，next并不为null
+		//濞夈劍鍓扮亸鎹愬Ν閻愬湱娈憂ext鐟曚浇顔曠純顔昏礋null閿涘苯鎯侀崚娆庣窗鏉╂稑鍙嗗璇叉儕閻滎垽绱濋崶鐘辫礋鐏忔崘濡悙鐟板斧娑撴椽顩婚懞鍌滃仯閿涘ext楠炴湹绗夋稉绨剈ll
 		
 		while( pNext != null ){
 			pTemp = pNext.next;

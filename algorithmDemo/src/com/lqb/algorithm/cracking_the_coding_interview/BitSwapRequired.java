@@ -2,13 +2,13 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
  * 
- * ±àÐ´Ò»¸öº¯Êý£¬È·¶¨ÐèÒª¸Ä±ä¼¸¸öÎ»£¬²ÅÄÜ½«ÕûÊýA×ª±ä³ÉÕûÊýB¡£
+ * ç¼–å†™ä¸€ä¸ªå‡½æ•°ï¼Œç¡®å®šéœ€è¦æ”¹å˜å‡ ä¸ªä½ï¼Œæ‰èƒ½å°†æ•´æ•°Aè½¬å˜æˆæ•´æ•°Bã€‚
  * 
- * ¸ø¶¨Á½¸öÕûÊýint A£¬int B¡£Çë·µ»ØÐèÒª¸Ä±äµÄÊýÎ»¸öÊý¡£ ²âÊÔÑùÀý£º
+ * ç»™å®šä¸¤ä¸ªæ•´æ•°int Aï¼Œint Bã€‚è¯·è¿”å›žéœ€è¦æ”¹å˜çš„æ•°ä½ä¸ªæ•°ã€‚ æµ‹è¯•æ ·ä¾‹ï¼š
  * 
  * 10,5
  * 
- * ·µ»Ø£º4
+ * è¿”å›žï¼š4
  * 
  * 
  */

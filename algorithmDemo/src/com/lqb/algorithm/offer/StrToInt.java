@@ -1,9 +1,9 @@
 package com.lqb.algorithm.offer;
 
 /**
- * ½«Ò»¸ö×Ö·û´®×ªÎªÊı×Ö
+ * å°†ä¸€ä¸ªå­—ç¬¦ä¸²è½¬ä¸ºæ•°å­—
  * @author:JackBauer
- * @date:2016Äê6ÔÂ27ÈÕ ÏÂÎç6:33:43
+ * @date:2016å¹´6æœˆ27æ—¥ ä¸‹åˆ6:33:43
  */
 public class StrToInt {
 

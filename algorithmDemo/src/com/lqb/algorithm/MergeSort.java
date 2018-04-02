@@ -1,9 +1,9 @@
 package com.lqb.algorithm;
 
 /**
- * @Description:¹é²¢ÅÅĞò
+ * @Description:å½’å¹¶æ’åº
  * @Author:JackBauer
- * @Date:2016Äê7ÔÂ20ÈÕ ÉÏÎç11:28:57
+ * @Date:2016å¹´7æœˆ20æ—¥ ä¸Šåˆ11:28:57
  */
 public class MergeSort {
 

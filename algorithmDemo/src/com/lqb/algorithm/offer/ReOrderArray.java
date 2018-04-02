@@ -3,11 +3,11 @@ package com.lqb.algorithm.offer;
 import java.util.Arrays;
 
 /**
- * ÊäÈëÒ»¸öÕûÊýÊý×é£¬ÊµÏÖÒ»¸öº¯ÊýÀ´µ÷Õû¸ÃÊý×éÖÐÊý×ÖµÄË³Ðò£¬
- * Ê¹µÃËùÓÐµÄÆæÊýÎ»ÓÚÊý×éµÄÇ°°ë²¿·Ö£¬ËùÓÐµÄÅ¼ÊýÎ»ÓÚÎ»ÓÚÊý×éµÄºó°ë²¿·Ö£¬²¢±£Ö¤ÆæÊýºÍÆæÊý£¬
- * Å¼ÊýºÍÅ¼ÊýÖ®¼äµÄÏà¶ÔÎ»ÖÃ²»±ä¡£
+ * è¾“å…¥ä¸€ä¸ªæ•´æ•°æ•°ç»„ï¼Œå®žçŽ°ä¸€ä¸ªå‡½æ•°æ¥è°ƒæ•´è¯¥æ•°ç»„ä¸­æ•°å­—çš„é¡ºåºï¼Œ
+ * ä½¿å¾—æ‰€æœ‰çš„å¥‡æ•°ä½äºŽæ•°ç»„çš„å‰åŠéƒ¨åˆ†ï¼Œæ‰€æœ‰çš„å¶æ•°ä½äºŽä½äºŽæ•°ç»„çš„åŽåŠéƒ¨åˆ†ï¼Œå¹¶ä¿è¯å¥‡æ•°å’Œå¥‡æ•°ï¼Œ
+ * å¶æ•°å’Œå¶æ•°ä¹‹é—´çš„ç›¸å¯¹ä½ç½®ä¸å˜ã€‚
  * @author:JackBauer
- * @date:2016Äê6ÔÂ10ÈÕ ÏÂÎç2:45:04
+ * @date:2016å¹´6æœˆ10æ—¥ ä¸‹åˆ2:45:04
  */
 public class ReOrderArray {
 

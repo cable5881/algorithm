@@ -3,16 +3,16 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 import java.util.ArrayList;
 
 /**
- * ��ʵ��һ�����ݽṹSetOfStacks���ɶ��ջ��ɣ�
- * ����ÿ��ջ�Ĵ�СΪsize����ǰһ��ջ����ʱ���½�һ��ջ��
- * �����ݽṹӦ֧������ͨջ��ͬ��push��pop������
- * ����һ����������int[][2] ope��ÿ�������ĵ�һ���������������ͣ�
- * ��Ϊ1����Ϊpush��������һ����ΪӦpush�����֣���Ϊ2����Ϊpop��������һ���������塣
- * �뷵��һ��int[][]��Ϊ������в������SetOfStacks��˳��ӦΪ���µ��ϣ�Ĭ�ϳ�ʼ��SetOfStacksΪ�ա�
- * ��֤���ݺϷ���
+ * 请实现一种数据结构SetOfStacks，由多个栈组成，
+ * 其中每个栈的大小为size，当前一个栈填满时，新建一个栈。
+ * 该数据结构应支持与普通栈相同的push和pop操作。
+ * 给定一个操作序列int[][2] ope，每个操作的第一个数代表操作类型，
+ * 若为1，则为push操作，后一个数为应push的数字；若为2，则为pop操作，后一个数无意义。
+ * 请返回一个int[][]，为完成所有操作后的SetOfStacks，顺序应为从下到上，默认初始的SetOfStacks为空。
+ * 保证数据合法。
 
  * @Author:JackBauer
- * @Date:2016��8��3��
+ * @Date:2016年8月3日
  */
 public class SetOfStacks {
 

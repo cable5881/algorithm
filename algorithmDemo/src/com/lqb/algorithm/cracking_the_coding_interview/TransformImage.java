@@ -3,15 +3,15 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 import java.util.Arrays;
 
 /**
- * ��һ����NxN�����ʾ��ͼ������ÿ��������һ��int��ʾ�� ���дһ���㷨���ڲ�ռ�ö����ڴ�ռ�������(����ʹ�û������)����ͼ��˳ʱ����ת90�ȡ�
- * ����һ��NxN�ľ��󣬺;���Ľ���N,�뷵����ת���NxN����,��֤NС�ڵ���500��ͼ��Ԫ��С�ڵ���256�� ����������
+ * 有一副由NxN矩阵表示的图像，这里每个像素用一个int表示， 请编写一个算法，在不占用额外内存空间的情况下(即不使用缓存矩阵)，将图像顺时针旋转90度。
+ * 给定一个NxN的矩阵，和矩阵的阶数N,请返回旋转后的NxN矩阵,保证N小于等于500，图像元素小于等于256。 测试样例：
  * 
  * [[1,2,3],[4,5,6],[7,8,9]],3
  * 
- * ���أ�[[7,4,1],[8,5,2],[9,6,3]]
+ * 返回：[[7,4,1],[8,5,2],[9,6,3]]
  * 
  * @Author:JackBauer
- * @Date:2016��7��25�� ����10:31:40
+ * @Date:2016年7月25日 上午10:31:40
  */
 public class TransformImage {
 
@@ -131,11 +131,11 @@ public class TransformImage {
 		int layer = n / 2;
 
 		for (int i = 0; i < layer; i++) {
-			int colEnd = n - 1 - i; // ����i + n - 1
+			int colEnd = n - 1 - i; // 不是i + n - 1
 			int rowEnd = n - 1 - i;
 			int t;
 
-			//ѭ����������Ҫע��
+			//循环结束条件要注意
 			for (int j = 0; j < rowEnd - i; j++) {
 				t = mat[i][colEnd - j];
 				mat[i][colEnd - j] = mat[i + j][i];

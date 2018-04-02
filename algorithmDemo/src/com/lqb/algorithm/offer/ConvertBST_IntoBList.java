@@ -3,9 +3,9 @@ package com.lqb.algorithm.offer;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * ÊäÈëÒ»¿Ã¶ş²æËÑË÷Ê÷£¬½«¸Ã¶ş²æËÑË÷Ê÷×ª»»³ÉÒ»¸öÅÅĞòµÄË«ÏòÁ´±í¡£ÒªÇó²»ÄÜ´´½¨ÈÎºÎĞÂµÄ½áµã£¬Ö»ÄÜµ÷ÕûÊ÷ÖĞ½áµãÖ¸ÕëµÄÖ¸Ïò¡£ 
+ * è¾“å…¥ä¸€æ£µäºŒå‰æœç´¢æ ‘ï¼Œå°†è¯¥äºŒå‰æœç´¢æ ‘è½¬æ¢æˆä¸€ä¸ªæ’åºçš„åŒå‘é“¾è¡¨ã€‚è¦æ±‚ä¸èƒ½åˆ›å»ºä»»ä½•æ–°çš„ç»“ç‚¹ï¼Œåªèƒ½è°ƒæ•´æ ‘ä¸­ç»“ç‚¹æŒ‡é’ˆçš„æŒ‡å‘ã€‚ 
  * @author:JackBauer
- * @date:2016Äê6ÔÂ14ÈÕ ÏÂÎç1:39:20
+ * @date:2016å¹´6æœˆ14æ—¥ ä¸‹åˆ1:39:20
  */
 public class ConvertBST_IntoBList {
 
@@ -52,7 +52,7 @@ public class ConvertBST_IntoBList {
 		
 		TreeNode head = _Convert(root);
 		
-		//×¢ÒâÒª·µ»ØÍ·²¿
+		//æ³¨æ„è¦è¿”å›å¤´éƒ¨
 		while( head.left != null ){
 			head = head.left;
 		}

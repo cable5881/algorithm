@@ -2,10 +2,10 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
  * 
- * ¶ÔÓÚÒ»¸öÔªËØ¸÷²»ÏàÍ¬ÇÒ°´ÉýÐòÅÅÁÐµÄÓÐÐòÐòÁÐ£¬Çë±àÐ´Ò»¸öËã·¨£¬´´½¨Ò»¿Ã¸ß¶È×îÐ¡µÄ¶þ²æ²éÕÒÊ÷¡£
- * ¸ø¶¨Ò»¸öÓÐÐòÐòÁÐint[] vals,Çë·µ»Ø´´½¨µÄ¶þ²æ²éÕÒÊ÷µÄ¸ß¶È¡£
+ * å¯¹äºŽä¸€ä¸ªå…ƒç´ å„ä¸ç›¸åŒä¸”æŒ‰å‡åºæŽ’åˆ—çš„æœ‰åºåºåˆ—ï¼Œè¯·ç¼–å†™ä¸€ä¸ªç®—æ³•ï¼Œåˆ›å»ºä¸€æ£µé«˜åº¦æœ€å°çš„äºŒå‰æŸ¥æ‰¾æ ‘ã€‚
+ * ç»™å®šä¸€ä¸ªæœ‰åºåºåˆ—int[] vals,è¯·è¿”å›žåˆ›å»ºçš„äºŒå‰æŸ¥æ‰¾æ ‘çš„é«˜åº¦ã€‚
  * @Author:JackBauer
- * @Date:2016Äê8ÔÂ5ÈÕ
+ * @Date:2016å¹´8æœˆ5æ—¥
  */
 public class BuildMinimalBST {
 

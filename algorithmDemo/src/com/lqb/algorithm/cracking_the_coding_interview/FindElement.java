@@ -1,16 +1,16 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * ��һ���Ź�������飬����n����������������������������һ�����ȵ���λ
- * ���磬ԭ����Ϊ[1,2,3,4,5,6]��������λ5��λ�ü������[6,1,2,3,4,5],
- * ���ڶ�����λ������飬��Ҫ����ĳ��Ԫ�ص�λ�á�
- * �����һ�����Ӷ�Ϊlog������㷨����������
+ * 有一个排过序的数组，包含n个整数，但是这个数组向左进行了一定长度的移位
+ * 例如，原数组为[1,2,3,4,5,6]，向左移位5个位置即变成了[6,1,2,3,4,5],
+ * 现在对于移位后的数组，需要查找某个元素的位置。
+ * 请设计一个复杂度为log级别的算法完成这个任务。
  * 
- * ����һ��int����A��Ϊ��λ������飬ͬʱ���������Сn����Ҫ���ҵ�Ԫ�ص�ֵx���뷵��x��λ��(λ�ô��㿪ʼ)��
- * ��֤������Ԫ�ػ��졣
+ * 给定一个int数组A，为移位后的数组，同时给定数组大小n和需要查找的元素的值x，请返回x的位置(位置从零开始)。
+ * 保证数组中元素互异。
  * 
  * @author:JackBauer
- * @date:2016��10��15��
+ * @date:2016年10月15日
  */
 public class FindElement {
 
@@ -37,9 +37,9 @@ public class FindElement {
 	}
 
 	/**
-	 * �򵥰棺O(n)
+	 * 简单版：O(n)
 	 * @author:JackBauer
-	 * @date:2016��10��17��
+	 * @date:2016年10月17日
 	 */
 	public int findElementSimple(int[] a, int x) {
 		for (int i = 0; i < a.length; i++) {
@@ -51,9 +51,9 @@ public class FindElement {
 	}
 	
 	/**
-	 * ���Ӱ�: O(logn)
+	 * 复杂版: O(logn)
 	 * @author:JackBauer
-	 * @date:2016��10��17��  ����8:59:35
+	 * @date:2016年10月17日  下午8:59:35
 	 */
 	public int findElementComplex(int[] a, int x) {
 		int start = 0;
@@ -73,17 +73,17 @@ public class FindElement {
 				}
 			} else if(a[mid] > x) {
 				if(x >= a[start]) { 
-					// >= ����Ϊ��{ 2, 3, 4, 5, 6, 1 }; xΪ2ʱ
+					// >= 是因为如{ 2, 3, 4, 5, 6, 1 }; x为2时
 					end = mid - 1;
-				} else if(a[mid] >= a[start]) { //��ʱmid��mid����ת��
-					// >= ����ΪԪ��ֻ������ʱ,��10,1  xΪ1ʱ
+				} else if(a[mid] >= a[start]) { //此时mid到mid中无转置
+					// >= 是因为元素只有两个时,如10,1  x为1时
 					start = mid + 1;
 				} else {
 					end = mid - 1;
 				}
 			} else {
 				if(x < a[start]) {
-					// ���ܵ��� { 9, 1, 2, 3, 4, 5, 6, 7, 8 }; xΪ9ʱ
+					// 不能等于 { 9, 1, 2, 3, 4, 5, 6, 7, 8 }; x为9时
 					start = mid + 1;
 				} else if(a[mid] >= a[start]) {
 					start = mid + 1;

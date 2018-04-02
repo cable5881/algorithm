@@ -20,7 +20,7 @@ public class AddLongIntegerString {
 	}
 
 	/*
-	 * ÇëÉè¼ÆÒ»¸öËã·¨Íê³ÉÁ½¸ö³¬³¤ÕıÕûÊıµÄ¼Ó·¨¡£ ÊäÈë²ÎÊı£º String addend£º¼ÓÊı String augend£º±»¼ÓÊı ·µ»ØÖµ£º¼Ó·¨½á¹û
+	 * è¯·è®¾è®¡ä¸€ä¸ªç®—æ³•å®Œæˆä¸¤ä¸ªè¶…é•¿æ­£æ•´æ•°çš„åŠ æ³•ã€‚ è¾“å…¥å‚æ•°ï¼š String addendï¼šåŠ æ•° String augendï¼šè¢«åŠ æ•° è¿”å›å€¼ï¼šåŠ æ³•ç»“æœ
 	 */
 	public String AddLongInteger(String addend, String augend) {
 		if (addend == null || addend.length() < 1) {

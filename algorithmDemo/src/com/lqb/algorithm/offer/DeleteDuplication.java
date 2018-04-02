@@ -3,10 +3,10 @@ package com.lqb.algorithm.offer;
 import com.lqb.algorithm.offer.domain.ListNode;
 
 /**
- * ÔÚÒ»¸öÅÅĞòµÄÁ´±íÖĞ£¬´æÔÚÖØ¸´µÄ½áµã£¬ÇëÉ¾³ı¸ÃÁ´±íÖĞÖØ¸´µÄ½áµã£¬ÖØ¸´µÄ½áµã²»±£Áô£¬·µ»ØÁ´±íÍ·Ö¸Õë¡£ 
- * ÀıÈç£¬Á´±í1->2->3->3->4->4->5 ´¦ÀíºóÎª 1->2->5 
+ * åœ¨ä¸€ä¸ªæ’åºçš„é“¾è¡¨ä¸­ï¼Œå­˜åœ¨é‡å¤çš„ç»“ç‚¹ï¼Œè¯·åˆ é™¤è¯¥é“¾è¡¨ä¸­é‡å¤çš„ç»“ç‚¹ï¼Œé‡å¤çš„ç»“ç‚¹ä¸ä¿ç•™ï¼Œè¿”å›é“¾è¡¨å¤´æŒ‡é’ˆã€‚ 
+ * ä¾‹å¦‚ï¼Œé“¾è¡¨1->2->3->3->4->4->5 å¤„ç†åä¸º 1->2->5 
  * @author:JackBauer
- * @date:2016Äê6ÔÂ25ÈÕ ÏÂÎç4:38:22
+ * @date:2016å¹´6æœˆ25æ—¥ ä¸‹åˆ4:38:22
  */
 public class DeleteDuplication {
 
@@ -38,7 +38,7 @@ public class DeleteDuplication {
 
 		ListNode deleteEnd = null;
 
-		//ÏÈ´¦ÀíÍ·²¿ÏàÍ¬µÄÇé¿ö
+		//å…ˆå¤„ç†å¤´éƒ¨ç›¸åŒçš„æƒ…å†µ
 		while (pHead.next != null && pHead.next.val == pHead.val) {
 			deleteEnd = getDeletedEnd(pHead);
 
@@ -70,9 +70,9 @@ public class DeleteDuplication {
 	}
 
 	/**
-	 * @Description: ÕÒµ½ĞèÒªÉ¾³ıµÄ×îºóÒ»¸ö½Úµã
+	 * @Description: æ‰¾åˆ°éœ€è¦åˆ é™¤çš„æœ€åä¸€ä¸ªèŠ‚ç‚¹
 	 * @author:JackBauer
-	 * @Date:2016Äê6ÔÂ25ÈÕÏÂÎç4:37:47
+	 * @Date:2016å¹´6æœˆ25æ—¥ä¸‹åˆ4:37:47
 	 */
 	private ListNode getDeletedEnd(ListNode node) {
 		ListNode deleteEnd = node.next;

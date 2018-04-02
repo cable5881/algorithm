@@ -1,14 +1,14 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 /*
  * 
-	¸ø¶¨Ö±½Ç×ø±êÏµÉÏµÄÁ½ÌõÖ±Ïß£¬È·¶¨ÕâÁ½ÌõÖ±Ïß»á²»»áÏà½»¡£
+	ç»™å®šç›´è§’åæ ‡ç³»ä¸Šçš„ä¸¤æ¡ç›´çº¿ï¼Œç¡®å®šè¿™ä¸¤æ¡ç›´çº¿ä¼šä¸ä¼šç›¸äº¤ã€‚
 	
-	Ïß¶ÎÒÔÐ±ÂÊºÍ½Ø¾àµÄÐÎÊ½¸ø³ö£¬¼´double s1£¬double s2£¬double y1£¬double y2£¬·Ö±ð´ú±íÖ±Ïß1ºÍ2µÄÐ±ÂÊ(¼´s1,s2)ºÍ½Ø¾à(¼´y1,y2)£¬Çë·µ»ØÒ»¸öbool£¬´ú±í¸ø¶¨µÄÁ½ÌõÖ±ÏßÊÇ·ñÏà½»¡£ÕâÀïÁ½Ö±ÏßÖØºÏÒ²ÈÏÎªÏà½»¡£
-	²âÊÔÑùÀý£º
+	çº¿æ®µä»¥æ–œçŽ‡å’Œæˆªè·çš„å½¢å¼ç»™å‡ºï¼Œå³double s1ï¼Œdouble s2ï¼Œdouble y1ï¼Œdouble y2ï¼Œåˆ†åˆ«ä»£è¡¨ç›´çº¿1å’Œ2çš„æ–œçŽ‡(å³s1,s2)å’Œæˆªè·(å³y1,y2)ï¼Œè¯·è¿”å›žä¸€ä¸ªboolï¼Œä»£è¡¨ç»™å®šçš„ä¸¤æ¡ç›´çº¿æ˜¯å¦ç›¸äº¤ã€‚è¿™é‡Œä¸¤ç›´çº¿é‡åˆä¹Ÿè®¤ä¸ºç›¸äº¤ã€‚
+	æµ‹è¯•æ ·ä¾‹ï¼š
 	
 	3.14,1,3.14,2
 	
-	·µ»Ø£ºfalse
+	è¿”å›žï¼šfalse
  * 
  */
 public class CrossLine {

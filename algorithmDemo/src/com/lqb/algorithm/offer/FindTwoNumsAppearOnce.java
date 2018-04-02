@@ -1,10 +1,10 @@
 package com.lqb.algorithm.offer;
 
 /**
- * Ò»¸öÕûÐÍÊý×éÀï³ýÁËÁ½¸öÊý×ÖÖ®Íâ£¬ÆäËûµÄÊý×Ö¶¼³öÏÖÁËÁ½´Î¡£ÇëÐ´³ÌÐòÕÒ³öÕâÁ½¸öÖ»³öÏÖÒ»´ÎµÄÊý×Ö¡£
+ * ä¸€ä¸ªæ•´åž‹æ•°ç»„é‡Œé™¤äº†ä¸¤ä¸ªæ•°å­—ä¹‹å¤–ï¼Œå…¶ä»–çš„æ•°å­—éƒ½å‡ºçŽ°äº†ä¸¤æ¬¡ã€‚è¯·å†™ç¨‹åºæ‰¾å‡ºè¿™ä¸¤ä¸ªåªå‡ºçŽ°ä¸€æ¬¡çš„æ•°å­—ã€‚
  * 
  * @author:JackBauer
- * @date:2016Äê6ÔÂ18ÈÕ ÏÂÎç8:24:32
+ * @date:2016å¹´6æœˆ18æ—¥ ä¸‹åˆ8:24:32
  */
 public class FindTwoNumsAppearOnce {
 

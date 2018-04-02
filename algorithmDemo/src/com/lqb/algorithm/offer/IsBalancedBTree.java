@@ -3,10 +3,10 @@ package com.lqb.algorithm.offer;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * ÊäÈëÒ»¿Ã¶ş²æÊ÷£¬ÅĞ¶Ï¸Ã¶ş²æÊ÷ÊÇ·ñÊÇÆ½ºâ¶ş²æÊ÷
+ * è¾“å…¥ä¸€æ£µäºŒå‰æ ‘ï¼Œåˆ¤æ–­è¯¥äºŒå‰æ ‘æ˜¯å¦æ˜¯å¹³è¡¡äºŒå‰æ ‘
  * 
  * @author:JackBauer
- * @date:2016Äê6ÔÂ18ÈÕ ÏÂÎç8:02:01
+ * @date:2016å¹´6æœˆ18æ—¥ ä¸‹åˆ8:02:01
  */
 public class IsBalancedBTree {
 

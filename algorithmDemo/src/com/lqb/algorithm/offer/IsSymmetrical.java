@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * ��ʵ��һ�������������ж�һ�Ŷ������ǲ��ǶԳƵġ�ע�⣬���һ��������ͬ�˶������ľ�����ͬ���ģ�������Ϊ�ԳƵġ�
+ * 请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
  * 
  * @author:JackBauer
- * @date:2016��7��1�� ����5:09:27
+ * @date:2016年7月1日 下午5:09:27
  */
 public class IsSymmetrical {
 

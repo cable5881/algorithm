@@ -3,9 +3,9 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * @Description:t2(¼¸°Ù¸ö½áµã)ÊÇ·ñÎªt1£¨¼¸°ÙÍò¸ö£©µÄ×ÓÊ÷
+ * @Description:t2(å‡ ç™¾ä¸ªç»“ç‚¹)æ˜¯å¦ä¸ºt1ï¼ˆå‡ ç™¾ä¸‡ä¸ªï¼‰çš„å­æ ‘
  * @Author:JackBauer
- * @Date:2016Äê8ÔÂ10ÈÕ
+ * @Date:2016å¹´8æœˆ10æ—¥
  */
 public class IsSubTree {
 

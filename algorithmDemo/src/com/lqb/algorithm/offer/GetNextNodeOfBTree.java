@@ -3,10 +3,10 @@ package com.lqb.algorithm.offer;
 import com.lqb.algorithm.offer.domain.TreeLinkNode;
 
 /**
- * ����һ�������������е�һ����㣬���ҳ��������˳�����һ����㲢�ҷ��ء�
- * ע�⣬���еĽ�㲻�����������ӽ�㣬ͬʱ����ָ�򸸽���ָ�롣 
+ * 给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。
+ * 注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。 
  * @author:JackBauer
- * @date:2016��7��1�� ����5:08:00
+ * @date:2016年7月1日 下午5:08:00
  */
 public class GetNextNodeOfBTree {
 

@@ -1,9 +1,9 @@
 package com.lqb.algorithm;
 
 /**
- * @Description:Êä³ö×Ö·û´®µÄËùÓĞ×éºÏ
+ * @Description:è¾“å‡ºå­—ç¬¦ä¸²çš„æ‰€æœ‰ç»„åˆ
  * @author:JackBauer
- * @date:2016Äê3ÔÂ17ÈÕ ÏÂÎç3:35:13
+ * @date:2016å¹´3æœˆ17æ—¥ ä¸‹åˆ3:35:13
  */
 public class Page300 {
 
@@ -13,7 +13,7 @@ public class Page300 {
 		StringBuilder sb = new StringBuilder("");
 		int len = c.length;
 //		for (int i = 1; i <= len; i++) {
-//			combineRecursiveImpl(c, 0, i, sb);// ¹æ¶¨×éºÏ³¤¶È
+//			combineRecursiveImpl(c, 0, i, sb);// è§„å®šç»„åˆé•¿åº¦
 //		}
 
 		// outPutOne(c, 0);

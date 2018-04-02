@@ -21,7 +21,7 @@ public class FindContinuousSequence {
 	public ArrayList<ArrayList<Integer>> findContinuousSequence(int num) {
 		ArrayList<ArrayList<Integer>> numbersSequence = new ArrayList<>();
 
-		//×¢Òâ½áÊøÌõ¼ş
+		//æ³¨æ„ç»“æŸæ¡ä»¶
 		if (num < 3) {
 			return numbersSequence;
 		}
@@ -45,7 +45,7 @@ public class FindContinuousSequence {
 		int middle = num / 2;
 		int sum = big + small;
 		
-		//×¢ÒâÊÇ
+		//æ³¨æ„æ˜¯
 		while(small <= middle){
 			if(num == sum){
 				addNumbers(numbersSequence, small, big);

@@ -1,9 +1,9 @@
 package com.lqb.algorithm;
 
 /**
- * @Description:ººÅµËş
+ * @Description:æ±‰è¯ºå¡”
  * @Author:JackBauer
- * @Date:2016Äê8ÔÂ10ÈÕ
+ * @Date:2016å¹´8æœˆ10æ—¥
  */
 public class Hanoi {
 
@@ -16,16 +16,16 @@ public class Hanoi {
 		if (n == 1) {
 			System.out.println(origin + "-->" + destination);
 		} else {
-			//½«n - 1 ¸öÅÌÏÈÒÆµ½buffer
-			//¼´ÒÔbuffer×÷ÎªÄ¿µÄµØdestination
-			//¿ÉÒÔÈÏÎªÏÖÔÚÊÇn - 1¸öÅÌ×ÓµÄÒÆ¶¯ÎÊÌâ,Ö»²»¹ıÄ¿µÄµØ²»Í¬
+			//å°†n - 1 ä¸ªç›˜å…ˆç§»åˆ°buffer
+			//å³ä»¥bufferä½œä¸ºç›®çš„åœ°destination
+			//å¯ä»¥è®¤ä¸ºç°åœ¨æ˜¯n - 1ä¸ªç›˜å­çš„ç§»åŠ¨é—®é¢˜,åªä¸è¿‡ç›®çš„åœ°ä¸åŒ
 			move(n - 1, origin, destination, buffer);
 			
-			//n - 1 ¸öÅÌ×ÓÒÆ¶¯ÍêÖ®ºó°Ñ×îºóÒ»¸öÅÌ×ÓÒÆ¶¯µ½Ä¿µÄµØ
+			//n - 1 ä¸ªç›˜å­ç§»åŠ¨å®Œä¹‹åæŠŠæœ€åä¸€ä¸ªç›˜å­ç§»åŠ¨åˆ°ç›®çš„åœ°
 			System.out.println(origin + "-->" + destination);
 			
-			//Ê£ÏÂµÄn - 1¸öÅÌ×Ó´ÓbufferÒÆ¶¯µ½destination
-			//¿ÉÒÔÈÏÎªÏÖÔÚÊÇn - 1¸öÅÌ×ÓµÄÒÆ¶¯ÎÊÌâ,Ö»²»¹ıÆğµã²»Í¬
+			//å‰©ä¸‹çš„n - 1ä¸ªç›˜å­ä»bufferç§»åŠ¨åˆ°destination
+			//å¯ä»¥è®¤ä¸ºç°åœ¨æ˜¯n - 1ä¸ªç›˜å­çš„ç§»åŠ¨é—®é¢˜,åªä¸è¿‡èµ·ç‚¹ä¸åŒ
 			move(n - 1, buffer, origin, destination);
 		}
 	}

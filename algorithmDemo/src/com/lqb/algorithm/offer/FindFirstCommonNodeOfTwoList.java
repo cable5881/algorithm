@@ -3,9 +3,9 @@ package com.lqb.algorithm.offer;
 import com.lqb.algorithm.offer.domain.ListNode;
 
 /**
- * ÊäÈëÁ½¸öÁ´±í£¬ÕÒ³öËüÃÇµÄµÚÒ»¸ö¹«¹²½áµã¡£ 
+ * è¾“å…¥ä¸¤ä¸ªé“¾è¡¨ï¼Œæ‰¾å‡ºå®ƒä»¬çš„ç¬¬ä¸€ä¸ªå…¬å…±ç»“ç‚¹ã€‚ 
  * @author:JackBauer
- * @date:2016Äê6ÔÂ17ÈÕ ÏÂÎç8:10:24
+ * @date:2016å¹´6æœˆ17æ—¥ ä¸‹åˆ8:10:24
  */
 public class FindFirstCommonNodeOfTwoList {
 

@@ -1,13 +1,13 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * ÓÐÒ»¸ö½éÓÚ0ºÍ1Ö®¼äµÄÊµÊý£¬ÀàÐÍÎªdouble£¬·µ»ØËüµÄ¶þ½øÖÆ±íÊ¾¡£ Èç¹û¸ÃÊý×ÖÎÞ·¨¾«È·µØÓÃ32Î»ÒÔÄÚµÄ¶þ½øÖÆ±íÊ¾£¬·µ»Ø¡°Error¡±¡£
- * ¸ø¶¨Ò»¸ödouble num£¬±íÊ¾0µ½1µÄÊµÊý£¬Çë·µ»ØÒ»¸östring£¬´ú±í¸ÃÊýµÄ¶þ½øÖÆ±íÊ¾»òÕß¡°Error¡±¡£
+ * æœ‰ä¸€ä¸ªä»‹äºŽ0å’Œ1ä¹‹é—´çš„å®žæ•°ï¼Œç±»åž‹ä¸ºdoubleï¼Œè¿”å›žå®ƒçš„äºŒè¿›åˆ¶è¡¨ç¤ºã€‚ å¦‚æžœè¯¥æ•°å­—æ— æ³•ç²¾ç¡®åœ°ç”¨32ä½ä»¥å†…çš„äºŒè¿›åˆ¶è¡¨ç¤ºï¼Œè¿”å›žâ€œErrorâ€ã€‚
+ * ç»™å®šä¸€ä¸ªdouble numï¼Œè¡¨ç¤º0åˆ°1çš„å®žæ•°ï¼Œè¯·è¿”å›žä¸€ä¸ªstringï¼Œä»£è¡¨è¯¥æ•°çš„äºŒè¿›åˆ¶è¡¨ç¤ºæˆ–è€…â€œErrorâ€ã€‚
  * 
- * ²âÊÔÑùÀý£º 0.625 ·µ»Ø£º0.101
+ * æµ‹è¯•æ ·ä¾‹ï¼š 0.625 è¿”å›žï¼š0.101
  * 
  * @Author:JackBauer
- * @Date:2016Äê8ÔÂ8ÈÕ
+ * @Date:2016å¹´8æœˆ8æ—¥
  */
 public class BinDecimal {
 

@@ -3,14 +3,14 @@ package com.lqb.algorithm;
 import java.util.ArrayList;
 
 /**
- * ¸ø³öÒ»¸ö×Ö·û´®£¬Êä³öËùÓĞµÄ×Ó´®
+ * ç»™å‡ºä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¾“å‡ºæ‰€æœ‰çš„å­ä¸²
  * 
  * @author:JackBauer
- * @date:2016Äê10ÔÂ2ÈÕ ÏÂÎç10:22:00
+ * @date:2016å¹´10æœˆ2æ—¥ ä¸‹åˆ10:22:00
  */
 public class Combination {
 
-	//·Ö±ğµ÷ÓÃÁ½ÖÖ·½·¨
+	//åˆ†åˆ«è°ƒç”¨ä¸¤ç§æ–¹æ³•
 	public static void main(String[] args) {
 		String s1 = "abcd";
 
@@ -35,7 +35,7 @@ public class Combination {
 	}
 
 	/**
-	 * ºËĞÄË¼Ïë
+	 * æ ¸å¿ƒæ€æƒ³
 	 * 
 	 	a
 	 		ab
@@ -49,7 +49,7 @@ public class Combination {
 	 	c
 	 * 
 	 * @author:JackBauer
-	 * @date:2016Äê10ÔÂ15ÈÕ
+	 * @date:2016å¹´10æœˆ15æ—¥
 	 * @param ch
 	 * @param combinations
 	 * @param sb
@@ -72,16 +72,16 @@ public class Combination {
 	}
 	
 	/**
-	 * ºËĞÄË¼Ïë : f(n)µÄÖµÎª f(n - 1)µÄÖµ¼ÓÉÏnÓëf(n - 1)ºÏ²¢µÄÖµÔÙ¼ÓÉÏn
+	 * æ ¸å¿ƒæ€æƒ³ : f(n)çš„å€¼ä¸º f(n - 1)çš„å€¼åŠ ä¸Šnä¸f(n - 1)åˆå¹¶çš„å€¼å†åŠ ä¸Šn
 	 * 
 	 * f(a) = a => [a]
 	 * f(ab) = f(a) + b(a) + b => [a, ab, b]
 	 * f(abc) = f(ab) + cf(ab) + c => [a, ab, b, ac, abc, bc, c]
 	 * 
-	 * Ö»ÒªÕÒµ½f(abc) Óë f(ab) µÄ¹ØÏµ¼´¿É£¬¼´ÎÊÌâÓë×ÓÎÊÌâµÄ¹ØÏµ
+	 * åªè¦æ‰¾åˆ°f(abc) ä¸ f(ab) çš„å…³ç³»å³å¯ï¼Œå³é—®é¢˜ä¸å­é—®é¢˜çš„å…³ç³»
 	 * 
 	 * @author:JackBauer
-	 * @date:2016Äê10ÔÂ15ÈÕ
+	 * @date:2016å¹´10æœˆ15æ—¥
 	 * @param ch
 	 * @param combinations
 	 * @param start

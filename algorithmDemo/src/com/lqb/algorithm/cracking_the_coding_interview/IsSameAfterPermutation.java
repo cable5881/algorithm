@@ -1,18 +1,18 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * ¸ø¶¨Á½¸ö×Ö·û´®£¬Çë±àĞ´³ÌĞò£¬È·¶¨ÆäÖĞÒ»¸ö×Ö·û´®µÄ×Ö·ûÖØĞÂÅÅÁĞºó£¬ÄÜ·ñ±ä³ÉÁíÒ»¸ö×Ö·û´®¡£
- * ÕâÀï¹æ¶¨´óĞ¡Ğ´Îª²»Í¬×Ö·û£¬ÇÒ¿¼ÂÇ×Ö·û´®ÖØµã¿Õ¸ñ¡£
- * ¸ø¶¨Ò»¸östring stringAºÍÒ»¸östring stringB£¬Çë·µ»ØÒ»¸öbool£¬´ú±íÁ½´®ÊÇ·ñÖØĞÂÅÅÁĞºó¿ÉÏàÍ¬¡£
- * ±£Ö¤Á½´®µÄ³¤¶È¶¼Ğ¡ÓÚµÈÓÚ5000¡£
+ * ç»™å®šä¸¤ä¸ªå­—ç¬¦ä¸²ï¼Œè¯·ç¼–å†™ç¨‹åºï¼Œç¡®å®šå…¶ä¸­ä¸€ä¸ªå­—ç¬¦ä¸²çš„å­—ç¬¦é‡æ–°æ’åˆ—åï¼Œèƒ½å¦å˜æˆå¦ä¸€ä¸ªå­—ç¬¦ä¸²ã€‚
+ * è¿™é‡Œè§„å®šå¤§å°å†™ä¸ºä¸åŒå­—ç¬¦ï¼Œä¸”è€ƒè™‘å­—ç¬¦ä¸²é‡ç‚¹ç©ºæ ¼ã€‚
+ * ç»™å®šä¸€ä¸ªstring stringAå’Œä¸€ä¸ªstring stringBï¼Œè¯·è¿”å›ä¸€ä¸ªboolï¼Œä»£è¡¨ä¸¤ä¸²æ˜¯å¦é‡æ–°æ’åˆ—åå¯ç›¸åŒã€‚
+ * ä¿è¯ä¸¤ä¸²çš„é•¿åº¦éƒ½å°äºç­‰äº5000ã€‚
  * 
  * "This is nowcoder","is This nowcoder"
- * ·µ»Ø£ºtrue
+ * è¿”å›ï¼štrue
  * 
  * "Here you are","Are you here"
- * ·µ»Ø£ºfalse
+ * è¿”å›ï¼šfalse
  * @Author:JackBauer
- * @Date:2016Äê7ÔÂ22ÈÕ ÏÂÎç3:37:04
+ * @Date:2016å¹´7æœˆ22æ—¥ ä¸‹åˆ3:37:04
  */
 public class IsSameAfterPermutation {
 
@@ -31,7 +31,7 @@ public class IsSameAfterPermutation {
 	/**
 	 * @Description:
 	 * @Author:JackBauer
-	 * @Date:2016Äê7ÔÂ26ÈÕ
+	 * @Date:2016å¹´7æœˆ26æ—¥
 	 */
 	public boolean checkSam(String stringA, String stringB) {
 		if(stringA == null || stringB == null || stringA.length() != stringB.length()){

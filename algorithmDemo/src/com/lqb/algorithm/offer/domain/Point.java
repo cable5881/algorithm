@@ -1,9 +1,9 @@
 package com.lqb.algorithm.offer.domain;
 
 /**
- * @Description:±íÊ¾Ä³¸öÎ»ÖÃ,´æ´¢ÁËxºÍy,¼´Êı×éÖĞµÄĞĞºÍÁĞ
+ * @Description:è¡¨ç¤ºæŸä¸ªä½ç½®,å­˜å‚¨äº†xå’Œy,å³æ•°ç»„ä¸­çš„è¡Œå’Œåˆ—
  * @Author:JackBauer
- * @Date:2016Äê7ÔÂ14ÈÕ ÉÏÎç10:08:08
+ * @Date:2016å¹´7æœˆ14æ—¥ ä¸Šåˆ10:08:08
  */
 public class Point{
 	public int row;

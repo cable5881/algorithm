@@ -3,10 +3,10 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * ÊµÏÖÒ»¸öº¯Êý£¬¼ì²é¶þ²æÊ÷ÊÇ·ñÆ½ºâ£¬Æ½ºâµÄ¶¨ÒåÈçÏÂ£¬¶ÔÓÚÊ÷ÖÐµÄÈÎÒâÒ»¸ö½áµã£¬ÆäÁ½¿Å×ÓÊ÷µÄ¸ß¶È²î²»³¬¹ý1¡£
- * ¸ø¶¨Ö¸ÏòÊ÷¸ù½áµãµÄÖ¸ÕëTreeNode* root£¬Çë·µ»ØÒ»¸öbool£¬´ú±íÕâ¿ÃÊ÷ÊÇ·ñÆ½ºâ¡£
+ * å®žçŽ°ä¸€ä¸ªå‡½æ•°ï¼Œæ£€æŸ¥äºŒå‰æ ‘æ˜¯å¦å¹³è¡¡ï¼Œå¹³è¡¡çš„å®šä¹‰å¦‚ä¸‹ï¼Œå¯¹äºŽæ ‘ä¸­çš„ä»»æ„ä¸€ä¸ªç»“ç‚¹ï¼Œå…¶ä¸¤é¢—å­æ ‘çš„é«˜åº¦å·®ä¸è¶…è¿‡1ã€‚
+ * ç»™å®šæŒ‡å‘æ ‘æ ¹ç»“ç‚¹çš„æŒ‡é’ˆTreeNode* rootï¼Œè¯·è¿”å›žä¸€ä¸ªboolï¼Œä»£è¡¨è¿™æ£µæ ‘æ˜¯å¦å¹³è¡¡ã€‚
  * @Author:JackBauer
- * @Date:2016Äê8ÔÂ1ÈÕ
+ * @Date:2016å¹´8æœˆ1æ—¥
  */
 public class IsBalance {
 

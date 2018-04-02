@@ -65,14 +65,14 @@ public class Kmp {
 		return false;
 	}
 
-	// »ØËİ·¨
+	// å›æº¯æ³•
 	public static boolean kmp(char[] a, char[] b) {
 
-		int temp = 0;// ´æ´¢±»ÁÙÊ±¸Ä±äµÄi
+		int temp = 0;// å­˜å‚¨è¢«ä¸´æ—¶æ”¹å˜çš„i
 
 		for (int i = 0; i < a.length; i++) {
 
-			temp = i;// Ö®Ç°·ÅÔÚÁËÏÂÃæµÄifÀïÃæ²»¶Ô
+			temp = i;// ä¹‹å‰æ”¾åœ¨äº†ä¸‹é¢çš„ifé‡Œé¢ä¸å¯¹
 
 			for (int j = 0; j < b.length; j++) {
 

@@ -1,10 +1,10 @@
 package com.lqb.algorithm.offer;
 
 /**
- * Í³¼ÆÒ»¸öÊı×ÖÔÚÅÅĞòÊı×éÖĞ³öÏÖµÄ´ÎÊı¡£
+ * ç»Ÿè®¡ä¸€ä¸ªæ•°å­—åœ¨æ’åºæ•°ç»„ä¸­å‡ºç°çš„æ¬¡æ•°ã€‚
  * 
  * @author:JackBauer
- * @date:2016Äê6ÔÂ17ÈÕ ÏÂÎç3:24:40
+ * @date:2016å¹´6æœˆ17æ—¥ ä¸‹åˆ3:24:40
  */
 public class GetTimesOfK_InArray {
 

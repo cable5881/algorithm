@@ -3,9 +3,9 @@ package com.lqb.algorithm.hauwei;
 import java.util.Scanner;
 
 /**
- * ×Ö·û´®×îºóÒ»¸öµ¥´ÊµÄ³¤¶È
+ * å­—ç¬¦ä¸²æœ€åä¸€ä¸ªå•è¯çš„é•¿åº¦
  * @author:JackBauer
- * @date:2017Äê3ÔÂ5ÈÕ ÏÂÎç4:20:23
+ * @date:2017å¹´3æœˆ5æ—¥ ä¸‹åˆ4:20:23
  */
 public class LengthOfLastWord {
 

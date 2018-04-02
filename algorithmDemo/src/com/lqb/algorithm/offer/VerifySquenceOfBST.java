@@ -7,11 +7,11 @@ public class VerifySquenceOfBST {
 		VerifySquenceOfBST v = new VerifySquenceOfBST();
 		
 		int[] sequence = {2,4,3,6,8,7,5};
-//		int[] sequence = {2,4,3,8,6,7,5};//´íÎóĞòÁĞ
-//		int[] sequence = {4,3,6,8,7,5};//×ó×ÓÊ÷µÄ×óÒ¶×Ó½ÚµãÈ±Ê§
-//		int[] sequence = {2,4,3,6,7,5};//ÓÒ×ÓÊ÷µÄÓÒÒ¶×Ó½ÚµãÈ±Ê§
-//		int[] sequence = {3,5};//È±ÓÒ×ÓÊ÷
-//		int[] sequence = {7,5};//È±×ó×ÓÊ÷
+//		int[] sequence = {2,4,3,8,6,7,5};//é”™è¯¯åºåˆ—
+//		int[] sequence = {4,3,6,8,7,5};//å·¦å­æ ‘çš„å·¦å¶å­èŠ‚ç‚¹ç¼ºå¤±
+//		int[] sequence = {2,4,3,6,7,5};//å³å­æ ‘çš„å³å¶å­èŠ‚ç‚¹ç¼ºå¤±
+//		int[] sequence = {3,5};//ç¼ºå³å­æ ‘
+//		int[] sequence = {7,5};//ç¼ºå·¦å­æ ‘
 		
 		
 		System.out.println(v.verifySquenceOfBST(sequence));

@@ -1,13 +1,13 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * ÇëÊµÏÖÒ»¸öËã·¨£¬ÔÚ²»Ê¹ÓÃ¶îÍâÊý¾Ý½á¹¹ºÍ´¢´æ¿Õ¼äµÄÇé¿öÏÂ£¬·­×ªÒ»¸ö¸ø¶¨µÄ×Ö·û´®(¿ÉÒÔÊ¹ÓÃµ¥¸ö¹ý³Ì±äÁ¿)¡£
- * ¸ø¶¨Ò»¸östring iniString£¬Çë·µ»ØÒ»¸östring£¬Îª·­×ªºóµÄ×Ö·û´®¡£±£Ö¤×Ö·û´®µÄ³¤¶ÈÐ¡ÓÚµÈÓÚ5000¡£
- * ²âÊÔÑùÀý£º"This is nowcoder"
- * ·µ»Ø£º"redocwon si sihT"
+ * è¯·å®žçŽ°ä¸€ä¸ªç®—æ³•ï¼Œåœ¨ä¸ä½¿ç”¨é¢å¤–æ•°æ®ç»“æž„å’Œå‚¨å­˜ç©ºé—´çš„æƒ…å†µä¸‹ï¼Œç¿»è½¬ä¸€ä¸ªç»™å®šçš„å­—ç¬¦ä¸²(å¯ä»¥ä½¿ç”¨å•ä¸ªè¿‡ç¨‹å˜é‡)ã€‚
+ * ç»™å®šä¸€ä¸ªstring iniStringï¼Œè¯·è¿”å›žä¸€ä¸ªstringï¼Œä¸ºç¿»è½¬åŽçš„å­—ç¬¦ä¸²ã€‚ä¿è¯å­—ç¬¦ä¸²çš„é•¿åº¦å°äºŽç­‰äºŽ5000ã€‚
+ * æµ‹è¯•æ ·ä¾‹ï¼š"This is nowcoder"
+ * è¿”å›žï¼š"redocwon si sihT"
  * @Description:TODO
  * @Author:JackBauer
- * @Date:2016Äê7ÔÂ22ÈÕ ÏÂÎç3:30:45
+ * @Date:2016å¹´7æœˆ22æ—¥ ä¸‹åˆ3:30:45
  */
 public class ReverseString {
 

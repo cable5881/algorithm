@@ -5,18 +5,18 @@ import java.util.LinkedList;
 import com.lqb.algorithm.offer.domain.ListNode;
 
 /**
- * ���дһ����������������Ƿ�Ϊ���ġ�
- * ����һ������ListNode* pHead���뷵��һ��bool�����������Ƿ�Ϊ���ġ�
- * ����������
+ * 请编写一个函数，检查链表是否为回文。
+ * 给定一个链表ListNode* pHead，请返回一个bool，代表链表是否为回文。
+ * 测试样例：
  * 
  * {1,2,3,2,1}
- * ���أ�true
+ * 返回：true
  * 
  * {1,2,3,2,3}
- * ���أ�false
+ * 返回：false
  * 
  * @Author:JackBauer
- * @Date:2016��8��1��
+ * @Date:2016年8月1日
  */
 public class IsPalindrome {
 
@@ -55,15 +55,15 @@ public class IsPalindrome {
 		
 		while(pFast.next != null && pFast.next.next != null){
 			stack.push(pSlow);
-			//���������ƶ��ȽϺ�
-			//�����һ��ֵҪ��ѭ����ʼǰ�������ӽ�ջ���һ�Ҫ��һЩ�������
+			//先添加再移动比较好
+			//否则第一个值要在循环开始前另外添加进栈而且还要多一些额外操作
 			pFast = pFast.next.next;
 			pSlow = pSlow.next;
 		}
 		
-		//���ż������ʱ�����
-		//��1,2,3,3,2,1����ʱ��pFastΪ�ڶ���2��pSlowΪ��һ��3����3δ���ӽ�ջ���Ѿ��˳���ѭ��
-		//��ʱ��ѵ�һ��3Ҳ���ӽ�ȥ
+		//解决偶数长度时的情况
+		//如1,2,3,3,2,1。这时候pFast为第二个2，pSlow为第一个3，但3未添加进栈就已经退出了循环
+		//这时候把第一个3也添加进去
 		if(pFast.next != null){
 			stack.push(pSlow);
 		}

@@ -6,9 +6,9 @@ import java.util.LinkedList;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * ´ÓÉÏµ½ÏÂ°´²ã´òÓ¡¶ş²æÊ÷£¬Í¬Ò»²ã½áµã´Ó×óÖÁÓÒÊä³ö¡£Ã¿Ò»²ãÊä³öÒ»ĞĞ
+ * ä»ä¸Šåˆ°ä¸‹æŒ‰å±‚æ‰“å°äºŒå‰æ ‘ï¼ŒåŒä¸€å±‚ç»“ç‚¹ä»å·¦è‡³å³è¾“å‡ºã€‚æ¯ä¸€å±‚è¾“å‡ºä¸€è¡Œ
  * @Author:JackBauer
- * @Date:2016Äê7ÔÂ3ÈÕ ÏÂÎç3:48:42
+ * @Date:2016å¹´7æœˆ3æ—¥ ä¸‹åˆ3:48:42
  */
 public class PrintTreesInLines {
 

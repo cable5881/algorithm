@@ -1,14 +1,14 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * ÓÐÒ»¿ÃÎÞÇî´óµÄÂú¶þ²æÊ÷£¬Æä½áµã°´¸ù½áµãÒ»²ãÒ»²ãµØ´Ó×óÍùÓÒÒÀ´Î±àºÅ£¬¸ù½áµã±àºÅÎª1¡£ÏÖÔÚÓÐÁ½¸ö½áµãa£¬b¡£
- * ÇëÉè¼ÆÒ»¸öËã·¨£¬Çó³öaºÍbµãµÄ×î½ü¹«¹²×æÏÈµÄ±àºÅ¡£
- * ¸ø¶¨Á½¸öint a,b¡£Îª¸ø¶¨½áµãµÄ±àºÅ¡£
- * Çë·µ»ØaºÍbµÄ×î½ü¹«¹²×æÏÈµÄ±àºÅ¡£
- * ×¢ÒâÕâÀï½áµã±¾ÉíÒ²¿ÉÈÏÎªÊÇÆä×æÏÈ¡£
+ * æœ‰ä¸€æ£µæ— ç©·å¤§çš„æ»¡äºŒå‰æ ‘ï¼Œå…¶ç»“ç‚¹æŒ‰æ ¹ç»“ç‚¹ä¸€å±‚ä¸€å±‚åœ°ä»Žå·¦å¾€å³ä¾æ¬¡ç¼–å·ï¼Œæ ¹ç»“ç‚¹ç¼–å·ä¸º1ã€‚çŽ°åœ¨æœ‰ä¸¤ä¸ªç»“ç‚¹aï¼Œbã€‚
+ * è¯·è®¾è®¡ä¸€ä¸ªç®—æ³•ï¼Œæ±‚å‡ºaå’Œbç‚¹çš„æœ€è¿‘å…¬å…±ç¥–å…ˆçš„ç¼–å·ã€‚
+ * ç»™å®šä¸¤ä¸ªint a,bã€‚ä¸ºç»™å®šç»“ç‚¹çš„ç¼–å·ã€‚
+ * è¯·è¿”å›žaå’Œbçš„æœ€è¿‘å…¬å…±ç¥–å…ˆçš„ç¼–å·ã€‚
+ * æ³¨æ„è¿™é‡Œç»“ç‚¹æœ¬èº«ä¹Ÿå¯è®¤ä¸ºæ˜¯å…¶ç¥–å…ˆã€‚
  * 
  * @author:JackBauer
- * @date:2016Äê10ÔÂ13ÈÕ
+ * @date:2016å¹´10æœˆ13æ—¥
  */
 public class LatestCommonAncestor {
 

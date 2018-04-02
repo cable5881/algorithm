@@ -1,8 +1,8 @@
 package com.lqb.algorithm.offer;
 
 /**
- * ��ʵ��һ����������ƥ�����'.'��'*'���������ʽ�� ģʽ�е��ַ�'.'��ʾ����һ���ַ�����'*'��ʾ��ǰ����ַ����Գ�������Σ�����0�Σ���
- * �ڱ����У�ƥ����ָ�ַ����������ַ�ƥ������ģʽ�� ���磬�ַ���"aaa"��ģʽ"a.a"��"ab*ac*a"ƥ�䣬������"aa.a"��"ab*a"����ƥ��
+ * 请实现一个函数用来匹配包括'.'和'*'的正则表达式。 模式中的字符'.'表示任意一个字符，而'*'表示它前面的字符可以出现任意次（包含0次）。
+ * 在本题中，匹配是指字符串的所有字符匹配整个模式。 例如，字符串"aaa"与模式"a.a"和"ab*ac*a"匹配，但是与"aa.a"和"ab*a"均不匹配
  */
 public class RegexMatch {
 
@@ -102,8 +102,8 @@ public class RegexMatch {
 		} else if (i < sLength && j >= pLength) {
 			return false;
 		}else if(i >= sLength && j < pLength){
-			//str��β��patternδ��β(��һ��ƥ��ʧ�ܣ���Ϊa*����ƥ��0���ַ�)
-			//ֻ��patternʣ�µĲ�������a*b*c*����ʽ����ƥ��ɹ�
+			//str到尾，pattern未到尾(不一定匹配失败，因为a*可以匹配0个字符)
+			//只有pattern剩下的部分类似a*b*c*的形式，才匹配成功
 			if(j + 1 < pLength && p[j + 1] == '*'){
 				return matchCore(s, p, i, j + 2);
 			}else return false;

@@ -6,10 +6,10 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /**
- * ÊäÈëÒ»¸öÕýÕûÊýÊý×é£¬°ÑÊý×éÀïËùÓÐÊý×ÖÆ´½ÓÆðÀ´ÅÅ³ÉÒ»¸öÊý£¬´òÓ¡ÄÜÆ´½Ó³öµÄËùÓÐÊý×ÖÖÐ×îÐ¡µÄÒ»¸ö¡£
- * ÀýÈçÊäÈëÊý×é{3£¬32£¬321}£¬Ôò´òÓ¡³öÕâÈý¸öÊý×ÖÄÜÅÅ³ÉµÄ×îÐ¡Êý×ÖÎª321323¡£ 
+ * è¾“å…¥ä¸€ä¸ªæ­£æ•´æ•°æ•°ç»„ï¼ŒæŠŠæ•°ç»„é‡Œæ‰€æœ‰æ•°å­—æ‹¼æŽ¥èµ·æ¥æŽ’æˆä¸€ä¸ªæ•°ï¼Œæ‰“å°èƒ½æ‹¼æŽ¥å‡ºçš„æ‰€æœ‰æ•°å­—ä¸­æœ€å°çš„ä¸€ä¸ªã€‚
+ * ä¾‹å¦‚è¾“å…¥æ•°ç»„{3ï¼Œ32ï¼Œ321}ï¼Œåˆ™æ‰“å°å‡ºè¿™ä¸‰ä¸ªæ•°å­—èƒ½æŽ’æˆçš„æœ€å°æ•°å­—ä¸º321323ã€‚ 
  * @author:JackBauer
- * @date:2016Äê6ÔÂ16ÈÕ ÏÂÎç8:00:03
+ * @date:2016å¹´6æœˆ16æ—¥ ä¸‹åˆ8:00:03
  */
 public class PrintMinCombinedNumberString {
 

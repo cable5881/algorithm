@@ -1,16 +1,16 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
 /**
- * Çë±àÐ´Ò»¸öËã·¨£¬ÈôMxN¾ØÕóÖÐÄ³¸öÔªËØÎª0£¬Ôò½«ÆäËùÔÚµÄÐÐÓëÁÐÇåÁã¡£
- * ¸ø¶¨Ò»¸öMxNµÄint[][]¾ØÕó(C++ÖÐÎªvector>)matºÍ¾ØÕóµÄ½×Êýn£¬
- * Çë·µ»ØÍê³É²Ù×÷ºóµÄint[][]¾ØÕó(C++ÖÐÎªvector>)£¬±£Ö¤nÐ¡ÓÚµÈÓÚ300£¬¾ØÕóÖÐµÄÔªËØÎªint·¶Î§ÄÚ¡£
- * ²âÊÔÑùÀý£º
+ * è¯·ç¼–å†™ä¸€ä¸ªç®—æ³•ï¼Œè‹¥MxNçŸ©é˜µä¸­æŸä¸ªå…ƒç´ ä¸º0ï¼Œåˆ™å°†å…¶æ‰€åœ¨çš„è¡Œä¸Žåˆ—æ¸…é›¶ã€‚
+ * ç»™å®šä¸€ä¸ªMxNçš„int[][]çŸ©é˜µ(C++ä¸­ä¸ºvector>)matå’ŒçŸ©é˜µçš„é˜¶æ•°nï¼Œ
+ * è¯·è¿”å›žå®Œæˆæ“ä½œåŽçš„int[][]çŸ©é˜µ(C++ä¸­ä¸ºvector>)ï¼Œä¿è¯nå°äºŽç­‰äºŽ300ï¼ŒçŸ©é˜µä¸­çš„å…ƒç´ ä¸ºintèŒƒå›´å†…ã€‚
+ * æµ‹è¯•æ ·ä¾‹ï¼š
  * 
  * [[1,2,3],[0,1,2],[0,0,1]]
  * 
- * ·µ»Ø£º[[0,0,3],[0,0,0],[0,0,0]]
+ * è¿”å›žï¼š[[0,0,3],[0,0,0],[0,0,0]]
  * @Author:JackBauer
- * @Date:2016Äê7ÔÂ25ÈÕ ÏÂÎç4:44:05
+ * @Date:2016å¹´7æœˆ25æ—¥ ä¸‹åˆ4:44:05
  */
 public class ClearZero {
 

@@ -10,9 +10,9 @@ public class FindIn2DArray {
 	}
 
 	/**
-	 * @Description: ×î¼Ñ½â·¨£¬´ÓÎ²²¿×îºóÒ»¸öÖµÍùÏÂ¿ªÊ¼±éÀú£¬Èç¹û±È×îºóÒ»¸öÖµ´óÔòÍùÏÂ£¬Èç¹ûĞ¡Ôòµ±Ç°ĞĞÏÂÍù»Ø±éÀú£¬Óöµ½±ÈtargetÖµĞ¡µÄÔÙÍùÏÂ±éÀú£¬ÒÔ´ËÀàÍÆÖ±µ½ÕÒµ½¶ÔµÄ
+	 * @Description: æœ€ä½³è§£æ³•ï¼Œä»å°¾éƒ¨æœ€åä¸€ä¸ªå€¼å¾€ä¸‹å¼€å§‹éå†ï¼Œå¦‚æœæ¯”æœ€åä¸€ä¸ªå€¼å¤§åˆ™å¾€ä¸‹ï¼Œå¦‚æœå°åˆ™å½“å‰è¡Œä¸‹å¾€å›éå†ï¼Œé‡åˆ°æ¯”targetå€¼å°çš„å†å¾€ä¸‹éå†ï¼Œä»¥æ­¤ç±»æ¨ç›´åˆ°æ‰¾åˆ°å¯¹çš„
 	 * @author:JackBauer
-	 * @Date:2016Äê5ÔÂ26ÈÕÏÂÎç8:59:34
+	 * @Date:2016å¹´5æœˆ26æ—¥ä¸‹åˆ8:59:34
 	 */
 	public static boolean find3(int[][] array, int target) {
 		boolean found = false;
@@ -37,9 +37,9 @@ public class FindIn2DArray {
 	}
 	
 	/**
-	 * @Description: ×Ô¼ºĞ´µÄÈÏÎª±Èn^2ÒªĞ¡µÄËã·¨£¬È»¶øÔÚojÉÏ²âÊÔÊ±±Èn^2ÏûºÄµÄÄÚ´æºÍÊ±¼äÒª¶à - - 
+	 * @Description: è‡ªå·±å†™çš„è®¤ä¸ºæ¯”n^2è¦å°çš„ç®—æ³•ï¼Œç„¶è€Œåœ¨ojä¸Šæµ‹è¯•æ—¶æ¯”n^2æ¶ˆè€—çš„å†…å­˜å’Œæ—¶é—´è¦å¤š - - 
 	 * @author:JackBauer
-	 * @Date:2016Äê5ÔÂ26ÈÕÏÂÎç8:58:39
+	 * @Date:2016å¹´5æœˆ26æ—¥ä¸‹åˆ8:58:39
 	 */
 	public static boolean find2(int[][] array, int target) {
 		int i = 1;
@@ -47,7 +47,7 @@ public class FindIn2DArray {
 		int end = array[0].length - 1;
 
 		int mid = 0;
-		//ÏÈÓÃ¶ø¶ş·Ö²éÕÒÕÒµ½ÖĞ¼äµÄÎ»ÖÃ
+		//å…ˆç”¨è€ŒäºŒåˆ†æŸ¥æ‰¾æ‰¾åˆ°ä¸­é—´çš„ä½ç½®
 		while (start <= end) {
 			mid = (start + end) / 2;
 			if (array[0][mid] > target) {
@@ -60,7 +60,7 @@ public class FindIn2DArray {
 			}
 		}
 
-		//´ÓÖĞ¼ä¿ªÊ¼ÍùÏÂ±éÀú£¬Óöµ½±Ètarget´óµÄÔòÔÚµ±Ç°ĞĞÔÙ´ÎÀûÓÃ¶ş·ÖËÑË÷
+		//ä»ä¸­é—´å¼€å§‹å¾€ä¸‹éå†ï¼Œé‡åˆ°æ¯”targetå¤§çš„åˆ™åœ¨å½“å‰è¡Œå†æ¬¡åˆ©ç”¨äºŒåˆ†æœç´¢
 		while( i < array.length && mid >=0 ){
 			if( array[i][mid] == target ){
 				System.out.println("array["+i+"]["+mid+"]");
@@ -86,9 +86,9 @@ public class FindIn2DArray {
 	}
 
 	/**
-	 * @Description: ¸´ÔÓ¶ÈÎªn^2µÄ½â·¨
+	 * @Description: å¤æ‚åº¦ä¸ºn^2çš„è§£æ³•
 	 * @author:JackBauer
-	 * @Date:2016Äê5ÔÂ26ÈÕÏÂÎç8:58:00
+	 * @Date:2016å¹´5æœˆ26æ—¥ä¸‹åˆ8:58:00
 	 */
 	public static boolean find1(int[][] array, int target) {
 		for (int i = 0; i < array.length; i++) {
@@ -103,9 +103,9 @@ public class FindIn2DArray {
 	}
 
 	/**
-	 * @Description: ¶ş·ÖËÑË÷
+	 * @Description: äºŒåˆ†æœç´¢
 	 * @author:JackBauer
-	 * @Date:2016Äê5ÔÂ26ÈÕÏÂÎç8:53:33
+	 * @Date:2016å¹´5æœˆ26æ—¥ä¸‹åˆ8:53:33
 	 */
 	public static boolean binarySearch(int[] arr, int n) {
 		int start = 0;

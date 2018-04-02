@@ -3,12 +3,12 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 /**
  * 
  * 
- * ÇëÉè¼ÆÒ»¸ö¸ßÐ§µÄ·½·¨£¬ÕÒ³öÈÎÒâÖ¸¶¨µ¥´ÊÔÚÒ»ÆªÎÄÕÂÖÐµÄ³öÏÖÆµÊý¡£
- * ¸ø¶¨Ò»¸östringÊý×éarticleºÍÊý×é´óÐ¡n¼°Ò»¸ö´ýÍ³¼Æµ¥´Êword£¬Çë·µ»Ø¸Ãµ¥´ÊÔÚÎÄÕÂÖÐµÄ³öÏÖÆµÊý¡£
- * ±£Ö¤ÎÄÕÂµÄ´ÊÊýÐ¡ÓÚµÈÓÚ1000¡£
+ * è¯·è®¾è®¡ä¸€ä¸ªé«˜æ•ˆçš„æ–¹æ³•ï¼Œæ‰¾å‡ºä»»æ„æŒ‡å®šå•è¯åœ¨ä¸€ç¯‡æ–‡ç« ä¸­çš„å‡ºçŽ°é¢‘æ•°ã€‚
+ * ç»™å®šä¸€ä¸ªstringæ•°ç»„articleå’Œæ•°ç»„å¤§å°nåŠä¸€ä¸ªå¾…ç»Ÿè®¡å•è¯wordï¼Œè¯·è¿”å›žè¯¥å•è¯åœ¨æ–‡ç« ä¸­çš„å‡ºçŽ°é¢‘æ•°ã€‚
+ * ä¿è¯æ–‡ç« çš„è¯æ•°å°äºŽç­‰äºŽ1000ã€‚
  * 
  * @author:JackBauer
- * @date:2016Äê10ÔÂ14ÈÕ
+ * @date:2016å¹´10æœˆ14æ—¥
  */
 public class WordFrequency {
 

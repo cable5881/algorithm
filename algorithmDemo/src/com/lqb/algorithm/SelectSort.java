@@ -10,20 +10,20 @@ public class SelectSort {
 		System.out.println(Arrays.toString(a));
 	}
 
-	// Ñ¡ÔñÅÅĞò
+	// é€‰æ‹©æ’åº
 	public static void selectSort(int[] a) {
 		for (int i = 0; i < a.length; i++) {
-			//Ä¬ÈÏÃ¿´Îµü´úµÄµÚÒ»¸öÎª×îĞ¡
+			//é»˜è®¤æ¯æ¬¡è¿­ä»£çš„ç¬¬ä¸€ä¸ªä¸ºæœ€å°
 			int smallIndex = i;
 			for (int j = i + 1; j < a.length; j++) {
-				//ÓĞ±ÈsmallIndexÎ»ÖÃÏÂµÄÔªËØ¸üĞ¡µÄÔò°ÑÆäÎ»ÖÃ¸³Öµ¸øsmallIndex
+				//æœ‰æ¯”smallIndexä½ç½®ä¸‹çš„å…ƒç´ æ›´å°çš„åˆ™æŠŠå…¶ä½ç½®èµ‹å€¼ç»™smallIndex
 				if (a[j] < a[smallIndex]) {
 					smallIndex = j;
 				}
 			}
 			
-			//´ËÊ±ºÍËùÓĞÔªËØ¶¼½øĞĞÁË±È½Ï,smallÒÑ¾­ÊÇ×îĞ¡µÄÁË
-			//½«×îĞ¡Öµµ÷»»µ½iµÄÎ»ÖÃ
+			//æ­¤æ—¶å’Œæ‰€æœ‰å…ƒç´ éƒ½è¿›è¡Œäº†æ¯”è¾ƒ,smallå·²ç»æ˜¯æœ€å°çš„äº†
+			//å°†æœ€å°å€¼è°ƒæ¢åˆ°içš„ä½ç½®
 			if(smallIndex != i){
 				swap(a,i,smallIndex);
 			}

@@ -5,9 +5,9 @@ import java.util.LinkedList;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * @Description:¹«¹²×æÏÈ
+ * @Description:å…¬å…±ç¥–å…ˆ
  * @Author:JackBauer
- * @Date:2016Äê8ÔÂ31ÈÕ ÏÂÎç12:46:03
+ * @Date:2016å¹´8æœˆ31æ—¥ ä¸‹åˆ12:46:03
  */
 public class CommonAncestor {
 

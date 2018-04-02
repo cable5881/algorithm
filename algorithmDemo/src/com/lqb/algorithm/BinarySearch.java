@@ -1,9 +1,9 @@
 package com.lqb.algorithm;
 
 /**
- * @Description:¶ş·Ö²éÕÒ
+ * @Description:äºŒåˆ†æŸ¥æ‰¾
  * @Author:JackBauer
- * @Date:2016Äê9ÔÂ4ÈÕ ÏÂÎç8:27:58
+ * @Date:2016å¹´9æœˆ4æ—¥ ä¸‹åˆ8:27:58
  */
 public class BinarySearch {
 
@@ -21,7 +21,7 @@ public class BinarySearch {
 		int high = a.length - 1;
 		int mid;
 
-		//×¢ÒâlowºÍhighÊÇ¿ÉÒÔÏàµÈµÄ
+		//æ³¨æ„lowå’Œhighæ˜¯å¯ä»¥ç›¸ç­‰çš„
 		while (low <= high) {
 			mid = (high + low) / 2;
 

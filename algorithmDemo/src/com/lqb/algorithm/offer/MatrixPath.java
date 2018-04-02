@@ -3,9 +3,9 @@ package com.lqb.algorithm.offer;
 import com.lqb.algorithm.offer.domain.Point;
 
 /**
- * @Description:¾ØÕóÖĞµÄÂ·¾¶
+ * @Description:çŸ©é˜µä¸­çš„è·¯å¾„
  * @Author:JackBauer
- * @Date:2016Äê7ÔÂ13ÈÕ ÏÂÎç5:26:41
+ * @Date:2016å¹´7æœˆ13æ—¥ ä¸‹åˆ5:26:41
  */
 public class MatrixPath {
 
@@ -23,8 +23,8 @@ public class MatrixPath {
 //		String testStr = "bccedcb";
 //		String testStr = "bcced";
 		
-		//Õâ¸ö²âÊÔÓÃÀıĞèÒª»ØÍË,¼´b->c(µÚÒ»ĞĞµÚÈı¸ö),»ØÍË,b->c(µÚ¶şĞĞµÚ¶ş¸ö)->d->e->c->c
-		//»ØÍËµÄÍ¬Ê±ĞèÒª°Ñ·ÃÎÊµÄµÚÒ»ĞĞµÚÈı¸öcµÄÎ»ÖÃÉèÖÃÎªÎ´·ÃÎÊ£¨false£©
+		//è¿™ä¸ªæµ‹è¯•ç”¨ä¾‹éœ€è¦å›é€€,å³b->c(ç¬¬ä¸€è¡Œç¬¬ä¸‰ä¸ª),å›é€€,b->c(ç¬¬äºŒè¡Œç¬¬äºŒä¸ª)->d->e->c->c
+		//å›é€€çš„åŒæ—¶éœ€è¦æŠŠè®¿é—®çš„ç¬¬ä¸€è¡Œç¬¬ä¸‰ä¸ªcçš„ä½ç½®è®¾ç½®ä¸ºæœªè®¿é—®ï¼ˆfalseï¼‰
 		String testStr = "bcdecc";
 		boolean flag = test.hasMatrixPath(matrix, 3, 4, testStr.toCharArray());
 		System.out.println(flag);
@@ -42,7 +42,7 @@ public class MatrixPath {
 		for(int i = 0; i < rows; i++){
 			for(int j = 0; j < cols; j++){
 				Point point = new Point(i, j);
-				//²»ĞèÒª¶ÔµÚÒ»¸ö×öÌØÊâ´¦Àí
+				//ä¸éœ€è¦å¯¹ç¬¬ä¸€ä¸ªåšç‰¹æ®Šå¤„ç†
 //				if(tryVisit(matrix, isVisited, point, pathStr[0])){
 //					boolean flag = hasMatrixPathCore(matrix, pathStr, 1, point, isVisited);
 //					if(flag){
@@ -62,13 +62,13 @@ public class MatrixPath {
 	}
 	
 	/**
-	 * @Description: µİ¹éºËĞÄ
+	 * @Description: é€’å½’æ ¸å¿ƒ
 	 * @Author:JackBauer
-	 * @Date:2016Äê7ÔÂ14ÈÕÉÏÎç10:06:29
+	 * @Date:2016å¹´7æœˆ14æ—¥ä¸Šåˆ10:06:29
 	 */
 	private boolean hasMatrixPathCore(char[][] matrix, char[] pathStr, int pathIndex, Point point, boolean[][] isVisited){
 		
-		//×¢Òâµİ¹é½áÊøÌõ¼ş7
+		//æ³¨æ„é€’å½’ç»“æŸæ¡ä»¶7
 		if(pathIndex >= pathStr.length){
 			return true;
 		}
@@ -87,7 +87,7 @@ public class MatrixPath {
 			nowPoint = new Point(point.row, point.col + 1);
 			if(tryVisit(matrix, isVisited, nowPoint, pathStr[pathIndex])){
 				right = hasMatrixPathCore(matrix, pathStr, pathIndex + 1, nowPoint, isVisited);
-				tryResetPoint(isVisited, nowPoint, right);//×¢ÒâÈç¹û´Ë´Î·ÃÎÊÂ·¾¶²»³É¹¦ÔòÓ¦¸ÃÇå³ı
+				tryResetPoint(isVisited, nowPoint, right);//æ³¨æ„å¦‚æœæ­¤æ¬¡è®¿é—®è·¯å¾„ä¸æˆåŠŸåˆ™åº”è¯¥æ¸…é™¤
 			}
 		}
 		
@@ -119,9 +119,9 @@ public class MatrixPath {
 	}
 	
 	/**
-	 * @Description: ÖØÖÃisVisitedÊı×éÄ³¸öÎ»ÖÃÎªfalse
+	 * @Description: é‡ç½®isVisitedæ•°ç»„æŸä¸ªä½ç½®ä¸ºfalse
 	 * @Author:JackBauer
-	 * @Date:2016Äê7ÔÂ14ÈÕÉÏÎç10:06:45
+	 * @Date:2016å¹´7æœˆ14æ—¥ä¸Šåˆ10:06:45
 	 */
 	private void tryResetPoint(boolean[][] isVisited, Point nowPoint, boolean flag) {
 		if(flag == false){
@@ -130,9 +130,9 @@ public class MatrixPath {
 	}
 
 	/**
-	 * @Description: ³¢ÊÔ·ÃÎÊÄ³¸öµã
+	 * @Description: å°è¯•è®¿é—®æŸä¸ªç‚¹
 	 * @Author:JackBauer
-	 * @Date:2016Äê7ÔÂ14ÈÕÉÏÎç10:07:14
+	 * @Date:2016å¹´7æœˆ14æ—¥ä¸Šåˆ10:07:14
 	 */
 	private boolean tryVisit(char[][] matrix, boolean[][] isVisited, Point point, char c){
 		if(matrix[point.row][point.col] == c && isVisited[point.row][point.col] == false){
@@ -143,9 +143,9 @@ public class MatrixPath {
 	}
 	
 	/**
-	 * @Description: ³õÊ¼»¯isVisitedÊı×é
+	 * @Description: åˆå§‹åŒ–isVisitedæ•°ç»„
 	 * @Author:JackBauer
-	 * @Date:2016Äê7ÔÂ14ÈÕÉÏÎç10:07:32
+	 * @Date:2016å¹´7æœˆ14æ—¥ä¸Šåˆ10:07:32
 	 */
 	public void resetPath(boolean[][] isVisited){
 		for(int i = 0; i < isVisited.length; i++){

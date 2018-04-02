@@ -2,9 +2,9 @@ package com.lqb.algorithm.offer.domain;
 
 /**
  * 
- * @Description:Ê÷ÖĞµÄ½áµã²»½ö°üº¬×óÓÒ×Ó½áµã£¬Í¬Ê±°üº¬Ö¸Ïò¸¸½áµãµÄÖ¸Õë¡£
+ * @Description:æ ‘ä¸­çš„ç»“ç‚¹ä¸ä»…åŒ…å«å·¦å³å­ç»“ç‚¹ï¼ŒåŒæ—¶åŒ…å«æŒ‡å‘çˆ¶ç»“ç‚¹çš„æŒ‡é’ˆã€‚
  * @author:JackBauer
- * @date:2016Äê7ÔÂ1ÈÕ ÏÂÎç4:12:03
+ * @date:2016å¹´7æœˆ1æ—¥ ä¸‹åˆ4:12:03
  */
 public class TreeLinkNode extends TreeNode{
 	public TreeNode next = null;

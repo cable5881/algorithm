@@ -1,11 +1,11 @@
 package com.lqb.algorithm.offer;
 
 /**
- * ÀıÈç£¬¡°student. a am I¡±¡£ ºóÀ´²ÅÒâÊ¶µ½£¬Õâ¼Ò»ïÔ­À´°Ñ¾ä×Óµ¥´ÊµÄË³Ğò·­×ªÁË£¬ÕıÈ·µÄ¾ä×ÓÓ¦¸ÃÊÇ¡°I am a student.¡±¡£
+ * ä¾‹å¦‚ï¼Œâ€œstudent. a am Iâ€ã€‚ åæ¥æ‰æ„è¯†åˆ°ï¼Œè¿™å®¶ä¼™åŸæ¥æŠŠå¥å­å•è¯çš„é¡ºåºç¿»è½¬äº†ï¼Œæ­£ç¡®çš„å¥å­åº”è¯¥æ˜¯â€œI am a student.â€ã€‚
  * 
  * @Description:TODO
  * @author:JackBauer
- * @date:2016Äê6ÔÂ22ÈÕ ÏÂÎç4:16:56
+ * @date:2016å¹´6æœˆ22æ—¥ ä¸‹åˆ4:16:56
  */
 public class ReverseSentence {
 
@@ -32,7 +32,7 @@ public class ReverseSentence {
 			}else if(ch[i] == ' '){
 				reverseSentenceCore(ch, start, end);
 				start = i + 1;
-				end = i;//×¢ÒâÕâÀï²»ÊÇi + 1£¬·ñÔò»á×ª»»³ÉIam a student.
+				end = i;//æ³¨æ„è¿™é‡Œä¸æ˜¯i + 1ï¼Œå¦åˆ™ä¼šè½¬æ¢æˆIam a student.
 			}
 			
 			if(end == ch.length - 1){
@@ -48,7 +48,7 @@ public class ReverseSentence {
 //			}else if(ch[i] == ' ' || i == ch.length - 1){
 //				reverseSentenceCore(ch, start, end);
 //				start = i + 1;
-//				end = i;//×¢ÒâÕâÀï²»ÊÇi + 1£¬·ñÔò»á×ª»»³ÉIam a student.
+//				end = i;//æ³¨æ„è¿™é‡Œä¸æ˜¯i + 1ï¼Œå¦åˆ™ä¼šè½¬æ¢æˆIam a student.
 //			}
 //			i++;
 //		}

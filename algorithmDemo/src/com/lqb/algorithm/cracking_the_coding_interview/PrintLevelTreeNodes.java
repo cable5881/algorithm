@@ -6,12 +6,12 @@ import com.lqb.algorithm.offer.domain.ListNode;
 import com.lqb.algorithm.offer.domain.TreeNode;
 
 /**
- * ¶ÔÓÚÒ»¿Ã¶þ²æÊ÷£¬ÇëÉè¼ÆÒ»¸öËã·¨£¬´´½¨º¬ÓÐÄ³Ò»Éî¶ÈÉÏËùÓÐ½áµãµÄÁ´±í¡£
- * ¸ø¶¨¶þ²æÊ÷µÄ¸ù½áµãÖ¸ÕëTreeNode* root£¬ÒÔ¼°Á´±íÉÏ½áµãµÄÉî¶È£¬
- * Çë·µ»ØÒ»¸öÁ´±íListNode£¬´ú±í¸ÃÉî¶ÈÉÏËùÓÐ½áµãµÄÖµ£¬Çë°´Ê÷ÉÏ´Ó×óÍùÓÒµÄË³ÐòÁ´½Ó£¬
- * ±£Ö¤Éî¶È²»³¬¹ýÊ÷µÄ¸ß¶È£¬Ê÷ÉÏ½áµãµÄÖµÎª·Ç¸ºÕûÊýÇÒ²»³¬¹ý100000¡£
+ * å¯¹äºŽä¸€æ£µäºŒå‰æ ‘ï¼Œè¯·è®¾è®¡ä¸€ä¸ªç®—æ³•ï¼Œåˆ›å»ºå«æœ‰æŸä¸€æ·±åº¦ä¸Šæ‰€æœ‰ç»“ç‚¹çš„é“¾è¡¨ã€‚
+ * ç»™å®šäºŒå‰æ ‘çš„æ ¹ç»“ç‚¹æŒ‡é’ˆTreeNode* rootï¼Œä»¥åŠé“¾è¡¨ä¸Šç»“ç‚¹çš„æ·±åº¦ï¼Œ
+ * è¯·è¿”å›žä¸€ä¸ªé“¾è¡¨ListNodeï¼Œä»£è¡¨è¯¥æ·±åº¦ä¸Šæ‰€æœ‰ç»“ç‚¹çš„å€¼ï¼Œè¯·æŒ‰æ ‘ä¸Šä»Žå·¦å¾€å³çš„é¡ºåºé“¾æŽ¥ï¼Œ
+ * ä¿è¯æ·±åº¦ä¸è¶…è¿‡æ ‘çš„é«˜åº¦ï¼Œæ ‘ä¸Šç»“ç‚¹çš„å€¼ä¸ºéžè´Ÿæ•´æ•°ä¸”ä¸è¶…è¿‡100000ã€‚
  * @Author:JackBauer
- * @Date:2016Äê8ÔÂ12ÈÕ
+ * @Date:2016å¹´8æœˆ12æ—¥
  */
 public class PrintLevelTreeNodes {
 

@@ -3,9 +3,9 @@ package com.lqb.algorithm;
 import java.util.ArrayList;
 
 /**
- * ¸ø³öÒ»¸ö×Ö·û´®£¬Êä³öÆäÈ«ÅÅÁĞ
+ * ç»™å‡ºä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¾“å‡ºå…¶å…¨æ’åˆ—
  * @author:JackBauer
- * @date:2016Äê10ÔÂ2ÈÕ ÏÂÎç9:44:08
+ * @date:2016å¹´10æœˆ2æ—¥ ä¸‹åˆ9:44:08
  */
 public class Permutation {
 
@@ -37,7 +37,7 @@ public class Permutation {
 		}
 		
 		for(int i = start; i < ch.length; i++) {
-			// ÏÂÃæÁ½¾äË³ĞòºÜÖØÒª
+			// ä¸‹é¢ä¸¤å¥é¡ºåºå¾ˆé‡è¦
 			sb.append(ch[i]);
 			swap(ch, start, i);
 			
@@ -57,9 +57,9 @@ public class Permutation {
 	
 	
 	/**
-	 * a = {1,2,3,4} ×é³É¶àÉÙ¸ö3Î»Êı£¿ 
+	 * a = {1,2,3,4} ç»„æˆå¤šå°‘ä¸ª3ä½æ•°ï¼Ÿ 
 	 * @author:JackBauer
-	 * @date:2016Äê10ÔÂ18ÈÕ  ÏÂÎç4:02:27
+	 * @date:2016å¹´10æœˆ18æ—¥  ä¸‹åˆ4:02:27
 	 */
 	public static int fun(int[] a) {
 		int count = 0;
