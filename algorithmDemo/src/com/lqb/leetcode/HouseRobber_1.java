@@ -25,11 +25,11 @@ import org.junit.Test;
  * 链接：https://leetcode-cn.com/problems/house-robber
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  **/
-public class HouseRobber {
+public class HouseRobber_1 {
 
     @Test
     public void test() {
-        HouseRobber demo = new HouseRobber();
+        HouseRobber_1 demo = new HouseRobber_1();
         System.out.println(demo.rob2(new int[]{1, 2, 3, 1}));
         System.out.println(demo.rob2(new int[]{2, 7, 9, 3, 1}));
     }
