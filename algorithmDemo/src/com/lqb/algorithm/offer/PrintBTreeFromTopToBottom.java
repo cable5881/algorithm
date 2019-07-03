@@ -2,7 +2,7 @@ package com.lqb.algorithm.offer;
 
 import java.util.ArrayList;
 
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.TreeNode;
 
 public class PrintBTreeFromTopToBottom {
 

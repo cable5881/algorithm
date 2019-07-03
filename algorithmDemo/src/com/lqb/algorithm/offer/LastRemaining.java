@@ -1,6 +1,6 @@
 package com.lqb.algorithm.offer;
 
-import com.lqb.algorithm.offer.domain.ListNode;
+import com.lqb.util.ListNode;
 
 /**
  * 每年六一儿童节,NowCoder都会准备一些小礼物去看望孤儿院的小朋友,今年亦是如此。

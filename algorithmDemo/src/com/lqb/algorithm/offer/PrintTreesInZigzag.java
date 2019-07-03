@@ -3,7 +3,7 @@ package com.lqb.algorithm.offer;
 import java.util.ArrayList;
 import java.util.Stack;
 
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.TreeNode;
 
 /**
  * 请实现一个函数按照之字形打印二叉树，

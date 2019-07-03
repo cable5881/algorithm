@@ -2,7 +2,7 @@ package com.lqb.algorithm.offer;
 
 import java.util.ArrayList;
 
-import com.lqb.algorithm.offer.domain.ListNode;
+import com.lqb.util.ListNode;
 
 public class ReplaceSpace {
 

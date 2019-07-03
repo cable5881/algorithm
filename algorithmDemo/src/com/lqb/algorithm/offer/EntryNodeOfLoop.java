@@ -1,6 +1,6 @@
 package com.lqb.algorithm.offer;
 
-import com.lqb.algorithm.offer.domain.ListNode;
+import com.lqb.util.ListNode;
 
 /**
  * 一个链表中包含环，请找出该链表的环的入口结点。

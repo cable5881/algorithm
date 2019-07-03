@@ -1,6 +1,6 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.TreeNode;
 
 /**
  * 请实现一个函数，检查一棵二叉树是否为二叉查找树。

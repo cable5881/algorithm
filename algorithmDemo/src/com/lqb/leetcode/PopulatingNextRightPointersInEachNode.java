@@ -1,6 +1,6 @@
 package com.lqb.leetcode;
 
-import com.lqb.leetcode.util.TreeLinkNode;
+import com.lqb.util.TreeLinkNode;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,7 +40,7 @@ public class PopulatingNextRightPointersInEachNode {
         TreeLinkNode last;
 
         while (first.left != null) {
-            first.left.next = first.right;
+            first.left= first.right;
             cur = first;
             while (cur.next != null) {
                 last = cur;
@@ -80,6 +80,5 @@ public class PopulatingNextRightPointersInEachNode {
     @Test
     public void test1() {
         populateNextPointer(root);
-        root.print();
     }
 }

@@ -1,6 +1,6 @@
 package com.lqb.algorithm.offer;
 
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.TreeNode;
 
 /**
  * 输入一棵二叉树，判断该二叉树是否是平衡二叉树

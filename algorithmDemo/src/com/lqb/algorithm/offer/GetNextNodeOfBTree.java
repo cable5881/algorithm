@@ -1,6 +1,6 @@
 package com.lqb.algorithm.offer;
 
-import com.lqb.algorithm.offer.domain.TreeLinkNode;
+import com.lqb.util.TreeLinkNode;
 
 /**
  * 给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。

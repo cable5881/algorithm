@@ -1,6 +1,6 @@
 package com.lqb.leetcode;
 
-import com.lqb.algorithm.offer.domain.ListNode;
+import com.lqb.util.ListNode;
 import org.junit.Test;
 
 /**

@@ -2,7 +2,7 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 
 import java.util.LinkedList;
 
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.TreeNode;
 
 /**
  * @Description:公共祖先

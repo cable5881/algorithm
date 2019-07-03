@@ -1,6 +1,6 @@
 package com.lqb.algorithm.offer;
 
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.TreeNode;
 
 /**
  * 输入一棵二叉树，求该树的深度。

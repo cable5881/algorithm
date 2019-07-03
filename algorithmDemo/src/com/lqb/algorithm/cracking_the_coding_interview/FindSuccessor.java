@@ -1,6 +1,6 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.TreeNode;
 
 /**
  * 寻找下一个结点

@@ -1,7 +1,7 @@
 package com.lqb.leetcode;
 
 
-import com.lqb.leetcode.util.TreeNode;
+import com.lqb.util.TreeNode;
 
 /**
  * Given a binary tree, find its maximum depth.

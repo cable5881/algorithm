@@ -2,7 +2,7 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 
 import java.util.LinkedList;
 
-import com.lqb.algorithm.offer.domain.ListNode;
+import com.lqb.util.ListNode;
 
 /**
  * 请编写一个函数，检查链表是否为回文。

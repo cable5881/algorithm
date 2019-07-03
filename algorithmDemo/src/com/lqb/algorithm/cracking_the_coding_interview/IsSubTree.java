@@ -1,6 +1,6 @@
 package com.lqb.algorithm.cracking_the_coding_interview;
 
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.TreeNode;
 
 /**
  * @Description:t2(几百个结点)是否为t1（几百万个）的子树

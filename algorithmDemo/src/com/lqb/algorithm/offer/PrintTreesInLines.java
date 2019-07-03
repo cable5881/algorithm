@@ -3,7 +3,7 @@ package com.lqb.algorithm.offer;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.TreeNode;
 
 /**
  * 从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行

@@ -1,6 +1,6 @@
 package com.lqb.algorithm.offer;
 
-import com.lqb.algorithm.offer.domain.Point;
+import com.lqb.util.Point;
 
 /**
  * @Description:矩阵中的路径

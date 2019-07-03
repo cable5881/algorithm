@@ -2,7 +2,7 @@ package com.lqb.algorithm.offer;
 
 import java.util.ArrayList;
 
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.TreeNode;
 
 /**
  * 输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。

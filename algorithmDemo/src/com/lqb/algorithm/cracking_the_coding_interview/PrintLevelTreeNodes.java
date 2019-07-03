@@ -2,8 +2,8 @@ package com.lqb.algorithm.cracking_the_coding_interview;
 
 import java.util.ArrayList;
 
-import com.lqb.algorithm.offer.domain.ListNode;
-import com.lqb.algorithm.offer.domain.TreeNode;
+import com.lqb.util.ListNode;
+import com.lqb.util.TreeNode;
 
 /**
  * 对于一棵二叉树，请设计一个算法，创建含有某一深度上所有结点的链表。

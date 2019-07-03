@@ -2,7 +2,7 @@ package com.lqb.algorithm.offer;
 
 import java.util.ArrayList;
 
-import com.lqb.algorithm.offer.domain.Point;
+import com.lqb.util.Point;
 
 /**
  *  输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，
