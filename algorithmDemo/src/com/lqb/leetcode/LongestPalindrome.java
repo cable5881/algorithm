@@ -34,6 +34,11 @@ public class LongestPalindrome {
     }
 
 
+    /**
+     * @description 自己的解法：暴力法，算法复杂度O(n³)
+     * @author liqibo
+     * @date 2019/7/4 9:38
+     **/
     public String longestPalindrome(String s) {
 
         if (s == null || s.length() <= 1) {
@@ -41,11 +46,8 @@ public class LongestPalindrome {
         }
 
         String maxStr = "";
-
         char[] chars = s.toCharArray();
-
         for (int i = 0; i < chars.length; i++) {
-
             for(int j = chars.length - 1; j >= i; j--){
                 if (isPalindrome(chars, i, j)) {
                     String tempStr = new String(chars, i, j - i + 1);
