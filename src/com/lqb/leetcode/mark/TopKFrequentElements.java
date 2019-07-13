@@ -44,9 +44,13 @@ public class TopKFrequentElements {
             count.put(n, count.getOrDefault(n, 0) + 1);
         }
 
+        //o1是要添加的元素, o2是最底部元素
+        //如果o1比o2大, 也就是count.get(o2) - count.get(o1) < 0
+        //那么o1会从底部往前晋升
         PriorityQueue<Integer> heap =
                 new PriorityQueue<>((o1, o2) -> count.get(o2) - count.get(o1));
 
+        //最大堆
         for (int n: count.keySet()) {
             heap.add(n);
         }
