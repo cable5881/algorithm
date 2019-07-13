@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark;
 
 import org.junit.Test;
 
@@ -26,11 +26,11 @@ import java.util.Arrays;
  * 链接：https://leetcode-cn.com/problems/sort-colors
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class SortColors_1 {
+public class SortColors {
 
     @Test
     public void test() {
-        SortColors_1 demo = new SortColors_1();
+        SortColors demo = new SortColors();
         int[] nums = new int[]{2, 0, 2, 1, 1, 0};
         demo.sortColors2(nums);
         System.out.println(Arrays.toString(nums));

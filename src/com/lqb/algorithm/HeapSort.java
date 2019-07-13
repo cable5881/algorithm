@@ -48,20 +48,23 @@ public class HeapSort {
 	 * @param n 最后一个元素下标
 	 */
 	private static void heapAdjust(int a[], int p, int n) {
-		int temp = a[p];//父节点
+		//父节点
+		int temp = a[p];
 
 		for (int i = 2 * p; i <= n; i *= 2) {
 			//i为左孩子下标
 			//如果右孩子大于左孩子,则i+1指向右孩子
 			//i < n是因为父节点可能只有一个孩子,此时访问a[i + 1]的话就越界了
-			if (i < n && a[i] < a[i + 1])
-				i++;
+			if (i < n && a[i] < a[i + 1]) {
+                i++;
+            }
 			
 			//如果父节点比最大的孩子还要大直接跳出循环
-			//注意每次都是和temp比较，因为temp不变，每一次都是父节店
+			//注意每次都是和temp比较，因为temp不变，每一次都是父节点
 			//写成a[p] >= a[i]就错了
-			if (temp >= a[i])
-				break;
+			if (temp >= a[i]) {
+                break;
+            }
 			
 			//最大的孩子比父节点还要大,则该孩子升级为父节点,即该孩子的值覆盖父节点的值
 			a[p] = a[i];

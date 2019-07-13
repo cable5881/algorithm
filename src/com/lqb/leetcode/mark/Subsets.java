@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark;
 
 import org.junit.Test;
 
@@ -31,11 +31,11 @@ import java.util.List;
  * 链接：https://leetcode-cn.com/problems/subsets
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class Subsets_1 {
+public class Subsets {
 
     @Test
     public void test() {
-        Subsets_1 demo = new Subsets_1();
+        Subsets demo = new Subsets();
         System.out.println(demo.subsets(new int[] {1,2,3}));
     }
 

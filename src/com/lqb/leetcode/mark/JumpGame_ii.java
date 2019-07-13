@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark;
 
 import org.junit.Test;
 
@@ -23,11 +23,11 @@ import org.junit.Test;
  * 链接：https://leetcode-cn.com/problems/jump-game-ii
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  **/
-public class JumpGame_ii_1 {
+public class JumpGame_ii {
 
     @Test
     public void test() {
-        JumpGame_ii_1 demo = new JumpGame_ii_1();
+        JumpGame_ii demo = new JumpGame_ii();
         //System.out.println(demo.jump2(new int[]{2}));
         //System.out.println(demo.jump2(new int[]{2, 3}));
         //System.out.println(demo.jump2(new int[]{2, 3, 1}));

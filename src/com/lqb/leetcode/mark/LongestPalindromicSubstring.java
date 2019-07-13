@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark;
 
 
 import org.junit.Test;
@@ -20,11 +20,11 @@ import org.junit.Test;
  * @Author liqibo
  * @Date 2019/6/14 14:41
  **/
-public class LongestPalindromicSubstring_1 {
+public class LongestPalindromicSubstring {
 
     @Test
     public void test1() {
-        LongestPalindromicSubstring_1 test = new LongestPalindromicSubstring_1();
+        LongestPalindromicSubstring test = new LongestPalindromicSubstring();
         System.out.println(test.longestPalindrome("abba"));
         System.out.println(test.longestPalindrome("ab"));
         System.out.println(test.longestPalindrome("aba"));

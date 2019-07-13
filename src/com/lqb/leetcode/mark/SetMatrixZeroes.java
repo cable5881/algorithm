@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark;
 
 import org.junit.Test;
 
@@ -48,7 +48,7 @@ import java.util.Set;
  * 链接：https://leetcode-cn.com/problems/set-matrix-zeroes
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class SetMatrixZeroes_1 {
+public class SetMatrixZeroes {
 
     public void print(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
@@ -58,7 +58,7 @@ public class SetMatrixZeroes_1 {
 
     @Test
     public void test() {
-        SetMatrixZeroes_1 demo = new SetMatrixZeroes_1();
+        SetMatrixZeroes demo = new SetMatrixZeroes();
         int[][] matrix = {
                 {1, 1, 1},
                 {1, 0, 1},
@@ -70,7 +70,7 @@ public class SetMatrixZeroes_1 {
 
     @Test
     public void test2() {
-        SetMatrixZeroes_1 demo = new SetMatrixZeroes_1();
+        SetMatrixZeroes demo = new SetMatrixZeroes();
         int[][] matrix = {
                 {0, 1, 2, 0},
                 {3, 4, 5, 2},
