@@ -91,16 +91,21 @@ public class LongestIncreasingSubsequence {
     public int lengthOfLIS2(int[] nums) {
         int[] dp = new int[nums.length];
         int len = 0;
+
         for (int num : nums) {
             int i = Arrays.binarySearch(dp, 0, len, num);
             if (i < 0) {
+                //让i 变成正数, 也就是可以插入的位置
                 i = -(i + 1);
             }
             dp[i] = num;
+
+            //如果是追加到dp, 则len自增; 如果不是追加, 只是替换, 则i <= len - 1,不会进到if条件中
             if (i == len) {
                 len++;
             }
         }
+
         return len;
     }
 
