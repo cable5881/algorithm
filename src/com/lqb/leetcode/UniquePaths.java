@@ -4,14 +4,60 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
- * The robot can only move either down or right at any point in time.
- * The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
- * How many possible unique paths are there?
+ * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
+ * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
+ * 问总共有多少条不同的路径？
+ * 说明：m 和 n 的值均不超过 100。
+ *
+ * 示例 1:
+ * 输入: m = 3, n = 2
+ * 输出: 3
+ * 解释:
+ * 从左上角开始，总共有 3 条路径可以到达右下角。
+ * 1. 向右 -> 向右 -> 向下
+ * 2. 向右 -> 向下 -> 向右
+ * 3. 向下 -> 向右 -> 向右
+ *
+ * 示例 2:
+ * 输入: m = 7, n = 3
+ * 输出: 28
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/unique-paths
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class UniquePaths {
+
+    @Test
+    public void test1_1() {
+        Assert.assertEquals(1, uniquePaths2(1, 1));
+    }
+
+    @Test
+    public void test2_2() {
+        Assert.assertEquals(2, uniquePaths2(2, 2));
+    }
+
+    @Test
+    public void test3_3() {
+        Assert.assertEquals(6, uniquePaths2(3, 3));
+    }
+
+    @Test
+    public void test3_7() {
+        Assert.assertEquals(28, uniquePaths2(3, 7));
+    }
+
+    @Test
+    public void test100_100() {
+        Assert.assertEquals(28, uniquePaths(100, 100));
+    }
+
     private int count = 0;
 
+    /**
+     * 暴力法
+     **/
     public int uniquePaths(int x, int y) {
         uniquePathsCore(x, y, 1, 1);
         return count;
@@ -32,44 +78,33 @@ public class UniquePaths {
     }
 
     /**
-     * dp[1][1] = dp[1][0] + dp[0][1]
+     * 动态规划， 算法复杂度O(xy)，空间复杂度O(xy)
+     * 规定f(1,1) = 1
+     * f(2,2) = f(1,2) + f(2,1) = 2
+     * f(3,2) = f(2,2) + f(3,1) = 3
+     * f(3,3) = f(3,2) + f(2,3) = f(3,2) + f(1,3) + f(2,2) = 3 + 1 + 2 = 6
+     * ...
+     * f(x,y) = f(x-1,y) + f(x,y-1)
      */
-    public int uniquePaths2(int m, int n) {
-        int[][] dp = new int[m][n];
-        for (int i = 0; i < m; i++) {
-            dp[i][0] = 1;
+    public int uniquePaths2(int x, int y) {
+
+        if (x < 1 || y < 1) {
+            return 0;
         }
-        for (int i = 0; i < n; i++) {
-            dp[0][i] = 1;
+
+        int[][] dp = new int[x][y];
+
+        for (int i = x - 1; i >= 0; i--) {
+            for (int j = y - 1; j >= 0; j--) {
+                if (i == x - 1 || j == y - 1) {
+                    dp[i][j] = 1;
+                } else {
+                    dp[i][j] = dp[i + 1][j] + dp[i][j + 1];
+                }
+            }
         }
-        for (int i = 1; i < m; i++)
-            for (int j = 1; j < n; j++)
-                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
-        return dp[m - 1][n - 1];
+
+        return dp[0][0];
     }
 
-    @Test
-    public void test1_1() {
-        Assert.assertEquals(1, uniquePaths(1, 1));
-    }
-
-    @Test
-    public void test2_2() {
-        Assert.assertEquals(2, uniquePaths(2, 2));
-    }
-
-    @Test
-    public void test3_3() {
-        Assert.assertEquals(6, uniquePaths(3, 3));
-    }
-
-    @Test
-    public void test3_7() {
-        Assert.assertEquals(28, uniquePaths(3, 7));
-    }
-
-    @Test
-    public void test100_100() {
-        Assert.assertEquals(28, uniquePaths(100, 100));
-    }
 }
