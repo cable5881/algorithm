@@ -24,7 +24,7 @@ import java.util.Set;
  * @Author liqibo
  * @Date 2019/6/11 19:52
  **/
-public class LengthOfLongestSubstring {
+public class LengthOfLongestSubstring_1 {
 
     @Test
     public void test1() {
@@ -92,6 +92,11 @@ public class LengthOfLongestSubstring {
         return ans;
     }
 
+    /**
+     * @description 自己的解法，算法复杂度O(n²)，空间复杂度O(n)
+     * @author liqibo
+     * @date 2019/7/8 16:59
+     **/
     public int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) {
             return 0;
@@ -117,7 +122,6 @@ public class LengthOfLongestSubstring {
             }
             uniqueWords.clear();
         }
-
 
         return maxLen;
     }
