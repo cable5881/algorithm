@@ -2,10 +2,7 @@ package com.lqb.leetcode.mark;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
@@ -36,9 +33,12 @@ public class Subsets {
     @Test
     public void test() {
         Subsets demo = new Subsets();
-        System.out.println(demo.subsets(new int[] {1,2,3}));
+        System.out.println(demo.subsets2(new int[] {1,2,3}));
     }
 
+    /**
+     * 递归法
+     */
     public List<List<Integer>> subsets(int[] nums) {
 
         if (nums == null) {
@@ -46,9 +46,7 @@ public class Subsets {
         }
 
         List<List<Integer>> ans = new ArrayList<>();
-
         findSubsets(nums, 0, new LinkedList<>(), ans);
-
         return ans;
     }
 
@@ -63,10 +61,38 @@ public class Subsets {
 
         for (int i = cur; i < nums.length; i++) {
             stack.add(nums[i]);
-            //第二个参数不是cur, 因为cur并不会在循环中递增，因此会出现类似[3, 3]这种重复的
-            findSubsets(nums, cur + 1, stack, subsets);
+            //第二个参数不是cur + 1, 因为cur + 1并不会在循环中递增，因此会出现类似[3, 3]这种重复的
+            findSubsets(nums, i + 1, stack, subsets);
             stack.removeLast();
         }
+    }
+
+    /**
+     * 迭代法
+     *
+     * 每一次循环遍历上一次循环添加的元素，在上一次的基础上继续添加元素
+     *      * 如上一次结果集中为[],[1]
+     *      * 则下一次在上一次的结果集遍历，分别添加2，即[2],[1,2]
+     *      * 最后合并上一次和这一次的结果，为[],[1],[2],[1,2]
+     */
+    public List<List<Integer>> subsets2(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        ans.add(new ArrayList<>());// 初始化空数组
+
+        for (int i = 0; i < nums.length; i++) {
+            List<List<Integer>> ans_tmp = new ArrayList<>();
+
+            // 遍历之前的所有结果
+            for (int j = 0; j < ans.size(); j++) {
+                List<Integer> list = ans.get(j);
+                List<Integer> tmp = new ArrayList<>(list);
+                tmp.add(nums[i]); // 加入新增数字
+                ans_tmp.add(tmp);
+            }
+
+            ans.addAll(ans_tmp);
+        }
+        return ans;
     }
 
 }

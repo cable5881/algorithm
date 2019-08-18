@@ -30,9 +30,14 @@ public class Subsets_ii {
 
     @Test
     public void test1() {
-        System.out.println(subsetsWithDup(new int[]{1,2,2}));
+        System.out.println(subsetsWithDup2(new int[]{1,2,2}));
     }
 
+    /**
+     * 先排序，如果当前元素和上一个相同，则不进行递归
+     * @param nums
+     * @return
+     */
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         if (nums == null) {
             return Collections.emptyList();
@@ -63,6 +68,49 @@ public class Subsets_ii {
             subsetsWithDup(nums, i + 1, res, buf);
             buf.removeLast();
         }
+    }
+
+    /**
+     * 官方解答：迭代法
+     * 每一次循环遍历上一次循环添加的元素，在上一次的基础上继续添加元素
+     * 如上一次为[],[1]
+     * 则下一次为[2],[1,2]
+     * 合并为[],[1],[2],[1,2]
+     *
+     * 接下来就是考虑如何剔除重复子集
+     * [],[1]是[]基础上产生的(start=0)
+     * [],[1],[2],[1,2]是[],[1]基础上产生的(start=1)
+     * 此时下一个数也是2，此时在上一个基础上需要剔除掉[],[1]，因为他们在上一轮已经被2用过了，但是[2],[1,2]还没用过
+     * 因此以[2],[1,2]为基础，添加为[2，2],[1,2,2] (start=2)
+     *
+     * https://leetcode-cn.com/problems/subsets-ii/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-19/
+     */
+    public List<List<Integer>> subsetsWithDup2(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        ans.add(new ArrayList<>());// 初始化空数组
+        Arrays.sort(nums);
+
+        int start = 1; //保存新解的开始位置
+        for (int i = 0; i < nums.length; i++) {
+            List<List<Integer>> ans_tmp = new ArrayList<>();
+
+            // 遍历之前的所有结果
+            for (int j = 0; j < ans.size(); j++) {
+                List<Integer> list = ans.get(j);
+                //如果出现重复数字，就跳过所有旧解
+                if (i > 0 && nums[i] == nums[i - 1] && j < start) {
+                    continue;
+                }
+
+                List<Integer> tmp = new ArrayList<>(list);
+                tmp.add(nums[i]); // 加入新增数字
+                ans_tmp.add(tmp);
+            }
+
+            start = ans.size(); //更新新解的开始位置
+            ans.addAll(ans_tmp);
+        }
+        return ans;
     }
 
 }
