@@ -1,4 +1,4 @@
-package com.lqb.thoughtworks;
+package com.lqb.thoughtworks.trains.server.exception;
 
 public class SystemException extends RuntimeException{
     public SystemException() {

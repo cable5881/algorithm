@@ -46,6 +46,17 @@ public class BestTimeToBuyAndSellStock_ii {
         System.out.println(test.maxProfit2(new int[]{7, 6, 4, 3, 1}));
     }
 
+    @Test
+    public void test2() {
+        String a = "a";
+        String aa = new String("a");
+        System.out.println(a == aa);
+
+        String bb = new String("b");
+        String b = "b";
+        System.out.println(b == bb);
+    }
+
     public int maxProfit2(int[] prices) {
 
         if (prices == null || prices.length <= 1) {

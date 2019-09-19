@@ -36,7 +36,7 @@ public class LongestPalindromicSubstring {
 
 
     /**
-     * @description 自己的解法：暴力法，算法复杂度O(n³)
+     * @description 自己的解法：暴力法，时间复杂度O(n²)，空间复杂度O(1)
      * @author liqibo
      * @date 2019/7/4 9:38
      **/
@@ -50,13 +50,12 @@ public class LongestPalindromicSubstring {
         char[] chars = s.toCharArray();
         for (int i = 0; i < chars.length; i++) {
             for (int j = chars.length - 1; j >= i; j--) {
-                if (isPalindrome(chars, i, j)) {
-                    String tempStr = new String(chars, i, j - i + 1);
-                    if (tempStr.length() > maxStr.length()) {
-                        maxStr = tempStr;
-                    }
+                int tempLen = j - i + 1;
+                if (tempLen > maxStr.length() && isPalindrome(chars, i, j)) {
+                    String tempStr = new String(chars, i, tempLen);
+                    maxStr = tempStr;
                     break;
-                } else if (j - i + 1 < maxStr.length()) {
+                } else if (tempLen < maxStr.length()) {
                     break;
                 }
             }
