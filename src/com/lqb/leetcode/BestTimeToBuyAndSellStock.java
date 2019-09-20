@@ -70,6 +70,7 @@ public class BestTimeToBuyAndSellStock {
      * @description 官方解法：只需要找出最小的价格，然后其他比这个大的价格都去减去最小的价格，这个差比以往的大则收益最大
      * @author liqibo
      * @date 2019/6/28 11:33
+     * @update 2019/9/19 17:31 今天做的时候已经可以用这种做法了
      **/
     public int maxProfit2(int[] prices) {
 

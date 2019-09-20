@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark;
 
 import org.junit.Test;
 
@@ -41,22 +41,43 @@ public class BestTimeToBuyAndSellStock_ii {
     @Test
     public void test() {
         BestTimeToBuyAndSellStock_ii test = new BestTimeToBuyAndSellStock_ii();
-        System.out.println(test.maxProfit2(new int[]{7, 1, 5, 3, 6, 4}));
-        System.out.println(test.maxProfit2(new int[]{1, 2, 3, 4, 5}));
-        System.out.println(test.maxProfit2(new int[]{7, 6, 4, 3, 1}));
+        System.out.println(test.maxProfit3(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(test.maxProfit3(new int[]{1, 2, 3, 4, 5}));
+        System.out.println(test.maxProfit3(new int[]{7, 6, 4, 3, 1}));
     }
 
-    @Test
-    public void test2() {
-        String a = "a";
-        String aa = new String("a");
-        System.out.println(a == aa);
+    /**
+     * @description 自己的解法：贪心算法
+     * 只要第i天比第i-1的价格高则直接卖，然后接着买第i天的。如果i + 1天比i天价格高当然好，
+     * 如果低那我们可以撤销第i天的购买记录，买第i + 1天的
+     * @author liqibo
+     * @date 2019/9/19 19:17
+     **/
+    public int maxProfit3(int[] prices) {
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
 
-        String bb = new String("b");
-        String b = "b";
-        System.out.println(b == bb);
+        int p = 0;
+        int buy = prices[0];
+
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > buy) {
+                p += (prices[i] - buy);
+            }
+
+            //不管明天的价格是高还低,买了再说.如果明天低,那我就买明天的,今天的就相当于撤销了
+            buy = prices[i];
+        }
+
+        return p;
     }
 
+    /**
+     * @description 同解法三，有微弱的优化
+     * @author liqibo
+     * @date 2019/9/19 19:22
+     **/
     public int maxProfit2(int[] prices) {
 
         if (prices == null || prices.length <= 1) {
@@ -65,6 +86,7 @@ public class BestTimeToBuyAndSellStock_ii {
 
         int maxProfit = 0;
         for (int i = 1; i < prices.length; i++) {
+            //直接通过i - 1就索引到昨天的价格了，不需要用另外的变量保存
             if (prices[i] > prices[i - 1]) {
                 maxProfit += prices[i] - prices[i - 1];
             }
@@ -74,6 +96,11 @@ public class BestTimeToBuyAndSellStock_ii {
     }
 
 
+    /**
+     * @description 自己的解法：递归，超时了
+     * @author liqibo
+     * @date 2019/9/19 19:06
+     **/
     public int maxProfit(int[] prices) {
         if (prices == null || prices.length == 0) {
             return 0;

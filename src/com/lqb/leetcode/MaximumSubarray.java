@@ -24,12 +24,12 @@ public class MaximumSubarray {
     @Test
     public void test1() {
         MaximumSubarray demo = new MaximumSubarray();
-        System.out.println(demo.maxSubArray2(new int[] {-2,1,-3,4,-1,2,1,-5,4}));
-        System.out.println(demo.maxSubArray2(new int[] {-2,-3,-3,-1,-5}));
-        System.out.println(demo.maxSubArray2(new int[] {-2,-3,6,-3,-1,-5}));
-        System.out.println(demo.maxSubArray2(new int[] {1}));
-        System.out.println(demo.maxSubArray2(new int[] {-1}));
-        System.out.println(demo.maxSubArray2(new int[] {-1, 0}));
+        System.out.println(demo.maxSubArray3(new int[] {-2,1,-3,4,-1,2,1,-5,4}));  //6
+        System.out.println(demo.maxSubArray3(new int[] {-2,-3,-3,-1,-5}));         //-1
+        System.out.println(demo.maxSubArray3(new int[] {-2,-3,6,-3,-1,-5}));       //6
+        System.out.println(demo.maxSubArray3(new int[] {1}));                      //1
+        System.out.println(demo.maxSubArray3(new int[] {-1}));                     //-1
+        System.out.println(demo.maxSubArray3(new int[] {-1, 0}));                  //0
     }
 
     /**
@@ -81,6 +81,33 @@ public class MaximumSubarray {
                 //如果之前的子序列和已经小于0了, 那么此时num 如果 比 maxSum大, 那么tempSum = num, 后面会赋值给maxSum
                 //反之如果num < maxSum, 然后tempSum = num, tempSum会比maxSum, 那么后面就不赋值给maxSum
                 tempSum = num;
+            }
+
+            maxSum = Math.max(tempSum, maxSum);
+        }
+
+        return maxSum;
+    }
+
+    /**
+     * @description 多天后自己的解法
+     * @author liqibo
+     * @date 2019/9/19 17:05
+     **/
+    public int maxSubArray3(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        int maxSum = nums[0];
+        int tempSum = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            //这里去掉nums[i] > tempSum 也没事，因为不会赋值给maxSum
+            if (tempSum < 0 && nums[i] > tempSum) {
+                tempSum = nums[i];
+            } else {
+                tempSum += nums[i];
             }
 
             maxSum = Math.max(tempSum, maxSum);
