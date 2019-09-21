@@ -107,18 +107,6 @@ public class SetMatrixZeroes {
      * 包含了两种清0方式, 显然第二种(官网的)更好
      */
     private void setZeroes(int[][] matrix, Set<Integer> rows, Set<Integer> cols) {
-        //rows.forEach(row -> {
-        //    for (int i = 0; i < matrix[row].length; i++) {
-        //        matrix[row][i] = 0;
-        //    }
-        //});
-        //
-        //cols.forEach(col -> {
-        //    for (int i = 0; i < matrix.length; i++) {
-        //        matrix[i][col] = 0;
-        //    }
-        //});
-
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 if (rows.contains(i) || cols.contains(j)) {

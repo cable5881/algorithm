@@ -97,6 +97,7 @@ public class NumberOfIslands {
 
         numIslandsCore(grid, row, col + 1, lands);
         numIslandsCore(grid, row + 1, col, lands);
+        //注意下面两个遍历， 还是有必要向左和向上的（容易忘记）
         numIslandsCore(grid, row, col - 1, lands);
         numIslandsCore(grid, row - 1, col, lands);
     }

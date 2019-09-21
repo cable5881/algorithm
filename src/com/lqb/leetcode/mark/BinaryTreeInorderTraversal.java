@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark;
 
 import com.lqb.util.TreeNode;
 import org.junit.Test;
@@ -34,6 +34,10 @@ public class BinaryTreeInorderTraversal {
         System.out.println(demo.inorderTraversal(TreeNode.getBalanceTree()));
     }
 
+    /**
+     * 有时候也不一定能写出来
+     * 关键是要将右孩子作为下一次迭代的结点
+     */
     public List<Integer> inorderTraversal(TreeNode root) {
         if (root == null) {
             return Collections.emptyList();

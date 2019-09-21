@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark;
 
 import org.junit.Test;
 
@@ -26,23 +26,28 @@ public class LongestIncreasingSubsequence {
 
     @Test
     public void test() {
-        LongestIncreasingSubsequence demo = new LongestIncreasingSubsequence();
-        System.out.println(demo.lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
-        System.out.println(demo.lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18, 3, 4, 5, 6, 7}));
-        System.out.println(demo.lengthOfLIS(new int[]{2, 15, 3, 7, 8, 6, 18}));
-        System.out.println(demo.lengthOfLIS(new int[]{10}));
-        System.out.println(demo.lengthOfLIS(new int[]{10, 9}));
+        //4
+        //6
+        //5
+        //1
+        //1
+        System.out.println(lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
+        System.out.println(lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18, 3, 4, 5, 6, 7}));
+        System.out.println(lengthOfLIS(new int[]{2, 15, 3, 7, 8, 6, 18}));
+        System.out.println(lengthOfLIS(new int[]{10}));
+        System.out.println(lengthOfLIS(new int[]{10, 9}));
     }
 
     @Test
     public void test2() {
-        LongestIncreasingSubsequence demo = new LongestIncreasingSubsequence();
-        System.out.println(demo.lengthOfLIS2(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
+        System.out.println(lengthOfLIS2(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
     }
 
     /**
      * 自己的解法: 倒序用一个数组存储该节点的最长上升长度, 这样每遍历一个元素, 只要向该数组中找一个最大长度就可以了
      * 算法复杂度O(n^2) 空间复杂度O(n)
+     *
+     * 20190921： 啥玩意写的，看不懂了。。。
      */
     public int lengthOfLIS(int[] nums) {
 
@@ -77,7 +82,9 @@ public class LongestIncreasingSubsequence {
      *
      * 难点:
      *  - 二分查找元素如果不存在, 则返回它应该插入的位置
-     *  - 需要承认一个事实, 用dp来存储上升子序列, 该子序列可能不是一个有效的最长子序列(后面可能有比dp[0]更小的, 替换后就不是一个完整的最长子序列了), 但是长度是一定对的.
+     *  - 需要承认一个事实, 用dp来存储上升子序列, 该子序列可能不是一个有效的最长子序列(后面可能有比dp[0]更小的,
+     *  替换后就不是一个完整的最长子序列了), 但是长度是一定对的.
+     *
      * 用[10, 9, 2, 5, 3, 7, 101, 18] 举例看dp和len的变化
      * [10], 1
      * [9], 1

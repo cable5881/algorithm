@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark;
 
 import org.junit.Test;
 
@@ -32,17 +32,17 @@ public class FindPeakElement {
     @Test
     public void test() {
         FindPeakElement demo = new FindPeakElement();
-        System.out.println(demo.findPeakElement(new int[]{1, 2, 1, 3, 5, 6, 4})); //1
-        System.out.println(demo.findPeakElement(new int[]{1, 2, 4, 3, 5, 6, 4})); //2
-        System.out.println(demo.findPeakElement(new int[]{1, 2, 3, 4, 5, 6, 4})); //5
-        System.out.println(demo.findPeakElement(new int[]{1, 2, 3, 5, 6, 4})); //4
-        System.out.println(demo.findPeakElement(new int[]{1, 2, 3, 1}));//2
-        System.out.println(demo.findPeakElement(new int[]{1, 2, 3, 4}));//-1
+        System.out.println(demo.findPeakElement2(new int[]{1, 2, 1, 3, 5, 6, 4})); //1或5
+        System.out.println(demo.findPeakElement2(new int[]{1, 2, 4, 3, 5, 6, 4})); //2或5
+        System.out.println(demo.findPeakElement2(new int[]{1, 2, 3, 4, 5, 6, 4})); //5或5
+        System.out.println(demo.findPeakElement2(new int[]{1, 2, 3, 5, 6, 4})); //4
+        System.out.println(demo.findPeakElement2(new int[]{1, 2, 3, 1}));//2
+        System.out.println(demo.findPeakElement2(new int[]{1, 2, 3, 4}));//3
         System.out.println(demo.findPeakElement2(new int[]{1,2,3,1}));//2
     }
 
     /**
-     * 自己的解法
+     * 自己的解法, 递归二分查找, 时间和空间复杂度都是log(n)
      **/
     public int findPeakElement(int[] nums) {
         if (nums == null || nums.length < 1) {
@@ -69,10 +69,14 @@ public class FindPeakElement {
 
         int mid = (start + end) / 2;
 
+        //中间大于两边，存在峰值，直接返回
         if (nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) {
             return mid;
         }
 
+        //左边是否小于中间(上升趋势)?
+        //是,则mid - 1, 因为mid-1不可能是峰值.
+        //否(下降趋势),则mid, 因为mid-1有可能是峰值,需要将mid-1纳入下一次计算范围中
         int left = nums[mid] > nums[mid - 1] ? findPeakElement(nums, start, mid - 1) : findPeakElement(nums, start, mid);
 
         if (left > -1) {
@@ -83,6 +87,7 @@ public class FindPeakElement {
     }
 
     /**
+     * 官方解法：迭代二分查找
      * 首先要注意题目条件，在题目描述中出现了 nums[-1] = nums[n] = -∞，这就代表着 只要数组中存在一个元素比相邻元素大，那么沿着它一定可以找到一个峰值
      * 根据上述结论，我们就可以使用二分查找找到峰值
      * 查找时，左指针 l，右指针 r，以其保持左右顺序为循环条件
@@ -92,9 +97,12 @@ public class FindPeakElement {
         int left = 0, right = nums.length - 1;
         while (left < right) {
             int mid = (right + left) / 2;
+            //如果中间大于右边, 说明下降趋势, 左边存在峰值
             if (nums[mid] > nums[mid + 1]) {
                 right = mid;
             } else {
+                //上升趋势, 右边存在峰值。
+                //这里注意mid必须要 + 1， 否则死循环。考虑[1,2,3]的情况
                 left = mid + 1;
             }
         }

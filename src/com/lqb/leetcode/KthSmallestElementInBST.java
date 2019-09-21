@@ -87,6 +87,7 @@ public class KthSmallestElementInBST {
         kthSmallestCore(root.left);
         if (--num == 0) {
             kth = root.val;
+            return;
         }
         kthSmallestCore(root.right);
     }

@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark;
 
 import org.junit.Test;
 
@@ -26,12 +26,14 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
 
     @Test
     public void test() {
-        FindFirstAndLastPositionOfElementInSortedArray demo = new FindFirstAndLastPositionOfElementInSortedArray();
-        System.out.println(Arrays.toString(demo.searchRange(new int[]{5, 7, 7, 8, 8, 10}, 5)));
-        System.out.println(Arrays.toString(demo.searchRange(new int[]{5, 7, 7, 8, 8, 10}, 6)));
-        System.out.println(Arrays.toString(demo.searchRange(new int[]{2, 2}, 2)));
+        System.out.println(Arrays.toString(searchRange(new int[]{5, 7, 7, 8, 8, 10}, 5)));
+        System.out.println(Arrays.toString(searchRange(new int[]{5, 7, 7, 8, 8, 10}, 6)));
+        System.out.println(Arrays.toString(searchRange(new int[]{2, 2}, 2)));
     }
 
+    /**
+     * 自己的解法：需要多次二次查找，时间复杂度最差为nlog(n)
+     */
     public int[] searchRange(int[] nums, int target) {
 
         int[] ans = new int[]{-1, -1};
@@ -65,10 +67,7 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         return ans;
     }
 
-    /**
-     * 找出下一个目标
-     */
-    public int findNextTarget(int[] nums, int target, int start, int end) {
+    private int findNextTarget(int[] nums, int target, int start, int end) {
         while (start <= end) {
             int mid = (start + end) / 2;
             if (nums[mid] == target) {
@@ -81,6 +80,43 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         }
 
         return -1;
+    }
+
+    /**
+     * 官方解法，只需要调用两次二分查找
+     */
+    public int[] searchRange2(int[] nums, int target) {
+        int[] targetRange = {-1, -1};
+
+        int leftIdx = extremeInsertionIndex(nums, target, true);
+
+        //没有找到
+        if (leftIdx == nums.length || nums[leftIdx] != target) {
+            return targetRange;
+        }
+
+        targetRange[0] = leftIdx;
+        targetRange[1] = extremeInsertionIndex(nums, target, false) -1;
+
+        return targetRange;
+    }
+
+    private int extremeInsertionIndex(int[] nums, int target, boolean left) {
+        int lo = 0;
+        int hi = nums.length;
+
+        while (lo < hi) {
+            int mid = (lo + hi) / 2;
+            if (nums[mid] > target || (left && target == nums[mid])) {
+                hi = mid;
+            }
+            else {
+                //这个加1很关键，即使找到了target，还能继续向右查找。去掉 + 1会死循环
+                lo = mid+1;
+            }
+        }
+
+        return lo;
     }
 
 }

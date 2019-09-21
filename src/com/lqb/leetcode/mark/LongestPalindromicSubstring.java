@@ -24,14 +24,13 @@ public class LongestPalindromicSubstring {
 
     @Test
     public void test1() {
-        LongestPalindromicSubstring test = new LongestPalindromicSubstring();
-        System.out.println(test.longestPalindrome("abba"));
-        System.out.println(test.longestPalindrome("ab"));
-        System.out.println(test.longestPalindrome("aba"));
-        System.out.println(test.longestPalindrome("a"));
-        System.out.println(test.longestPalindrome("abaadbcdaadc"));
+        System.out.println(longestPalindrome("abba"));
+        System.out.println(longestPalindrome("ab"));
+        System.out.println(longestPalindrome("aba"));
+        System.out.println(longestPalindrome("a"));
+        System.out.println(longestPalindrome("abaadbcdaadc"));
 
-        System.out.println(test.longestPalindrome3("abaadbcdaadc"));
+        System.out.println(longestPalindrome3("abaadbcdaadc"));
     }
 
 
@@ -90,6 +89,7 @@ public class LongestPalindromicSubstring {
             return "";
         }
 
+        //只需要记住start和end，最后返回的时候索引字符串即可。不需要每次都记录一个最长的字符串
         int start = 0, end = 0;
         for (int i = 0; i < s.length(); i++) {
             int len1 = expandAroundCenter(s, i, i);
