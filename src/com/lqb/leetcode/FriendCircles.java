@@ -3,6 +3,7 @@ package com.lqb.leetcode;
 import org.junit.Test;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 班上有 N 名学生。其中有些人是朋友，有些则不是。他们的友谊具有是传递性。
@@ -135,6 +136,33 @@ public class FriendCircles {
 
         }
 
+        return count;
+    }
+
+    /**
+     * @author liqibo
+     * @date 2019/10/11 17:54
+     * @description 官网的广度优先搜索
+     */
+    public int findCircleNum3(int[][] M) {
+        int[] visited = new int[M.length];
+        int count = 0;
+        Queue< Integer > queue = new LinkedList < > ();
+        for (int i = 0; i < M.length; i++) {
+            if (visited[i] == 0) {
+                queue.add(i);
+                while (!queue.isEmpty()) {
+                    int s = queue.remove();
+                    visited[s] = 1;
+                    for (int j = 0; j < M.length; j++) {
+                        if (M[s][j] == 1 && visited[j] == 0) {
+                            queue.add(j);
+                        }
+                    }
+                }
+                count++;
+            }
+        }
         return count;
     }
 
