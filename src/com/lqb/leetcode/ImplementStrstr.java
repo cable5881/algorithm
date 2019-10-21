@@ -82,11 +82,11 @@ public class ImplementStrstr {
      * https://leetcode-cn.com/problems/implement-strstr/solution/kmp-suan-fa-xiang-jie-by-labuladong/
      *
      * 如果我们能知道下一次从哪里开始匹配就不用每次都从头开始匹配了
-     * 如查找串“ABABABC”，匹配串“ABABC”，到第5位不相同，
+     * 如文本串“ABABABC”，模式串“ABABC”，到第5位不相同，
      * A B A B A B C
      * A B A B C
      *
-     * 那么如果查找串第5位和匹配串的第3位相同，那么就可以一起匹配第6位了
+     * 那么如果文本串第5位和模式串的第3位相同，那么就可以一起匹配第6位了
      * A B A B A B C
      *     A B A B C
      *
@@ -122,8 +122,10 @@ public class ImplementStrstr {
     /**
      * 获取“下一次从哪里开始匹配”的动态规划数组
      * 构建DP的过程是自己跟自己匹配的过程
+     * 如“ABABC”
+     * “第1个和第2个” 和 “第3个和第4个” 都具有相同的前缀“AB”
+     *  那么当第5个不匹配时，应该看上一个AB的处理方式，上一个AB遇到A会到第3的位置，遇到B会回到0。
      *
-     * 如“ABABC”                                     X=0
      * dp[0]['A'] = 1, dp[0]['B'] = 0, dp[0]['C'] = 0, X=0
      * dp[1]['A'] = 1, dp[1]['B'] = 2, dp[1]['C'] = 0, X=0
      * dp[2]['A'] = 3, dp[2]['B'] = 0, dp[2]['C'] = 0, X=1
