@@ -98,4 +98,11 @@ public class Trie {
         return searchTrie(prefix) != null;
     }
 
+    public Map<Character, Trie> getLinks() {
+        return links;
+    }
+
+    public boolean isWord() {
+        return isWord;
+    }
 }
