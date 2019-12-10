@@ -1,4 +1,4 @@
-package com.lqb.leetcode.mark;
+package com.lqb.leetcode.mark.graph;
 
 import org.junit.Test;
 
