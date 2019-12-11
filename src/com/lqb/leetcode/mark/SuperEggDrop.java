@@ -44,18 +44,18 @@ public class SuperEggDrop {
 
     @Test
     public void test() {
-        System.out.println(superEggDrop2(1, 2));//2
-        System.out.println(superEggDrop2(1, 3));//3
-        System.out.println(superEggDrop2(2, 6));//3
-        System.out.println(superEggDrop2(2, 7));//4
-        System.out.println(superEggDrop2(3, 14));//4
-        System.out.println(superEggDrop2(3, 26));//6
-        System.out.println(superEggDrop2(4, 10000));//23
-        System.out.println(superEggDrop2(10, 10000));//14
+        System.out.println(superEggDrop_w2(1, 2));//2
+        System.out.println(superEggDrop_w2(1, 3));//3
+        System.out.println(superEggDrop_w2(2, 6));//3
+        System.out.println(superEggDrop_w2(2, 7));//4
+        System.out.println(superEggDrop_w2(3, 14));//4
+        System.out.println(superEggDrop_w2(3, 26));//6
+        //System.out.println(superEggDrop_w2(4, 10000));//23
+        //System.out.println(superEggDrop_w2(10, 10000));//14
     }
 
-    //错误解法
-    public int superEggDrop(int K, int N) {
+    //错误解法1
+    public int superEggDrop_w1(int K, int N) {
         if (N == 2) {
             return 2;
         } else if (N == 1) {
@@ -64,7 +64,31 @@ public class SuperEggDrop {
             return 0;
         }
 
-        return superEggDrop(K - 1, (N + 1) / 2) + 1;
+        return superEggDrop_w1(K - 1, (N + 1) / 2) + 1;
+    }
+
+    /**
+     * @author liqibo
+     * @date 2019/11/21 16:13
+     * @description 错误解法2
+     * 往上走或往下走，每次走剩下楼层的 1/2层
+     */
+    public int superEggDrop_w2(int K, int N) {
+        return superEggDrop_w2(K, 1, N);
+    }
+    private int superEggDrop_w2(int k, int i, int j) {
+        //i 是开始楼层，j是结束楼层
+        if (i > j) {
+            return 0;
+        }
+
+        if (k == 1) {
+            return j - i + 1;
+        }
+
+        int mid = (i + j) / 2;
+
+        return Math.max(superEggDrop_w2(k - 1, i, mid - 1) + 1, superEggDrop_w2(k, mid + 1, j) + 1);
     }
 
     /**
@@ -199,4 +223,5 @@ public class SuperEggDrop {
         dp.put(key, ans);
         return dp.get(key);
     }
+
 }
