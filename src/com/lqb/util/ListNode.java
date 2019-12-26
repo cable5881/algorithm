@@ -1,14 +1,15 @@
 package com.lqb.util;
 
 
-public class ListNode {
-    public int val;
-    public ListNode next = null;
+public class ListNode<T> {
 
-    public ListNode(int val) {
+    public T val;
+    public ListNode next = null;
+    public ListNode prev = null;
+
+    public ListNode(T val) {
         this.val = val;
     }
-    
     
     public void printAll(){
     	ListNode p = this;
@@ -17,7 +18,6 @@ public class ListNode {
     		System.out.println(p.val);
     		p = p.next;
     	}
-    	
     }
     
     public static void main(String[] args) {

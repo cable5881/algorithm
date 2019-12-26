@@ -25,8 +25,8 @@ public class LastRemaining {
 			return 0;
 		}
 		
-		ListNode head = new ListNode(0);
-		ListNode p = head;
+		ListNode<Integer> head = new ListNode(0);
+		ListNode<Integer> p = head;
 		for(int i = 1; i < n; i++){
 			ListNode node = new ListNode(i);
 			p.next = node;

@@ -51,7 +51,7 @@ public class Partition {
 		ListNode rightHead = null;
 		
 		while(p != null){
-			ListNode nodeL = new ListNode(p.val);
+			ListNode<Integer> nodeL = new ListNode(p.val);
 			if(nodeL.val < x){
 				if(xLeft == null){
 					xLeft = nodeL;

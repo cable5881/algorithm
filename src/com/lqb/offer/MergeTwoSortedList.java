@@ -33,7 +33,7 @@ public class MergeTwoSortedList {
 		node.printAll();
 	}
 
-	public static ListNode merge(ListNode list1, ListNode list2) {
+	public static ListNode merge(ListNode<Integer> list1, ListNode<Integer> list2) {
 		if (list1 == null && list2 == null) {
 			return null;
 		} else if (list1 == null) {
@@ -42,9 +42,9 @@ public class MergeTwoSortedList {
 			return list1;
 		}
 
-		ListNode pHead = null;
-		ListNode pList1 = list1;
-		ListNode pList2 = list2;
+		ListNode<Integer> pHead = null;
+		ListNode<Integer> pList1 = list1;
+		ListNode<Integer> pList2 = list2;
 
 		if (list1.val > list2.val) {
 			pHead = list2;

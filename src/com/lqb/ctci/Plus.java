@@ -118,7 +118,7 @@ public class Plus {
 	}
 
 	//两位相加,如果进位则返回1,否则返回0
-	private int plusABCore(ListNode a, ListNode b, ListNode c) {
+	private int plusABCore(ListNode<Integer> a, ListNode<Integer> b, ListNode<Integer> c) {
 		int cV = a.val + b.val + c.val;
 		int forWard = 0;
 

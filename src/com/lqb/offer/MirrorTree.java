@@ -24,15 +24,15 @@ public class MirrorTree {
 //
 //		mirror(t1);
 		
-//		TreeNode.preorder(t1);
+//		TreeNode.preOrderRecursively(t1);
 		
 		TreeNode tNull = null;
 		mirror(tNull);
-		TreeNode.preorder(tNull);
+		TreeNode.preOrderRecursively(tNull);
 		
 		TreeNode tOne = new TreeNode(100);
 		mirror(tOne);
-		TreeNode.preorder(tOne);
+		TreeNode.preOrderRecursively(tOne);
 		
 	}
 

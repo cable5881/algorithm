@@ -26,7 +26,7 @@ public class ConvertSortedArrayToBinarySearchTree {
     @Test
     public void test() {
         TreeNode treeNode = sortedArrayToBST(new int[]{-10, -3, 0, 5, 9});
-        TreeNode.preorder(treeNode);
+        TreeNode.preOrderRecursively(treeNode);
     }
 
     public TreeNode sortedArrayToBST(int[] nums) {

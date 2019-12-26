@@ -36,7 +36,7 @@ public class MergeTwoSortedLists {
         mergeTwoLists(n1, n4).printAll();
     }
 
-    public ListNode mergeTwoLists(ListNode L1, ListNode L2) {
+    public ListNode mergeTwoLists(ListNode<Integer> L1, ListNode<Integer> L2) {
 
         if (L1 == null) {
             return L2;
@@ -46,8 +46,8 @@ public class MergeTwoSortedLists {
             return L1;
         }
 
-        ListNode head = new ListNode(0);
-        ListNode cur = head;
+        ListNode<Integer> head = new ListNode(0);
+        ListNode<Integer> cur = head;
 
         while (L1 != null && L2 != null) {
             int L1V = L1.val;

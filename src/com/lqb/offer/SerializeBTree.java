@@ -26,12 +26,12 @@ public class SerializeBTree {
 		t3.left = t5;
 		t3.right = t6;
 		
-//		TreeNode.preorder(t1);
+//		TreeNode.preOrderRecursively(t1);
 		SerializeBTree test = new SerializeBTree();
 		String serlizedStr = test.serialize(t1);
 		System.out.println(serlizedStr);
 		TreeNode root = test.deserialize(serlizedStr);
-		TreeNode.preorder(root);
+		TreeNode.preOrderRecursively(root);
 	}
 
 	String serialize(TreeNode root) {

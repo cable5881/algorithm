@@ -1,8 +1,8 @@
 package com.lqb.offer;
 
-import java.util.ArrayList;
-
 import com.lqb.util.ListNode;
+
+import java.util.ArrayList;
 
 public class ReplaceSpace {
 
@@ -37,7 +37,7 @@ public class ReplaceSpace {
 
 	private ArrayList<Integer> arr = new ArrayList<>();
 	
-	public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+	public ArrayList<Integer> printListFromTailToHead(ListNode<Integer> listNode) {
 		
 		if( listNode == null ){
 			return null;
