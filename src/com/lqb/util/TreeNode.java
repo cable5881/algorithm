@@ -12,6 +12,9 @@ public class TreeNode {
         this.val = val;
     }
 
+    /**
+     * 前序遍历（递归）
+     */
     public static void preOrderRecursively(TreeNode treeNode) {
         if (treeNode == null) {
             return;
@@ -22,6 +25,9 @@ public class TreeNode {
         preOrderRecursively(treeNode.right);
     }
 
+    /**
+     * 中序遍历（递归）
+     */
     public static void inOrderRecursively(TreeNode treeNode) {
         if (treeNode == null) {
             return;
@@ -32,6 +38,9 @@ public class TreeNode {
         inOrderRecursively(treeNode.right);
     }
 
+    /**
+     * 后序遍历（递归）
+     */
     public static void postOrderRecursively(TreeNode treeNode) {
 
         if (treeNode == null) {
@@ -43,6 +52,9 @@ public class TreeNode {
         System.out.print("#" + treeNode.val);
     }
 
+    /**
+     * 前序遍历（迭代）
+     */
     public static void preOrder(TreeNode node) {
         if (node == null) {
             return;
@@ -72,6 +84,9 @@ public class TreeNode {
         }
     }
 
+    /**
+     * 中序遍历（迭代）
+     */
     public static void inOrder(TreeNode node) {
         if (node == null) {
             return;
@@ -92,6 +107,9 @@ public class TreeNode {
         }
     }
 
+    /**
+     * 后序遍历（迭代）
+     */
     public static void postOrder(TreeNode node) {
         if (node == null) {
             return;
@@ -131,6 +149,7 @@ public class TreeNode {
 
         while (!s.isEmpty()) {
             node = s.peek();
+            //此时队列中的每一个节点都可以认为是父节点（可能有右孩子），如果右孩子不为空当然要先访问右孩子
             if (node.right != null && node.right != last) {
                 node = node.right;
                 //开始添加右子树到栈中
