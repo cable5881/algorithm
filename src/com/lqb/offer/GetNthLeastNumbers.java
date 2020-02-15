@@ -3,6 +3,8 @@ package com.lqb.offer;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.PriorityQueue;
 
 /**
  * 输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。
@@ -16,7 +18,7 @@ public class GetNthLeastNumbers {
     @Test
     public void test() {
         int[] array = {4, 5, 1, 6, 2, 7, 3, 8};
-        System.out.println(getLeastNumbers(array, 4));
+        System.out.println(getLeastNumbers2(array, 4));
     }
 
 
@@ -78,6 +80,41 @@ public class GetNthLeastNumbers {
 
         a[l] = num;
         return l;
+    }
+
+    /**
+     * 第二种方法，利用最大堆
+     */
+    public ArrayList<Integer> getLeastNumbers2(int[] a, int k) {
+        ArrayList<Integer> leastNumbers = new ArrayList<>();
+
+        if (a == null || a.length == 0 || k <= 0 || k > a.length) {
+            return leastNumbers;
+        }
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k, (o1, o2) -> o2 - o1);
+        queue.add(a[0]);
+        int i = 1;
+
+        while (i < k) {
+            queue.add(a[i++]);
+        }
+
+        while (i < a.length) {
+            if (queue.peek() > a[i]) {
+                queue.poll();
+                queue.add(a[i]);
+            }
+            i++;
+        }
+
+        Iterator<Integer> iterator = queue.iterator();
+        while (iterator.hasNext()) {
+            leastNumbers.add(iterator.next());
+        }
+
+        return leastNumbers;
+
     }
 
 }
