@@ -10,9 +10,13 @@ public class Print1ToMaxOfNDigits {
 
     @Test
     public void test() {
-        print1ToMaxOfNDigits(3);
+        print1ToMaxOfNDigits2(2);
     }
 
+    /**
+     * 解法一：老老实实循环给字符数组的低位加1，然后打印
+     * @param n
+     */
     public void print1ToMaxOfNDigits(int n) {
         if (n < 1) {
             return;
@@ -56,5 +60,56 @@ public class Print1ToMaxOfNDigits {
         }
 
         return -1;
+    }
+
+    /**
+     * 解法二：n位所有十进制数其实就是n个从0到9的全排列
+     */
+    public void print1ToMaxOfNDigits2(int n) {
+        if (n < 1) {
+            return;
+        }
+
+        char[] num = new char[n];
+        for (int i = 0; i < num.length; i++) {
+            num[i] = '0';
+        }
+
+        print1ToMaxOfNDigits2(num, 0);
+    }
+
+    public void print1ToMaxOfNDigits2(char[] num, int start) {
+        if (start >= num.length) {
+            print(num);
+            return;
+        }
+
+        //注意不是i < num.length，这里是每一位都要循环10次加1的。
+        for (int i = 1; i <= 10; i++) {
+            print1ToMaxOfNDigits2(num, start + 1);
+            if (num[start] + 1 <= '9') {
+                num[start] += 1;
+            } else {
+                num[start] = '0';
+            }
+        }
+    }
+
+    private void print(char[] num) {
+        int i = 0;
+        while (i < num.length) {
+            if (num[i] != '0') {
+                break;
+            }
+            i++;
+        }
+
+        while (i < num.length) {
+            System.out.print(num[i++]);
+            if (i == num.length) {
+                System.out.println();
+            }
+        }
+
     }
 }
