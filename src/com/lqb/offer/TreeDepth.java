@@ -36,19 +36,14 @@ public class TreeDepth {
 	}
 	
     public static int treeDepth(TreeNode pRoot){
-
-    	return treeDepth(pRoot, 0);
-
+    	return treeDepth0(pRoot);
     }
 	
-	private static int treeDepth(TreeNode pRoot,int depth){
+	private static int treeDepth0(TreeNode pRoot){
 		if( pRoot == null ){
 			return 0;
 		}
 		
-		int left = treeDepth(pRoot.left, 0) + 1;
-		int right = treeDepth(pRoot.right, 0) + 1;
-		
-		return  left > right ? left : right;
+		return  Math.max(treeDepth0(pRoot.left) + 1, treeDepth0(pRoot.right) + 1);
 	}
 }
