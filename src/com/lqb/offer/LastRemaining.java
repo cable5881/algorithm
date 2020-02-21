@@ -1,6 +1,7 @@
 package com.lqb.offer;
 
 import com.lqb.util.ListNode;
+import org.junit.Test;
 
 /**
  * 每年六一儿童节,NowCoder都会准备一些小礼物去看望孤儿院的小朋友,今年亦是如此。
@@ -14,10 +15,9 @@ import com.lqb.util.ListNode;
  */
 public class LastRemaining {
 
-	public static void main(String[] args) {
-		LastRemaining test = new LastRemaining();
-		int num = test.lastRemaining(5, 3);
-		System.out.println(num);
+    @Test
+	public void test() {
+		System.out.println(lastRemaining2(5, 3));
 	}
 	
 	public int lastRemaining(int n, int m){
@@ -54,6 +54,41 @@ public class LastRemaining {
 		}
 		
 		return p.val;
+	}
+
+	public int lastRemaining2(int n, int m) {
+        if (m < 0) {
+            return m;
+        }
+
+        ListNode<Integer> head = new ListNode<>(-1);
+        ListNode<Integer> last = head;
+
+        for (int i = 0; i < n; i++) {
+            ListNode<Integer> node = new ListNode<>(i);
+            last.next = node;
+            node.prev = last;
+            last = node;
+        }
+
+        head = head.next;
+        last.next = head;
+        head.prev = last;
+
+        while (head.next != head) {
+            ListNode<Integer> cur = head;
+            for (int i = 1; i < m; i++) {
+                cur = cur.next;
+            }
+
+            //当前cur是要删除的节点
+            cur.val = cur.next.val;
+            cur.next = cur.next.next;
+            cur.next.prev = cur;
+            head = cur;
+        }
+
+        return head.val;
 	}
 
 }

@@ -4,8 +4,8 @@ package com.lqb.util;
 public class ListNode<T> {
 
     public T val;
-    public ListNode next = null;
-    public ListNode prev = null;
+    public ListNode<T> next = null;
+    public ListNode<T> prev = null;
 
     public ListNode(T val) {
         this.val = val;

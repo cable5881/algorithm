@@ -1,5 +1,7 @@
 package com.lqb.offer;
 
+import org.junit.Test;
+
 /**
  * 写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 
  * @author:JackBauer
@@ -7,9 +9,10 @@ package com.lqb.offer;
  */
 public class AddWithoutSymbolPlus {
 
-	public static void main(String[] args) {
-		AddWithoutSymbolPlus test = new AddWithoutSymbolPlus();
-		System.out.println(test.add(-3, -3));
+	@Test
+	public void test() {
+		System.out.println(add(-3, -3));
+		System.out.println(add2(3, 3));
 	}
 	
 	public int add(int num1, int num2){
@@ -31,6 +34,18 @@ public class AddWithoutSymbolPlus {
 			num2 = bitMove;
 		}
 		
+		return num1;
+	}
+
+
+	public int add2(int num1, int num2) {
+		do {
+			int t1 = num1 ^ num2;
+			int t2 = (num1 & num2) << 1;
+			num1 = t1;
+			num2 = t2;
+		} while (num2 != 0);
+
 		return num1;
 	}
 
