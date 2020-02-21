@@ -1,5 +1,7 @@
 package com.lqb.offer;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 
 /**
@@ -14,10 +16,14 @@ import java.util.Arrays;
  */
 public class IsContinuous {
 
-	public static void main(String[] args) {
-		IsContinuous test = new IsContinuous();
-		int[] numbers = {0,0,3,4,7};
-		System.out.println(test.isContinuous(numbers));
+	@Test
+	public void test() {
+		System.out.println(isContinuous2(new int[]{1,3,5,0,4}));//true
+		System.out.println(isContinuous2(new int[]{1,3,5,0,0}));//true
+		System.out.println(isContinuous2(new int[]{0,3,2,6,4}));//true
+		System.out.println(isContinuous2(new int[]{1,0,0,0,5}));//true
+		System.out.println(isContinuous2(new int[]{1,3,5,6,0}));//false
+
 	}
 
 	public boolean isContinuous(int[] numbers) {
@@ -50,6 +56,41 @@ public class IsContinuous {
 		}
 		
 		return numbersOfGap > numbersOfZero ? false : true;
+	}
+
+	public boolean isContinuous2(int[] a) {
+        if (a == null || a.length <= 5) {
+            return false;
+        }
+		Arrays.sort(a);
+
+        //计算大小鬼的数量
+		int jokerNum = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != 0) {
+                break;
+            }
+            jokerNum++;
+        }
+
+		int last = a[a.length - 1];
+        int jokerLeft = jokerNum;
+		int i = a.length - 2;
+        while (i >= jokerNum) {
+            if (last - a[i] == 1) {
+                last = last - 1;
+                i--;
+            } else if (jokerLeft > 0) {
+                //注意这里不用i--，因为用了大小鬼顶上，a[i]需要继续下一轮的比较
+                //如[0,1,2,3,5]，0只是代替了4，目前a[i]=3还要接着下一轮的比较
+                jokerLeft--;
+                last = last - 1;
+            } else {
+                return false;
+            }
+        }
+
+		return true;
 	}
 
 }
