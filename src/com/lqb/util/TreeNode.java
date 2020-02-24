@@ -1,6 +1,8 @@
 package com.lqb.util;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class TreeNode {
 
@@ -165,6 +167,36 @@ public class TreeNode {
         }
     }
 
+    /**
+     * 层序遍历
+     * @param root
+     */
+    public static void printFromTopToBottom(TreeNode root) {
+        LinkedList<List<TreeNode>> levels = new LinkedList<>();
+        ArrayList<TreeNode> topLevel = new ArrayList<>(1);
+        topLevel.add(root);
+        levels.addLast(topLevel);
+
+        while (!levels.isEmpty()) {
+            List<TreeNode> level = levels.removeFirst();
+            List<TreeNode> newLevel = new ArrayList<>(level.size() * 2);
+            for (TreeNode t : level) {
+                if (t.left != null) {
+                    newLevel.add(t.left);
+                }
+                if (t.right != null) {
+                    newLevel.add(t.right);
+                }
+
+                System.out.print("#" + t.val);
+            }
+            if (!newLevel.isEmpty()) {
+                levels.addLast(newLevel);
+            }
+            System.out.println();
+        }
+    }
+
     public static TreeNode getFullTree() {
         TreeNode t1 = new TreeNode(1);
         TreeNode t2 = new TreeNode(2);
@@ -249,5 +281,9 @@ public class TreeNode {
         System.out.println("###########");
         postOrder(node);
 
+        System.out.println();
+        System.out.println();
+        System.out.println("#####层序遍历######");
+        printFromTopToBottom(node);
     }
 }
