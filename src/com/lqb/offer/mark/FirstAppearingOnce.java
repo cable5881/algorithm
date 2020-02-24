@@ -1,4 +1,4 @@
-package com.lqb.offer;
+package com.lqb.offer.mark;
 
 import org.junit.Test;
 
