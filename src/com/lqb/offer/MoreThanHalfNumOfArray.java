@@ -1,5 +1,7 @@
 package com.lqb.offer;
 
+import org.junit.Test;
+
 /**
  * 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。 例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。
  * 由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
@@ -10,80 +12,65 @@ package com.lqb.offer;
  */
 public class MoreThanHalfNumOfArray {
 
-    public static void main(String[] args) {
-        // int[] array = { 1, 3, 5, 7, 9, 2, 4, 6, 8 };
-//		int[] array = { 1, 1, 5, 7, 9, 2, 1, 1, 1 };
-//		int[] array = {1,2,2};
-//		int[] array = {2,2,2,2,2,1,3,4,5};
-        int[] array = {1, 2, 3, 2, 4, 2, 5, 2, 3};
-        System.out.println(MoreThanHalfNum_Solution(array));
+    @Test
+    public void test() {
+        System.out.println(MoreThanHalfNum_Solution(new int[]{1, 2, 3, 2, 4, 2, 5, 2, 3}));//0
+        System.out.println(MoreThanHalfNum_Solution(new int[]{1, 3, 5, 7, 9, 2, 4, 6, 8}));//0
+        System.out.println(MoreThanHalfNum_Solution(new int[]{1, 1, 5, 7, 9, 2, 1, 1, 1}));//1
+        System.out.println(MoreThanHalfNum_Solution(new int[]{2, 1, 2}));//2
+        System.out.println(MoreThanHalfNum_Solution(new int[]{2, 1, 2, 1}));//0
+        System.out.println(MoreThanHalfNum_Solution(new int[]{2, 2, 2, 2, 2, 1, 3, 4, 5}));//2
     }
 
-    public static int MoreThanHalfNum_Solution(int[] array) {
+    public int MoreThanHalfNum_Solution(int[] a) {
 
-        if (array == null || array.length == 0) {
+        if (a == null || a.length == 0) {
             return 0;
         }
 
-        int point = QSort(array, 0, array.length - 1);
-        int result = array[point];
-
-        return isNumMoreThanHalf(array, result) ? result : 0;
-    }
-
-    public static int QSort(int[] array, int start, int end) {
-
-        int point;
-
-        if (start < end) {
-            point = partition(array, start, end);
-            int mid = array.length / 2;
-            if (point == mid) {
-                return point;
-            } else if (point < mid) {
-                return QSort(array, point + 1, end);
+        //注意设置start和end一步步缩小范围
+        //而不是每次partition(a, 0, i)或partition(a, i, a.length - 1)
+        int start = 0;
+        int end = a.length - 1;
+        int mid = a.length >> 1;
+        int i = partition(a, start, end);
+        while (i != mid) {
+            if (i > mid) {
+                end = i - 1;
             } else {
-                return QSort(array, start, point - 1);
+                start = i + 1;
             }
+            i = partition(a, start, end);
         }
 
-        return start;//注意返回start
+        return isNumMoreThanHalf(a, a[i]) ? a[i] : 0;
     }
 
-    public static int partition(int[] array, int start, int end) {
-
-        int temp = array[start];
+    public int partition(int[] a, int start, int end) {
         int l = start;
         int r = end;
-
+        int num = a[l];
         while (l < r) {
-            if (temp <= array[r]) {
+            while (l < r && num < a[r]) {
                 r--;
-            } else {
-                swap(array, r, l);
+            }
+            if (l < r) {
+                a[l++] = a[r];
+            }
+
+            while (l < r && num > a[l]) {
                 l++;
-                while (l < r) {
-                    if (temp >= array[l]) {
-                        l++;
-                    } else {
-                        swap(array, r, l);
-                        r--;
-                        break;
-                    }
-                }
+            }
+            if (l < r) {
+                a[r--] = a[l];
             }
         }
 
+        a[l] = num;
         return l;
     }
 
-    public static void swap(int[] array, int from, int to) {
-        int temp = array[from];
-        array[from] = array[to];
-        array[to] = temp;
-    }
-
-    public static boolean isNumMoreThanHalf(int[] array, int num) {
+    public boolean isNumMoreThanHalf(int[] array, int num) {
 
         int times = 0;
         for (int i = 0; i < array.length; i++) {
@@ -95,4 +82,25 @@ public class MoreThanHalfNumOfArray {
         return times > (array.length / 2);
     }
 
+    public int MoreThanHalfNum_Solution2(int[] a) {
+        if (a == null || a.length <= 0) {
+            return 0;
+        }
+
+        int num = a[0];
+        int delta = 1;
+
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] == num) {
+                delta++;
+            } else if (delta == 0) {
+                num = a[i];
+                delta = 1;
+            } else {
+                delta--;
+            }
+        }
+
+        return delta > 0 ? (isNumMoreThanHalf(a, num) ? num : 0) : 0;
+    }
 }
