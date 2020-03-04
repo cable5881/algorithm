@@ -3,7 +3,6 @@ package com.lqb.leetcode.mark;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 /**
  * 给定不同面额的硬币 coins 和一个总金额 amount。
@@ -31,55 +30,18 @@ public class CoinChange {
 
     @Test
     public void test() {
-        CoinChange demo = new CoinChange();
-        //System.out.println(demo.coinChange(new int[] {1, 2, 5}, 11));
-        //System.out.println(demo.coinChange(new int[] {1, 2, 5}, 12));
-        //System.out.println(demo.coinChange(new int[] {1, 2, 5}, 13));
-        //System.out.println(demo.coinChange(new int[] {1, 2, 15}, 13));
-        //System.out.println(demo.coinChange(new int[] {1, 13, 11, 7}, 100));
-        //System.out.println(demo.coinChange(new int[] {1}, 11));
-        //System.out.println(demo.coinChange(new int[] {2}, 11));
-        //System.out.println(demo.coinChange(new int[] {5}, 10));
-        //System.out.println(demo.coinChange(new int[] {5, 6, 7}, 4));
-        System.out.println(demo.coinChange(new int[]{186, 419, 83, 408}, 6249));//20
-        System.out.println(demo.coinChange(new int[]{227, 99, 328, 299, 42, 322}, 9847));//31
-        System.out.println(demo.coinChange(new int[]{336,288,378,16,319,146}, 9212));//26
-    }
-
-    @Test
-    public void test2() {
-        CoinChange demo = new CoinChange();
-        System.out.println(demo.coinChange2(new int[] {1, 2, 5}, 11));
-        System.out.println(demo.coinChange2(new int[] {1, 2, 5}, 12));
-        System.out.println(demo.coinChange2(new int[] {1, 2, 5}, 13));
-        System.out.println(demo.coinChange2(new int[] {1, 2, 15}, 13));
-        System.out.println(demo.coinChange2(new int[] {1, 13, 11, 7}, 100));
-        System.out.println(demo.coinChange2(new int[] {1}, 11));
-        System.out.println(demo.coinChange2(new int[] {2}, 3));
-        System.out.println(demo.coinChange2(new int[] {5}, 10));
-        System.out.println(demo.coinChange2(new int[] {5, 6, 7}, 4));
-        System.out.println(demo.coinChange2(new int[]{186, 419, 83, 408}, 6249));
-        System.out.println(demo.coinChange2(new int[]{227, 99, 328, 299, 42, 322}, 9847));
-
-        //正确的是26， 实际27
-        System.out.println(demo.coinChange2(new int[]{336,288,378,16,319,146}, 9212));
-    }
-
-    @Test
-    public void test3() {
-        CoinChange demo = new CoinChange();
-        System.out.println(demo.coinChange3(new int[] {1, 2, 5}, 11));
-        System.out.println(demo.coinChange4(new int[] {1, 2, 5}, 12));
-        //System.out.println(demo.coinChange3(new int[] {1, 2, 5}, 13));
-        //System.out.println(demo.coinChange3(new int[] {1, 2, 15}, 13));
-        //System.out.println(demo.coinChange3(new int[] {1, 13, 11, 7}, 100));
-        //System.out.println(demo.coinChange3(new int[] {1}, 11));
-        //System.out.println(demo.coinChange3(new int[] {2}, 3));
-        //System.out.println(demo.coinChange3(new int[] {5}, 10));
-        //System.out.println(demo.coinChange3(new int[] {5, 6, 7}, 4));
-        //System.out.println(demo.coinChange3(new int[]{186, 419, 83, 408}, 6249));
-        //System.out.println(demo.coinChange3(new int[]{227, 99, 328, 299, 42, 322}, 9847));
-        //System.out.println(demo.coinChange3(new int[]{336,288,378,16,319,146}, 9212));
+        System.out.println(coinChange3(new int[] {1, 2, 5}, 11));//3
+        System.out.println(coinChange3(new int[] {1, 2, 5}, 12));//3
+        System.out.println(coinChange3(new int[] {1, 2, 5}, 13));//4
+        System.out.println(coinChange3(new int[] {1, 2, 15}, 13));//7
+        System.out.println(coinChange3(new int[] {1, 13, 11, 7}, 100));//8
+        System.out.println(coinChange3(new int[] {1}, 11));//11
+        System.out.println(coinChange3(new int[] {2}, 11));//-1
+        System.out.println(coinChange3(new int[] {5}, 10));//2
+        System.out.println(coinChange3(new int[] {5, 6, 7}, 4));//-1
+        System.out.println(coinChange3(new int[]{186, 419, 83, 408}, 6249));//20
+        System.out.println(coinChange3(new int[]{227, 99, 328, 299, 42, 322}, 9847));//31
+        System.out.println(coinChange3(new int[]{336,288,378,16,319,146}, 9212));//26
     }
 
     /**
@@ -141,7 +103,7 @@ public class CoinChange {
     }
 
     /**
-     * @description 错误的解法二：
+     * @description {186, 419, 83, 408}, 6249 就开始超时了
      * @author liqibo
      * @date 2019/7/15 15:00
      **/
@@ -150,54 +112,47 @@ public class CoinChange {
             return 0;
         }
 
-        Arrays.sort(coins);
+        int[] dp = new int[amount + 1];
 
-        return coinChange2(coins, amount, coins.length - 1, new HashMap<>());
+        for (int coin : coins) {
+            if (coin < dp.length) {
+                dp[coin] = 1;
+            }
+        }
+
+        return coinChange2(coins, amount, dp);
     }
 
-    private int coinChange2(int[] coins, int curAmount, int start, HashMap<Integer, Integer> dp) {
+    private int coinChange2(int[] coins, int amount, int[] dp) {
+        if (amount == 0) {
+            return 0;
+        }
 
-        if (start < 0 || curAmount <= 0 || curAmount < coins[0]) {
+        if (amount < 0) {
             return -1;
         }
 
-        int minCoinsCount = Integer.MAX_VALUE;
-
-        int i = curAmount / coins[start];
-        if (curAmount % coins[start] == 0) {
-            return i;
+        if (dp[amount] > 0) {
+            return dp[amount];
         }
 
-        while (i > 0) {
-            int nextAmount = curAmount - i * coins[start];
-            int tempCoinsCount;
-            if (dp.containsKey(nextAmount)) {
-                tempCoinsCount = dp.get(nextAmount) + i;
-            } else {
-                tempCoinsCount = coinChange2(coins, nextAmount, start - 1, dp);
-                if (tempCoinsCount <= 0) {
-                    i--;
-                    continue;
-                }
-
-                tempCoinsCount += i;
-                dp.put(curAmount, tempCoinsCount);
+        int min = Integer.MAX_VALUE;
+        boolean canExchange = false;
+        for (int coin : coins) {
+            int tmpAmout = coinChange2(coins, amount - coin, dp);
+            if (tmpAmout >= 0) {
+                canExchange = true;
+                min = Math.min(tmpAmout + 1, min);
             }
-
-            if (tempCoinsCount < minCoinsCount) {
-                minCoinsCount = tempCoinsCount;
-                dp.put(curAmount, minCoinsCount);
-            }
-
-            i--;
         }
 
-        int tempCoinsCount = coinChange2(coins, curAmount, start - 1, dp);
-        if (tempCoinsCount > 0 && tempCoinsCount < minCoinsCount) {
-            minCoinsCount = tempCoinsCount;
+        if (!canExchange) {
+            min = -1;
         }
-        return minCoinsCount == Integer.MAX_VALUE ? -1 : minCoinsCount;
+        dp[amount] = min;
+        return min;
     }
+
 
     /**
      * 官方解法一：动态规划-自上而下.
