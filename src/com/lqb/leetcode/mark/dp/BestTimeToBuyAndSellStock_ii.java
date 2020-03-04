@@ -1,4 +1,4 @@
-package com.lqb.leetcode.mark;
+package com.lqb.leetcode.mark.dp;
 
 import org.junit.Test;
 
@@ -40,10 +40,9 @@ public class BestTimeToBuyAndSellStock_ii {
 
     @Test
     public void test() {
-        BestTimeToBuyAndSellStock_ii test = new BestTimeToBuyAndSellStock_ii();
-        System.out.println(test.maxProfit3(new int[]{7, 1, 5, 3, 6, 4}));
-        System.out.println(test.maxProfit3(new int[]{1, 2, 3, 4, 5}));
-        System.out.println(test.maxProfit3(new int[]{7, 6, 4, 3, 1}));
+        System.out.println(maxProfit3(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(maxProfit3(new int[]{1, 2, 3, 4, 5}));
+        System.out.println(maxProfit3(new int[]{7, 6, 4, 3, 1}));
     }
 
     /**
@@ -53,7 +52,7 @@ public class BestTimeToBuyAndSellStock_ii {
      * @author liqibo
      * @date 2019/9/19 19:17
      **/
-    public int maxProfit3(int[] prices) {
+    public int maxProfit1(int[] prices) {
         if (prices == null || prices.length == 0) {
             return 0;
         }
@@ -95,38 +94,28 @@ public class BestTimeToBuyAndSellStock_ii {
         return maxProfit;
     }
 
-
     /**
-     * @description 自己的解法：递归，超时了
      * @author liqibo
-     * @date 2019/9/19 19:06
-     **/
-    public int maxProfit(int[] prices) {
-        if (prices == null || prices.length == 0) {
-            return 0;
-        }
-        return getMaxProfitByRecursion(prices, 0, true, -1);
-    }
-
-    private int getMaxProfitByRecursion(int[] prices, int day, boolean isStockBuyable, int dayOfBuy) {
-        if (day >= prices.length) {
+     * @date 2020/3/4 14:28
+     * @description 状态转移框架
+     * 因为交易次数没有限制，所以k不作为变量
+     */
+    public int maxProfit3(int[] prices) {
+        if (prices == null || prices.length <= 1) {
             return 0;
         }
 
-        int balanceAfterBuy = 0;
-        int balanceAfterSell = 0;
+        int[][] dp = new int[prices.length + 1][2];
 
-        if (isStockBuyable) {
-            balanceAfterBuy = getMaxProfitByRecursion(prices, day + 1, false, day) - prices[day];
-        } else if (prices[day] > prices[dayOfBuy]) {
-            balanceAfterSell = getMaxProfitByRecursion(prices, day + 1, true, -1) + prices[day];
+        //第0天，不管有没有操作次数，持有股票都是不合法的
+        dp[0][1] = Integer.MIN_VALUE;
+
+        for (int i = 1; i <= prices.length; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i - 1]);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i - 1]);
         }
 
-        int balanceWithoutAct = getMaxProfitByRecursion(prices, day + 1, isStockBuyable, dayOfBuy);
-
-        int maxBalance = balanceAfterBuy > balanceAfterSell ? balanceAfterBuy : balanceAfterSell;
-        maxBalance = maxBalance > balanceWithoutAct ? maxBalance : balanceWithoutAct;
-
-        return maxBalance;
+        return dp[prices.length][0];
     }
+
 }
