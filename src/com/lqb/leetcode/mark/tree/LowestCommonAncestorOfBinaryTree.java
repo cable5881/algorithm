@@ -105,7 +105,7 @@ public class LowestCommonAncestorOfBinaryTree {
             this.ans = currentNode;
         }
 
-        //结果可能是0,2,3，只要是大于0表示至少找到了其中之一
+        //结果可能是0,1,2, 只要是大于0表示至少找到了其中之一
         return (mid + left + right > 0);
     }
 
