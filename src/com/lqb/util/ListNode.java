@@ -33,4 +33,11 @@ public class ListNode<T> {
 		n3.next = n4;
 		n4.next = n5;
 	}
+
+    @Override
+    public String toString() {
+        return "ListNode{" +
+                "val=" + val +
+                '}';
+    }
 }
