@@ -10,14 +10,15 @@ public class ListNode<T> {
     public ListNode(T val) {
         this.val = val;
     }
-    
+
     public void printAll(){
     	ListNode p = this;
     	
     	while( p != null ){
-    		System.out.println(p.val);
+    		System.out.print(p.val + ",");
     		p = p.next;
     	}
+		System.out.println();
     }
     
     public static void main(String[] args) {
