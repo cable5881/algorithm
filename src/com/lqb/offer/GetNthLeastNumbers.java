@@ -3,7 +3,6 @@ package com.lqb.offer;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.PriorityQueue;
 
 /**
@@ -12,7 +11,6 @@ import java.util.PriorityQueue;
  * @author:JackBauer
  * @date:2016年6月14日 下午1:38:42
  */
-@SuppressWarnings("Duplicates")
 public class GetNthLeastNumbers {
 
     @Test
@@ -20,7 +18,6 @@ public class GetNthLeastNumbers {
         int[] array = {4, 5, 1, 6, 2, 7, 3, 8};
         System.out.println(getLeastNumbers2(array, 4));
     }
-
 
     public ArrayList<Integer> getLeastNumbers(int[] array, int k) {
 
@@ -86,35 +83,25 @@ public class GetNthLeastNumbers {
      * 第二种方法，利用最大堆
      */
     public ArrayList<Integer> getLeastNumbers2(int[] a, int k) {
-        ArrayList<Integer> leastNumbers = new ArrayList<>();
 
-        if (a == null || a.length == 0 || k <= 0 || k > a.length) {
-            return leastNumbers;
+        if (a == null || a.length <= 0 || k <= 0 || k > a.length) {
+            return new ArrayList<>();
         }
-
-        PriorityQueue<Integer> queue = new PriorityQueue<>(k, (o1, o2) -> o2 - o1);
-        queue.add(a[0]);
-        int i = 1;
-
-        while (i < k) {
-            queue.add(a[i++]);
-        }
-
-        while (i < a.length) {
-            if (queue.peek() > a[i]) {
-                queue.poll();
-                queue.add(a[i]);
+        //构建一个大顶堆
+        PriorityQueue<Integer> leastK = new PriorityQueue<>(k, (o1, o2) -> o2 - o1);
+        int cnt = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (cnt < k) {
+                leastK.add(a[i]);
+                cnt++;
+                continue;
             }
-            i++;
+            if (a[i] < leastK.peek()) {
+                leastK.poll();
+                leastK.add(a[i]);
+            }
         }
 
-        Iterator<Integer> iterator = queue.iterator();
-        while (iterator.hasNext()) {
-            leastNumbers.add(iterator.next());
-        }
-
-        return leastNumbers;
-
+        return new ArrayList<>(leastK);
     }
-
 }
