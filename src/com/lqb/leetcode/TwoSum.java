@@ -77,12 +77,12 @@ public class TwoSum {
 
         for (int i = 0; i < nums.length; i++) {
             int j = target - nums[i];
-            if (numMap.containsKey(j) && numMap.get(j) != i) {
+            if (numMap.containsKey(j)) {
                 ans[0] = numMap.get(j);
-                ans[1] = i;
+                ans[1] = i + 1;
                 break;
             }
-            numMap.put(nums[i], i);
+            numMap.put(nums[i], i + 1);
         }
 
         return ans;
