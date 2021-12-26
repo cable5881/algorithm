@@ -22,9 +22,18 @@ public class TreeNode {
             return;
         }
 
+        preOrderRecursively0(treeNode);
+        System.out.println();
+    }
+
+    private static void preOrderRecursively0(TreeNode treeNode) {
+        if (treeNode == null) {
+            return;
+        }
+
         System.out.print("#" + treeNode.val);
-        preOrderRecursively(treeNode.left);
-        preOrderRecursively(treeNode.right);
+        preOrderRecursively0(treeNode.left);
+        preOrderRecursively0(treeNode.right);
     }
 
     /**

@@ -1,9 +1,10 @@
-package com.lqb.offer;
+package com.lqb.offer.mark;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 /**
  * @Description:给定一个数组和滑动窗口的大小，
@@ -81,6 +82,71 @@ public class MaxInWindows {
         //注意最后还要再添加一次或者上面的while第一次也不成立，那么这里是添加第一个窗口
         res.add(num[maxQueue.peek()]);
 
+        return res;
+    }
+
+    /**
+     * 2021/12/25 更新
+     * 用了大顶堆，堆中把每次数组中遍历的元素都加入进去，然后统计窗口最大时弹出，之前入堆但已经不在窗口的就忽略本次继续弹出
+     * 时间复杂度：nlog(k)
+     * 空间复杂度：O(n)
+     */
+    public ArrayList<Integer> maxInWindows2(int[] num, int windowSize) {
+        ArrayList<Integer> res = new ArrayList<>();
+        if(num == null || num.length <= 0 || windowSize <= 0 || windowSize > num.length) {
+            return res;
+        }
+
+        PriorityQueue<Pair> windows = new PriorityQueue<>(windowSize,(o1, o2) -> o2.val - o1.val);
+        for(int i = 0; i < num.length; i++) {
+            windows.add(new Pair(num[i], i));
+            if(windows.size() < windowSize) {
+                continue;
+            }
+            while(windows.peek().idx + windowSize <= i) {
+                windows.poll();
+            }
+            res.add(windows.peek().val);
+        }
+        return res;
+    }
+
+    private static class Pair {
+        public int val;
+        public int idx;
+        public Pair(int val, int idx) {
+            this.val = val;
+            this.idx = idx;
+        }
+    }
+
+    /**
+     * 和第一种方式是一样的，但是代码更加简洁
+     * 算法复杂度O(n*1)
+     */
+    public ArrayList<Integer> maxInWindows3(int[] num, int size) {
+        ArrayList<Integer> res = new ArrayList<>();
+        if(num == null || num.length <= 0 || size <= 0 || size > num.length) {
+            return res;
+        }
+
+        LinkedList<Integer> windowsMax = new LinkedList<>();
+        for(int i = 0; i < num.length; i++) {
+            //校验最大值是否已经过期，过期则移除，老二上位
+            if(!windowsMax.isEmpty() && windowsMax.peekFirst() <= i - size) {
+                windowsMax.removeFirst();
+            }
+            //当前值都可能是未来最大的，于是杀掉比自己老又没有自己大的老臣
+            while(!windowsMax.isEmpty() && num[windowsMax.peekLast()] <= num[i]) {
+                windowsMax.removeLast();
+            }
+            //新来的都到末尾，未来没有被杀掉就有可能登顶成为老大
+            windowsMax.addLast(i);
+            //添加到结果集的时机
+            if(i >= size - 1) {
+                res.add(num[windowsMax.peekFirst()]);
+            }
+        }
         return res;
     }
 }
