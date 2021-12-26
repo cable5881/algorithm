@@ -121,7 +121,8 @@ public class MaxInWindows {
     }
 
     /**
-     * 和第一种方式是一样的，但是代码更加简洁
+     * 和第一种方式是一样的，但是代码更加简洁.
+     * 注意：windowsMax存储的是数组下标，而不是实际的值。只有这样才能知道下标是否过期(不在窗口内)
      * 算法复杂度O(n*1)
      */
     public ArrayList<Integer> maxInWindows3(int[] num, int size) {
