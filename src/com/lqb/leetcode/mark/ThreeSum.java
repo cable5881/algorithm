@@ -36,13 +36,14 @@ public class ThreeSum {
     }
 
     /**
-     * @description Map缓存两数相加的结果
+     * @description 第一种解法：Map缓存两数相加的结果
      * @author liqibo
      * @date 2019/6/27 15:52
      **/
     public List<List<Integer>> threeSum(int[] nums) {
 
         HashMap<Integer, Integer> indexMap = new HashMap<>(nums.length);
+        //通过这个set来去重
         HashSet<List<Integer>> res = new HashSet<>();
 
         for (int i = 0; i < nums.length; i++) {
@@ -69,16 +70,55 @@ public class ThreeSum {
     }
 
     /**
+     * 和第一种解法相同，但代码更加简洁
+     */
+    public List<List<Integer>> threeSum2(int[] nums) {
+        //先排序，方便去重，不用像上一个方法中那样，对结最终果集进行排序
+        Arrays.sort(nums);
+
+        //最终结果集存入Set，因为Set支持去重
+        Set<List<Integer>> res = new HashSet<>();
+        for (int i = 0; i < nums.length - 2; i++) {
+            //去重
+            if (i > 0 && nums[i - 1] == nums[i]) {
+                continue;
+            }
+            //这个set需要在每次循环中初始化，如果在循环外初始化。因为set是保存a+b的结果，不同的迭代中是有可能重复的
+            Set<Integer> set = new HashSet<>();
+
+            //下面两个for循环都可以
+            //如果nums[i]=-1, nums[j]=-1, 则set中存入2，就是缓存了两数之和的结果了，或者说期望数组中存在2。
+            //那么只要后面轮训到2时，就认为存在一个组合使得a+b+c=0了
+            for (int j = i + 1; j < nums.length; j++) {
+                if (!set.contains(nums[j])) {
+                    set.add(-nums[i] - nums[j]);
+                } else {
+                    res.add(Arrays.asList(nums[i], nums[j], -nums[i] - nums[j]));
+                }
+            }
+            //用这种可能更加好理解一点
+            //缓存a+b的结果，如果a+b+c=0，那么缓存的就是a+b=-c的结果。那么下次轮训只要看缓存中是否存在-c即可。
+            for (int j = i + 1; j < nums.length; j++) {
+                if (set.contains(-nums[j])) {
+                    res.add(Arrays.asList(nums[i], nums[j], -nums[j] - nums[i]));
+                } else {
+                    set.add(nums[i] + nums[j]);
+                }
+            }
+        }
+
+        return new ArrayList<>(res);
+    }
+
+    /**
      * @description 先排序，固定一个数A，左指针指向A的下一个数B，右指针指向最后一个C。
      * 如果A + B + C > 0 则右指针往左移动；反之左指针往右移动
      * 注意移动的同时，如果还是同一个数则可以不用比较直接跳过
      * @author liqibo
      * @date 2019/6/27 17:38
      **/
-    public List<List<Integer>> threeSum2(int[] nums) {
-
+    public List<List<Integer>> threeSum3(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
-
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length - 2; i++) {
@@ -116,15 +156,54 @@ public class ThreeSum {
                     r--;
                 }
             }
-
-            //这个去重放在循环一开始了
-            // while (i < nums.length - 2 && nums[i] == nums[i + 1]) {
-            //     i++;
-            // }
         }
 
         return ans;
     }
 
+    /**
+     * 和threeSum3解法相同，代码更加简洁
+     * 2021/12/27 更新
+     */
+    public List<List<Integer>> threeSum4(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(nums);
 
+        for (int i = 0; i < nums.length - 2; i++) {
+            //去重
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            int left = i + 1;
+            int right = nums.length - 1;
+            int a = nums[i];
+            while (left < right) {
+                int b = nums[left];
+                int c = nums[right];
+                int threeSum = a + b + c;
+                if (threeSum == 0) {
+                    List<Integer> threeSumList = new ArrayList<>(3);
+                    threeSumList.add(a);
+                    threeSumList.add(b);
+                    threeSumList.add(c);
+                    res.add(threeSumList);
+                    //为了简化代码去重可以只放到threeSum==0的时候。当然threeSum != 0的情况也可以有去重
+                    while (left < right && nums[left + 1] == nums[left]) {
+                        left++;
+                    }
+                    while (left < right && nums[right - 1] == nums[right]) {
+                        right--;
+                    }
+                    left++;
+                    right--;
+                } else if (threeSum < 0) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+
+        return res;
+    }
 }
