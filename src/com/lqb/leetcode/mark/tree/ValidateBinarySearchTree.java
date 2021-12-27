@@ -1,9 +1,10 @@
-package com.lqb.leetcode.mark;
+package com.lqb.leetcode.mark.tree;
 
 import com.lqb.util.TreeNode;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -40,11 +41,92 @@ import java.util.List;
 public class ValidateBinarySearchTree {
 
     /**
+     * 中序遍历（迭代法），一旦遇到不符合规则的节点则迭代中止
+     */
+    public boolean isValidBST0(TreeNode root) {
+        if(root == null) {
+            return true;
+        }
+
+        LinkedList<TreeNode> s = new LinkedList<>();
+        TreeNode node = root;
+        TreeNode last = null;
+        s.addFirst(node);
+        // 但这个中序遍历迭代太复杂了, 有简单的中序遍历的迭代法
+        while (!s.isEmpty()) {
+            while (node != null && node.left != null) {
+                node = node.left;
+                s.addLast(node);
+            }
+            node = s.pollLast();
+            if (last != null && last.val >= node.val) {
+                return false;
+            }
+            last = node;
+            System.out.print("#"+node.val);
+            if (node.right != null) {
+                node = node.right;
+                s.addLast(node);
+            } else {
+                //这个node置位空很容易忘记
+                node = null;
+            }
+        }
+
+        //简单的中序遍历的迭代法
+        // LinkedList<TreeNode> s = new LinkedList<>();
+        // TreeNode node = root;
+        // TreeNode last = null;
+        while (!s.isEmpty() || node != null) {
+            if (node != null) {
+                s.push(node);
+                node = node.left;
+                continue;
+            }
+            node = s.pop();
+            if (last != null && last.val >= node.val) {
+                return false;
+            }
+            last = node;
+            //这里不能有判断，否则node的值还是last无法改变。
+            // if (node.right != null) {
+            //     node = node.right;
+            // }
+            node = node.right;
+        }
+
+        return true;
+    }
+
+    TreeNode lastNode = null;
+    /**
+     * 上一个数永远比下一个遍历的数大，因此只要保存上一个数就行了
+     */
+    public boolean isValidBST00(TreeNode root) {
+        if(root == null) {
+            return true;
+        }
+
+        boolean isLeftBST = isValidBST00(root.left);
+        if (!isLeftBST) {
+            return false;
+        }
+
+        if (lastNode != null && lastNode.val >= root.val) {
+            return false;
+        }
+
+        lastNode = root;
+
+        return isValidBST00(root.right);
+    }
+
+    /**
      * @description 错误解法：第一代和第三代的大小没有判断到
      * @author liqibo
      * @date 2019/7/11 21:10
      **/
-    public boolean isValidBST(TreeNode root) {
+    public boolean isValidBST_Wrong_1(TreeNode root) {
         if (root == null) {
             return true;
         }
@@ -57,7 +139,7 @@ public class ValidateBinarySearchTree {
             return false;
         }
 
-        return isValidBST(root.left) && isValidBST(root.right);
+        return isValidBST_Wrong_1(root.left) && isValidBST_Wrong_1(root.right);
     }
 
 
@@ -93,37 +175,6 @@ public class ValidateBinarySearchTree {
         isValidBST2(root.right, visits);
     }
 
-    /**
-     * @description 解法三：上一个数永远比下一个遍历的数大，因此只要保存上一个数就行了
-     * @author liqibo
-     * @date 2019/7/12 9:43
-     **/
-    private long last = Long.MIN_VALUE;
-    public boolean isValidBST3(TreeNode root) {
-        return isValidBST3Core(root);
-    }
-    public boolean isValidBST3Core(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-
-        if(!isValidBST3Core(root.left)) {
-            return false;
-        }
-
-        if (root.val <= last) {
-            return false;
-        }
-
-        last = root.val;
-        return isValidBST3Core(root.right);
-    }
-
-    /**
-     * 解法四：前序遍历，父级大于左孩子，小于右孩子。需要向下传递父级、左孩子或右孩子
-     **/
-
-
     @Test
     public void test() {
         ValidateBinarySearchTree demo = new ValidateBinarySearchTree();
@@ -142,7 +193,7 @@ public class ValidateBinarySearchTree {
         t3.left = t6;
         t3.right = t7;
 
-        System.out.println(demo.isValidBST3(t1));
+        System.out.println(demo.isValidBST0(t1));
     }
 
     @Test
@@ -163,8 +214,8 @@ public class ValidateBinarySearchTree {
         t3.left = t6;
         t3.right = t7;
 
-        System.out.println(demo.isValidBST3(t1));
-        System.out.println(new ValidateBinarySearchTree().isValidBST3(new TreeNode(Integer.MIN_VALUE)));
+        System.out.println(demo.isValidBST0(t1));
+        System.out.println(new ValidateBinarySearchTree().isValidBST0(new TreeNode(Integer.MIN_VALUE)));
     }
 
     @Test
@@ -175,7 +226,7 @@ public class ValidateBinarySearchTree {
 
         t1.right = t2;
 
-        System.out.println(demo.isValidBST3(t1));
+        System.out.println(demo.isValidBST0(t1));
     }
 
     @Test
@@ -185,7 +236,7 @@ public class ValidateBinarySearchTree {
         TreeNode t3 = new TreeNode(2147483647);
         t1.right = t3;
 
-        System.out.println(demo.isValidBST3(t1));
+        System.out.println(demo.isValidBST0(t1));
     }
 
     @Test
@@ -195,6 +246,18 @@ public class ValidateBinarySearchTree {
         TreeNode t3 = new TreeNode(-2147483648);
         t1.left = t3;
 
-        System.out.println(demo.isValidBST3(t1));
+        System.out.println(demo.isValidBST0(t1));
+    }
+
+    @Test
+    public void test6() {
+        TreeNode t1 = new TreeNode(34);
+        TreeNode t2 = new TreeNode(-6);
+        TreeNode t3 = new TreeNode(-21);
+
+        t1.left = t2;
+        t2.left = t3;
+
+        System.out.println(isValidBST0(t1));
     }
 }
