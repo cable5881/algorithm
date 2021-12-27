@@ -75,38 +75,37 @@ public class LowestCommonAncestorOfBinaryTree {
      * @author liqibo
      * @date 2020/3/6 16:11
      * @description 官方解法
+     *       1
+     *      / \
+     *    2     3
+     *   / \   /  \
+     * 4    5  6   7
+     * 需要找到一个规律，对于一个节点：
+     * 1.如果左子树找到了任意其一，右子树一个都没找到，则肯定公共祖先肯定在左子树上
+     * 2.如果右子树找到了任意其一，左子树一个都没找到，则肯定公共祖先肯定在右子树上
+     * 3.如果左右子树都找到了任意其一，则肯定公共祖先肯定在当前节点
      */
     public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
-        recurseTree(root, p, q);
-        return ans;
-    }
-
-    private TreeNode ans;
-
-    private boolean recurseTree(TreeNode currentNode, TreeNode p, TreeNode q) {
-
-        if (currentNode == null) {
-            return false;
+        if (root == null) {
+            return null;
         }
 
-        int left = recurseTree(currentNode.left, p, q) ? 1 : 0;
-        int right = recurseTree(currentNode.right, p, q) ? 1 : 0;
-
-        //mid == 1表示找到了其中之一
-        int mid = (currentNode.val == p.val || currentNode.val == q.val) ? 1 : 0;
-        //这里可能有几种情况
-        //    1
-        //  2   3
-        // 4 5 6 7
-        //2，有可能是left为0，right为1，然后mid为1，如p为1，q为3，当前为1
-        //2，有可能是left为1，right为1，然后mid为0，表示两个节点都在当前节点的子节点中找到了，如p为2，q为3，当前为1
-        //1，有可能是left为1，right为0，然后mid为0，表示两个节点都在当前节点的左节点的子节点中找到了，如p为4，q为5，当前为1
-        if (mid + left + right >= 2) {
-            this.ans = currentNode;
+        //关键点，找到了任意其一直接返回
+        if (root == p || root == q) {
+            return root;
         }
 
-        //结果可能是0,1,2, 只要是大于0表示至少找到了其中之一
-        return (mid + left + right > 0);
+        TreeNode leftAncestor = lowestCommonAncestor2(root.left, p, q);
+        TreeNode rightAncestor = lowestCommonAncestor2(root.right, p, q);
+        if (leftAncestor != null && rightAncestor != null) {
+            return root;
+        } else if (leftAncestor != null) {
+            return leftAncestor;
+        } else if (rightAncestor != null) {
+            return rightAncestor;
+        }
+
+        return null;
     }
 
 }
