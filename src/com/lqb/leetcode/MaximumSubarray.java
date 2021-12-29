@@ -24,96 +24,42 @@ public class MaximumSubarray {
     @Test
     public void test1() {
         MaximumSubarray demo = new MaximumSubarray();
-        System.out.println(demo.maxSubArray3(new int[] {-2,1,-3,4,-1,2,1,-5,4}));  //6
-        System.out.println(demo.maxSubArray3(new int[] {-2,-3,-3,-1,-5}));         //-1
-        System.out.println(demo.maxSubArray3(new int[] {-2,-3,6,-3,-1,-5}));       //6
-        System.out.println(demo.maxSubArray3(new int[] {1}));                      //1
-        System.out.println(demo.maxSubArray3(new int[] {-1}));                     //-1
-        System.out.println(demo.maxSubArray3(new int[] {-1, 0}));                  //0
+        System.out.println(demo.maxSubArray(new int[] {-2,1,-3,4,-1,2,1,-5,4}));  //6
+        System.out.println(demo.maxSubArray(new int[] {-2,-3,-3,-1,-5}));         //-1
+        System.out.println(demo.maxSubArray(new int[] {-2,-3,6,-3,-1,-5}));       //6
+        System.out.println(demo.maxSubArray(new int[] {1}));                      //1
+        System.out.println(demo.maxSubArray(new int[] {-1}));                     //-1
+        System.out.println(demo.maxSubArray(new int[] {-1, 0}));                  //0
     }
 
     /**
-     * 自己的解法: 算法复杂度O(n), 空间复杂度O(1)
-     */
+     * @description O(n)的迭代法(也可以认为是动态规划)
+     * @author liqibo
+     * @date 2021/12/29
+     **/
     public int maxSubArray(int[] nums) {
-
-        if (nums == null || nums.length == 0) {
-            return 0;
+        if (nums == null || nums.length <= 0) {
+            return Integer.MIN_VALUE;
         }
 
         int maxSum = Integer.MIN_VALUE;
-        int tempSum = 0;
-
-        for (int num : nums) {
-            if (tempSum + num <= 0) {
-                if (maxSum < 0 && num > maxSum) {
-                    maxSum = num;
-                }
-                tempSum = 0;
-                continue;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            if (nums[i] > sum) {
+                sum = nums[i];
             }
-
-            tempSum += num;
-            if (tempSum > maxSum) {
-                maxSum = tempSum;
+            if (sum > maxSum) {
+                maxSum = sum;
             }
         }
+
+        //为啥可以认为是动态规划？
+        //假设dp[i]是数组某个下标时的最大连续和，那么应该满足dp[i]=max(dp[i - 1] + nums[i], nums[i])
+        //因此可以用一个数组保存每个位置下的最大连续和
+        //但由于我们只需要求一个最大的，因此就是上面这种写法，不需要记录历史每个时刻的连续和。
+        //用上面的解法，sum就是dp[i]
 
         return maxSum;
     }
-
-    /**
-     * 官网的解法, 流程有优化.  算法复杂度O(n), 空间复杂度O(1)
-     */
-    public int maxSubArray2(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-
-        int maxSum = nums[0];
-        int tempSum = 0;
-
-        for (int num : nums) {
-            if (tempSum > 0) {
-                //即使tempSum 加上 num 变为负数也没事, 此时tempSum 肯定 没有maxSum大, 并不会赋值给maxSum
-                tempSum += num;
-            } else {
-                //如果之前的子序列和已经小于0了, 那么此时num 如果 比 maxSum大, 那么tempSum = num, 后面会赋值给maxSum
-                //反之如果num < maxSum, 然后tempSum = num, tempSum会比maxSum, 那么后面就不赋值给maxSum
-                tempSum = num;
-            }
-
-            maxSum = Math.max(tempSum, maxSum);
-        }
-
-        return maxSum;
-    }
-
-    /**
-     * @description 多天后自己的解法
-     * @author liqibo
-     * @date 2019/9/19 17:05
-     **/
-    public int maxSubArray3(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-
-        int maxSum = nums[0];
-        int tempSum = nums[0];
-
-        for (int i = 1; i < nums.length; i++) {
-            //这里去掉nums[i] > tempSum 也没事，因为不会赋值给maxSum
-            if (tempSum < 0 && nums[i] > tempSum) {
-                tempSum = nums[i];
-            } else {
-                tempSum += nums[i];
-            }
-
-            maxSum = Math.max(tempSum, maxSum);
-        }
-
-        return maxSum;
-    }
-
 }
