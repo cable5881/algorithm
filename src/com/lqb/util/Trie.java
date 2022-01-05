@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.util;
 
 import org.junit.Test;
 
@@ -41,6 +41,7 @@ public class Trie {
     }
 
     /**由于题目规定了字符串中只包含26个字母，因此这里可以优化成一个26长度的数组*/
+    /**这里无需用数组，可以用Map来优化搜索*/
     private Map<Character, Trie> links;
 
     /**用来标记到目前为止是不是一个单词，如trie树中插入“apple”，此时搜索到了“app”它不是一个单词*/
