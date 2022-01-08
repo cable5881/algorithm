@@ -30,51 +30,46 @@ public class UniquePaths {
 
     @Test
     public void test1_1() {
+        Assert.assertEquals(1, uniquePaths(1, 1));
         Assert.assertEquals(1, uniquePaths2(1, 1));
     }
 
     @Test
     public void test2_2() {
+        Assert.assertEquals(2, uniquePaths(2, 2));
         Assert.assertEquals(2, uniquePaths2(2, 2));
     }
 
     @Test
     public void test3_3() {
+        Assert.assertEquals(6, uniquePaths(3, 3));
         Assert.assertEquals(6, uniquePaths2(3, 3));
     }
 
     @Test
     public void test3_7() {
+        Assert.assertEquals(28, uniquePaths(3, 7));
         Assert.assertEquals(28, uniquePaths2(3, 7));
     }
 
-    @Test
-    public void test100_100() {
-        Assert.assertEquals(28, uniquePaths(100, 100));
-    }
-
-    private int count = 0;
-
     /**
-     * 暴力法
+     * dfs
      **/
     public int uniquePaths(int x, int y) {
-        uniquePathsCore(x, y, 1, 1);
-        return count;
+        return uniquePathsCore(x, y, 1, 1);
     }
 
-    private void uniquePathsCore(int x, int y, int curX, int curY) {
+    private int uniquePathsCore(int x, int y, int curX, int curY) {
+
+        if (curX > x || curY > y) {
+            return 0;
+        }
+
         if (curX == x && curY == y) {
-            count++;
+            return 1;
         }
 
-        if (curX <= x) {
-            uniquePathsCore(x, y, curX + 1, curY);
-        }
-
-        if (curY <= y) {
-            uniquePathsCore(x, y, curX, curY + 1);
-        }
+        return uniquePathsCore(x, y, curX + 1, curY) + uniquePathsCore(x, y, curX, curY + 1);
     }
 
     /**
