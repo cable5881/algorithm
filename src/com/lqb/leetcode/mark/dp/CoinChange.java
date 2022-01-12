@@ -3,6 +3,7 @@ package com.lqb.leetcode.mark.dp;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Set;
 
 /**
  * 给定不同面额的硬币 coins 和一个总金额 amount。
@@ -30,18 +31,18 @@ public class CoinChange {
 
     @Test
     public void test() {
-        System.out.println(coinChange3(new int[] {1, 2, 5}, 11));//3
-        System.out.println(coinChange3(new int[] {1, 2, 5}, 12));//3
-        System.out.println(coinChange3(new int[] {1, 2, 5}, 13));//4
-        System.out.println(coinChange3(new int[] {1, 2, 15}, 13));//7
-        System.out.println(coinChange3(new int[] {1, 13, 11, 7}, 100));//8
-        System.out.println(coinChange3(new int[] {1}, 11));//11
-        System.out.println(coinChange3(new int[] {2}, 11));//-1
-        System.out.println(coinChange3(new int[] {5}, 10));//2
-        System.out.println(coinChange3(new int[] {5, 6, 7}, 4));//-1
-        System.out.println(coinChange3(new int[]{186, 419, 83, 408}, 6249));//20
-        System.out.println(coinChange3(new int[]{227, 99, 328, 299, 42, 322}, 9847));//31
-        System.out.println(coinChange3(new int[]{336,288,378,16,319,146}, 9212));//26
+        System.out.println(coinChange4(new int[]{1, 2, 5}, 11));//3
+        System.out.println(coinChange4(new int[]{1, 2, 5}, 12));//3
+        System.out.println(coinChange4(new int[]{1, 2, 5}, 13));//4
+        System.out.println(coinChange4(new int[]{1, 2, 15}, 13));//7
+        System.out.println(coinChange4(new int[]{1, 13, 11, 7}, 100));//8
+        System.out.println(coinChange4(new int[]{1}, 11));//11
+        System.out.println(coinChange4(new int[]{2}, 11));//-1
+        System.out.println(coinChange4(new int[]{5}, 10));//2
+        System.out.println(coinChange4(new int[]{5, 6, 7}, 4));//-1
+        System.out.println(coinChange4(new int[]{186, 419, 83, 408}, 6249));//20
+        System.out.println(coinChange4(new int[]{227, 99, 328, 299, 42, 322}, 9847));//31
+        System.out.println(coinChange4(new int[]{336, 288, 378, 16, 319, 146}, 9212));//26
     }
 
     /**
@@ -250,6 +251,31 @@ public class CoinChange {
             }
         }
         return dp[amount] > amount ? -1 : dp[amount];
+
+    }
+
+    public int coinChange4ByMyself(int[] coins, int amount) {
+        if (amount <= 0 || coins == null || coins.length == 0) {
+            return 0;
+        }
+
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        //这一步容易忘
+        dp[0] = 0;
+        for (int i = 0; i < dp.length; i++) {
+            //说明当前这个amount值用零钱无法兑换
+            if (dp[i] == Integer.MAX_VALUE) {
+                continue;
+            }
+            for (int coin : coins) {
+                int next = i + coin;
+                if (next < dp.length) {
+                    dp[next] = Math.min(dp[next], dp[i] + 1);
+                }
+            }
+        }
+        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
 
     }
 }
