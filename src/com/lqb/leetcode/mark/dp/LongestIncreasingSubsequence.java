@@ -31,11 +31,11 @@ public class LongestIncreasingSubsequence {
         //5
         //1
         //1
-        System.out.println(lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
-        System.out.println(lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18, 3, 4, 5, 6, 7}));
-        System.out.println(lengthOfLIS(new int[]{2, 15, 3, 7, 8, 6, 18}));
-        System.out.println(lengthOfLIS(new int[]{10}));
-        System.out.println(lengthOfLIS(new int[]{10, 9}));
+        System.out.println(lengthOfLIS3(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
+        System.out.println(lengthOfLIS3(new int[]{10, 9, 2, 5, 3, 7, 101, 18, 3, 4, 5, 6, 7}));
+        System.out.println(lengthOfLIS3(new int[]{2, 15, 3, 7, 8, 6, 18}));
+        System.out.println(lengthOfLIS3(new int[]{10}));
+        System.out.println(lengthOfLIS3(new int[]{10, 9}));
     }
 
     @Test
@@ -76,6 +76,40 @@ public class LongestIncreasingSubsequence {
     }
 
     /**
+     * 动态规划，时间复杂度O(nlogn)
+     * 设dp[i]是从0到i的最长子序列(子序列中必须要包含a[i]，所以dp[i]可能不是全局最长的子序列)
+     * 那么dp[i] = Max(dp[0], dp[1], ..., dp[i - 1]) + 1
+     * 且需要满足a[i] > {a[0], a[i], ...., a[i] - 1}
+     */
+    public int lengthOfLIS2(int[] a) {
+
+        int maxLen = 1;
+        int[] dp = new int[a.length];
+        dp[0] = 1;
+        for (int i = 1; i < a.length; i++) {
+            dp[i] = 1;
+            // 这种找最近的比a[i]小的dp+1是不对的
+            // 考虑这种情况a=[7, 8, 6, 18]
+            // 使用下面的判断dp=[1,2,1,2]
+            // 实际上dp应该为[1,2,1,3]
+            // for (int j = i - 1; j >= 0; j--) {
+            //     if (a[i] > a[j]) {
+            //         dp[i] = dp[j] + 1;
+            //         break;
+            //     }
+            // }
+            for (int j = i - 1; j >= 0; j--) {
+                if (a[i] > a[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            maxLen = Math.max(maxLen, dp[i]);
+        }
+
+        return maxLen;
+    }
+
+    /**
      * 官方解法: 用一个数组dp存储上升子序列, 算法复杂度O(nlogn), 空间复杂度O(n)
      * 每遍历一个元素, 如果元素比dp中都小(二分查找), 则替换dp[0]；如果比dp中都大，则追加, 且最大子序列长度加1
      * 如果元素不在dp中但是又在dp的最小和最大范围内, 则替换到它应该插入的位置
@@ -95,7 +129,7 @@ public class LongestIncreasingSubsequence {
      * [2, 3, 7, 101], 4
      * [2, 3, 7, 18], 4
      */
-    public int lengthOfLIS2(int[] nums) {
+    public int lengthOfLIS3(int[] nums) {
         int[] dp = new int[nums.length];
         int len = 0;
 
