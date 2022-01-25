@@ -28,9 +28,9 @@ public class BestTimeToBuyAndSellStock {
     @Test
     public void test() {
         BestTimeToBuyAndSellStock demo = new BestTimeToBuyAndSellStock();
-        System.out.println(demo.maxProfit2(new int[]{7, 1, 5, 3, 6, 4}));
-        System.out.println(demo.maxProfit2(new int[]{7, 6, 4, 3, 1}));
-        System.out.println(demo.maxProfit2(new int[]{1, 2}));
+        System.out.println(demo.maxProfit3(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(demo.maxProfit3(new int[]{7, 6, 4, 3, 1}));
+        System.out.println(demo.maxProfit3(new int[]{1, 2}));
     }
 
     /**
@@ -59,44 +59,60 @@ public class BestTimeToBuyAndSellStock {
      * @date 2020/3/4 12:24
      * @description 万能解法，利用状态转移方程
      *
-     * dp[i][k][0] 表示第i天，且还有K次操作机会的情况下，没有持有股票
-     * dp[i][k][1] 表示第i天，且还有K次操作机会的情况下，持有股票
+     * dp[i][k][0] 表示第i天，且最大K次交易次数的情况下，没有持有股票
+     * dp[i][k][1] 表示第i天，且最大K次交易次数的情况下，持有股票
      *
      * 当前没有持有股票
-     * 昨天也没持有或者昨天持有但是今天卖了（没有买，k不变）
      * dp[i][k][0] = max(dp[i - 1][k][0], dp[i - 1][k][1] + price[i])
+     * 1、我昨天就没有持有，且截至昨天最大交易次数限制为 k；然后我今天选择保持原样，所以我今天还是没有持有，最大交易次数限制依然为k。
+     * 2、我昨天持有股票，且截至昨天最大交易次数限制为k；但是今天我卖了，所以我今天没有持有股票了，最大交易次数限制依然为k。
      *
      * 当前持有股票
-     * 昨天也持有今天没操作或者昨天没持有，但是今天买了（k-1）
      * dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - price[i])
+     * 1、我昨天就持有着股票，且截至昨天最大交易次数限制为 k；然后今天选择保持原样，所以我今天还持有着股票，最大交易次数限制依然为 k。
+     * 2、我昨天本没有持有，且截至昨天最大交易次数限制为 k - 1；但今天我选择买入，所以今天我就持有股票了，最大交易次数限制为 k。
      *
+     * 详细见：https://github.com/labuladong/fucking-algorithm/blob/master/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E5%9B%A2%E7%81%AD%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98.md
      */
     public int maxProfit2(int[] prices) {
 
-        if (prices == null || prices.length <= 0) {
-            return 0;
-        }
-
-        int[][][] dp = new int[prices.length + 1][2][2];
-
-        //第0天，在没有操作次数的情况下，没有操作收益是0
-        //第0天，在有操作次数的情况下，没有操作收益是0
+        int days = prices.length;
+        int haveStock = 2;
+        int maxSellTimes = 1;
+        int[][][] dp = new int[days][maxSellTimes + 1][haveStock];
+        //第一天休息
         dp[0][0][0] = 0;
-        dp[0][1][0] = 0;
-
-        //第0天，在没有操作次数的情况下，持有股票是不可能的
-        //第0天，在有操作次数的情况下，持有股票是不可能的
+        //第一天最大只能买卖0次，则不允许买入
         dp[0][0][1] = Integer.MIN_VALUE;
-        dp[0][1][1] = Integer.MIN_VALUE;
-
-        for (int i = 1; i <= prices.length; i++) {
-            dp[i][1][0] = Math.max(dp[i - 1][1][0], dp[i - 1][1][1] + prices[i - 1]);
-            dp[i][1][1] = Math.max(dp[i - 1][1][1], dp[i - 1][0][0] - prices[i - 1]);
+        //第一天最大只能买卖1次，可以不买，也可以买入
+        dp[0][1][0] = 0;
+        dp[0][1][1] = -prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            //无操作，不持有。
+            dp[i][0][0] = 0;
+            //第一天最大只能买卖0次，则不允许买入
+            dp[i][0][1] = Integer.MIN_VALUE;
+            dp[i][1][0] = Math.max(dp[i - 1][1][0], dp[i - 1][1][1] + prices[i]);
+            dp[i][1][1] = Math.max(dp[i - 1][1][1], dp[i - 1][0][0] - prices[i]);
         }
 
-        return dp[prices.length][1][0];
+        return Math.max(dp[days - 1][0][0], dp[days - 1][1][0]);
     }
 
 
+    /**
+     * 继续maxProfit2的算法，可以做一些简单优化
+     */
+    public int maxProfit3(int[] prices) {
+        int days = prices.length;
+        int haveStock = 2;
+        int[][] dp = new int[days][haveStock];
+        dp[0][1] = -prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i - 1][1], 0 - prices[i]);
+        }
 
+        return dp[days - 1][0];
+    }
 }

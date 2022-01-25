@@ -49,22 +49,33 @@ public class BestTimeToBuyAndSellStock_iii {
             return 0;
         }
 
-        int opt = 3;
-        int[][][] dp = new int[prices.length + 1][opt][2];
+        int maxSellTimes = 2;
+        int[][][] dp = new int[prices.length][maxSellTimes + 1][2];
+        //因为最小值再减去1就是最大值Integer.MIN_VALUE-1=Integer.MAX_VALUE
+        //所以这里除2防止越界
+        int minValue = Integer.MIN_VALUE / 2;
 
-        //第0天，不管有多少次操作次数，持有股票都是不可能的
-        dp[0][0][1] = Integer.MIN_VALUE;
-        dp[0][1][1] = Integer.MIN_VALUE;
-        dp[0][2][1] = Integer.MIN_VALUE;
-
-        for (int i = 1; i <= prices.length; i++) {
-            for (int k = 1; k < opt; k++) {
-                dp[i][k][0] = Math.max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i - 1]);
-                dp[i][k][1] = Math.max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i - 1]);
-            }
+        //第一天不动
+        dp[0][0][0] = 0;
+        //第一天买入，在最大交易次数只有0次的情况下是不可能的
+        dp[0][0][1] = minValue;
+        //第一天不动
+        dp[0][1][0] = 0;
+        dp[0][2][0] = 0;
+        //第一天买入
+        dp[0][1][1] = -prices[0];
+        dp[0][2][1] = -prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            //未持股，未卖出过，说明从未进行过买卖
+            dp[i][0][0] = 0;
+            dp[i][0][1] = minValue;
+            dp[i][1][0] = Math.max(dp[i - 1][1][0], dp[i - 1][1][1] + prices[i]);
+            dp[i][1][1] = Math.max(dp[i - 1][1][1], dp[i - 1][0][0] - prices[i]);
+            dp[i][2][0] = Math.max(dp[i - 1][2][0], dp[i - 1][2][1] + prices[i]);
+            dp[i][2][1] = Math.max(dp[i - 1][2][1], dp[i - 1][1][0] - prices[i]);
         }
 
-        return dp[prices.length][2][0];
+        return dp[prices.length - 1][2][0];
     }
 
 }
