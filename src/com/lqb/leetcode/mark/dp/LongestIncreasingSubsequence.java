@@ -31,48 +31,16 @@ public class LongestIncreasingSubsequence {
         //5
         //1
         //1
-        System.out.println(lengthOfLIS3(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
-        System.out.println(lengthOfLIS3(new int[]{10, 9, 2, 5, 3, 7, 101, 18, 3, 4, 5, 6, 7}));
-        System.out.println(lengthOfLIS3(new int[]{2, 15, 3, 7, 8, 6, 18}));
-        System.out.println(lengthOfLIS3(new int[]{10}));
-        System.out.println(lengthOfLIS3(new int[]{10, 9}));
+        System.out.println(lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
+        System.out.println(lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18, 3, 4, 5, 6, 7}));
+        System.out.println(lengthOfLIS(new int[]{2, 15, 3, 7, 8, 6, 18}));
+        System.out.println(lengthOfLIS(new int[]{10}));
+        System.out.println(lengthOfLIS(new int[]{10, 9}));
     }
 
     @Test
     public void test2() {
-        System.out.println(lengthOfLIS2(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
-    }
-
-    /**
-     * 自己的解法: 倒序用一个数组存储该节点的最长上升长度, 这样每遍历一个元素, 只要向该数组中找一个最大长度就可以了
-     * 算法复杂度O(n^2) 空间复杂度O(n)
-     *
-     * 20190921： 啥玩意写的，看不懂了。。。
-     */
-    public int lengthOfLIS(int[] nums) {
-
-        if (nums == null || nums.length <= 0) {
-            return 0;
-        }
-
-        int maxLen = 0;
-        int[] maxLens = new int[nums.length];
-
-        for (int i = nums.length - 1; i >= 0; i--) {
-            int tempMaxLen = 1;
-            for (int j = i + 1; j < nums.length; j++) {
-                //(nums.length - j >= tempMaxLen) 是优化, 当剩下的数组长度已经小于最大长度就没必要遍历了
-                if ((nums.length - j >= tempMaxLen) && nums[j] > nums[i] && 1 + maxLens[j] > tempMaxLen) {
-                    tempMaxLen = 1 + maxLens[j];
-                }
-            }
-            maxLens[i] = tempMaxLen;
-            if (tempMaxLen > maxLen) {
-                maxLen = tempMaxLen;
-            }
-        }
-
-        return maxLen;
+        System.out.println(lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
     }
 
     /**
@@ -81,7 +49,7 @@ public class LongestIncreasingSubsequence {
      * 那么dp[i] = Max(dp[0], dp[1], ..., dp[i - 1]) + 1
      * 且需要满足a[i] > {a[0], a[i], ...., a[i] - 1}
      */
-    public int lengthOfLIS2(int[] a) {
+    public int lengthOfLIS(int[] a) {
 
         int maxLen = 1;
         int[] dp = new int[a.length];

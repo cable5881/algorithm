@@ -75,7 +75,8 @@ public class Triangle {
         triangle.add(depth5);
         Assert.assertEquals(17, minimumTotal(triangle));
         Assert.assertEquals(17, minimumTotal2(triangle));
-        Assert.assertEquals(17, minimumTotal3(triangle));
+        // Assert.assertEquals(17, minimumTotal3(triangle));
+        Assert.assertEquals(17, minimumTotal4(triangle));
     }
 
     private int min = Integer.MAX_VALUE;
@@ -153,5 +154,16 @@ public class Triangle {
             }
         }
         return mini[0];
+    }
+
+    public int minimumTotal4(ArrayList<ArrayList<Integer>> triangle) {
+        int n = triangle.size();
+        int[][] mini = new int[n + 1][triangle.get(n - 1).size() + 1];
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = 0; j < triangle.get(i).size(); j++) {
+                mini[i][j] = triangle.get(i).get(j) + Math.min(mini[i + 1][j], mini[i + 1][j + 1]);
+            }
+        }
+        return mini[0][0];
     }
 }

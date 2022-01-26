@@ -24,77 +24,58 @@ public class MaximumProductSubarray {
 
     @Test
     public void test() {
-        System.out.println(maxProduct4(new int[]{2, 3, -2, 4}));//6
-        System.out.println(maxProduct4(new int[]{-2, 0, -1}));//0
-        System.out.println(maxProduct4(new int[]{-2, -2, -1}));//4
-        System.out.println(maxProduct4(new int[]{-2, -2, -2, -2}));//16
+        System.out.println(maxProduct(new int[]{2, 3, -2, 4}));//6
+        System.out.println(maxProduct(new int[]{-2, 0, -1}));//0
+        System.out.println(maxProduct(new int[]{-2, -2, -1}));//4
+        System.out.println(maxProduct(new int[]{-2, -2, -2, -2}));//16
 
         //最后一个数比之前的子序列乘积都要大
-        System.out.println(maxProduct4(new int[]{12, 2, -3, 28}));//28
+        System.out.println(maxProduct(new int[]{12, 2, -3, 28}));//28
 
-        System.out.println(maxProduct4(new int[]{-3, 0, 1, -2}));//1
-        System.out.println(maxProduct4(new int[]{-2, 1, 0, -3}));//1
+        System.out.println(maxProduct(new int[]{-3, 0, 1, -2}));//1
+        System.out.println(maxProduct(new int[]{-2, 1, 0, -3}));//1
 
         //负数数量为奇数
-        System.out.println(maxProduct4(new int[]{2, -5, -2, -4, 3}));//24
+        System.out.println(maxProduct(new int[]{2, -5, -2, -4, 3}));//24
 
         //虽然负数为正，但是中间有0隔开
-        System.out.println(maxProduct4(new int[]{-1, 0, -1, 2, -3, 1, 2, 3, -2}));//72
+        System.out.println(maxProduct(new int[]{-1, 0, -1, 2, -3, 1, 2, 3, -2}));//72
 
         //2, 3, -2, 4, -5,6,7,-100
     }
 
-    /**
-     * @author liqibo
-     * @date 2019/11/4 21:16
-     * @description 暴力法
-     * 时间复杂度 O(n^2)
-     */
+
     public int maxProduct(int[] nums) {
 
         if (nums == null || nums.length < 1) {
             return 0;
         }
 
-        int res = nums[0];
-
-        for (int i = 0; i < nums.length; i++) {
-            int temp = nums[i];
-            if (temp > res) {
-                res = temp;
-            }
-            for (int j = i + 1; j < nums.length; j++) {
-                temp *= nums[j];
-                if (temp > res) {
-                    res = temp;
-                }
-            }
-
-        }
-
-        return res;
-    }
-
-    /**
-     * 错误的解法：无法解决这种情况：2, -5, -2, -4, 3
-     * 只能得到最大20，即2*(-5)*(-2)
-     */
-    public int maxProduct2(int[] nums) {
-
-        int max = nums[0];
-        //表示一直乘下去的sum
-        int sum_1 = max;
-        //表示一个子序列的sum
-        int sum_2 = max;
+        int iMax = nums[0];
+        int iMin = nums[0];
+        int max = iMax;
         for (int i = 1; i < nums.length; i++) {
-            sum_1 *= nums[i];
-            sum_2 = Math.max(sum_2 * nums[i], nums[i]);
-            max = Math.max(max, Math.max(sum_1, sum_2));
+            if (nums[i] > 0) {
+                //旧iMax > 0, 则新iMax = iMax * nums[i]
+                //旧iMax < 0, 则新iMax = nums[i]
+                iMax = Math.max(nums[i], iMax * nums[i]);
+                //旧iMin > 0, 则新iMin = iMax * nums[i]
+                //旧iMin < 0, 则新iMin = nums[i]
+                iMin = Math.min(nums[i], iMin * nums[i]);
+            } else {
+                //旧iMin > 0, 则新iMax = iMin * nums[i]
+                //旧iMin < 0, 则新iMax = iMin * nums[i]
+                int tMax = iMax;
+                iMax = Math.max(nums[i], iMin * nums[i]);
+                //旧iMin > 0, 则新iMin = iMax * nums[i]
+                //旧iMin < 0, 则新iMin = nums[i]
+                iMin = Math.min(nums[i], tMax * nums[i]);
+            }
+            max = Math.max(max, iMax);
         }
 
         return max;
     }
-
 
     /**
      * 动态规划1：完整的动态规划

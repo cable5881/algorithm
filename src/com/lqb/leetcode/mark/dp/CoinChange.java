@@ -31,127 +31,71 @@ public class CoinChange {
 
     @Test
     public void test() {
-        System.out.println(coinChange4(new int[]{1, 2, 5}, 11));//3
-        System.out.println(coinChange4(new int[]{1, 2, 5}, 12));//3
-        System.out.println(coinChange4(new int[]{1, 2, 5}, 13));//4
-        System.out.println(coinChange4(new int[]{1, 2, 15}, 13));//7
-        System.out.println(coinChange4(new int[]{1, 13, 11, 7}, 100));//8
-        System.out.println(coinChange4(new int[]{1}, 11));//11
-        System.out.println(coinChange4(new int[]{2}, 11));//-1
-        System.out.println(coinChange4(new int[]{5}, 10));//2
-        System.out.println(coinChange4(new int[]{5, 6, 7}, 4));//-1
-        System.out.println(coinChange4(new int[]{186, 419, 83, 408}, 6249));//20
-        System.out.println(coinChange4(new int[]{227, 99, 328, 299, 42, 322}, 9847));//31
-        System.out.println(coinChange4(new int[]{336, 288, 378, 16, 319, 146}, 9212));//26
+        System.out.println(coinChange(new int[]{1, 2, 5}, 11));//3
+        System.out.println(coinChange(new int[]{1, 2, 5}, 12));//3
+        System.out.println(coinChange(new int[]{1, 2, 5}, 13));//4
+        System.out.println(coinChange(new int[]{1, 2, 15}, 13));//7
+        System.out.println(coinChange(new int[]{1, 13, 11, 7}, 100));//8
+        System.out.println(coinChange(new int[]{1}, 11));//11
+        System.out.println(coinChange(new int[]{2}, 11));//-1
+        System.out.println(coinChange(new int[]{5}, 10));//2
+        System.out.println(coinChange(new int[]{5, 6, 7}, 4));//-1
+        System.out.println(coinChange(new int[]{186, 419, 83, 408}, 6249));//20
+        System.out.println(coinChange(new int[]{227, 99, 328, 299, 42, 322}, 9847));//31
+        System.out.println(coinChange(new int[]{336, 288, 378, 16, 319, 146}, 9212));//26
     }
 
-    /**
-     * 错误的解法：先排序，由于硬币数 = n * coins[i] + m * coins[j] + p * coins[k] + ...(i > j > k, 所以coins[i] > coins[j] > coins[k])
-     * 如果要最少的硬币，则先用最大的硬币去换，然后再用次大的硬币换，以此类推。
-     * 这是错误的，当硬币值越大，p * coins[k] 的p也可以很大，此时就不是最少数量的组合了。
-     **/
-
-    /**
-     * @description 暴力法
-     * @author liqibo
-     * @date 2019/7/11 14:55
-     **/
     public int coinChange(int[] coins, int amount) {
         if (coins == null || coins.length < 1 || amount == 0) {
             return 0;
         }
 
-        int count = coinChange(coins, 0, amount);
-        return count > 0 ? count : -1;
-    }
-
-    private int coinChange(int[] coins, int cur, int amount) {
-
-        if (cur >= coins.length) {
-            return 0;
-        }
-
-        int minCoinsCount = Integer.MAX_VALUE;
-        for (int i = cur; i < coins.length; i++) {
-            int coinsCount = 0;
-            int tempAmount;
-            while ((tempAmount = coinsCount * coins[cur]) <= amount) {
-                if (tempAmount == amount) {
-                    if (coinsCount < minCoinsCount ) {
-                        minCoinsCount = coinsCount;
-                        //System.out.println("#####" + coinsCount + " * " + coins[cur] + " = " + amount);
-                    }
-                    break;
-                }
-                int tempCoinsCount = coinChange(coins, i + 1, amount - tempAmount);
-                if (tempCoinsCount > 0) {
-                    tempCoinsCount += coinsCount;
-                    if (tempCoinsCount < minCoinsCount) {
-                        //System.out.println(String.format("=====amount=%d, coinsCount=%d, tempAmount=%d, coinChange(%d, %d)", amount, coinsCount, tempAmount, i + 1, amount - tempAmount));
-                        minCoinsCount = tempCoinsCount;
-                    }
-                }
-                coinsCount++;
-            }
-        }
-
-        if (minCoinsCount == Integer.MAX_VALUE) {
-            return 0;
-        } else {
-            //System.out.println(String.format("cur=%d, coinsCount=%d, amount=%d", cur, minCoinsCount, amount));
-            return minCoinsCount;
-        }
-    }
-
-    /**
-     * @description {186, 419, 83, 408}, 6249 就开始超时了
-     * @author liqibo
-     * @date 2019/7/15 15:00
-     **/
-    public int coinChange2(int[] coins, int amount) {
-        if (coins == null || coins.length <= 0 || amount <= 0) {
-            return 0;
-        }
-
         int[] dp = new int[amount + 1];
-
-        for (int coin : coins) {
-            if (coin < dp.length) {
-                dp[coin] = 1;
+        for (int i = 1; i <= amount; i++) {
+            boolean canChange = false;
+            dp[i] = Integer.MAX_VALUE;
+            for (int coin : coins) {
+                int left = i - coin;
+                if (left < 0) {
+                    continue;
+                }
+                if (dp[left] < 0) {
+                    continue;
+                } else {
+                    canChange = true;
+                    dp[i] = Math.min(dp[i], dp[left] + 1);
+                }
             }
+            dp[i] = canChange ? dp[i] : -1;
         }
-
-        return coinChange2(coins, amount, dp);
+        return dp[amount];
     }
 
-    private int coinChange2(int[] coins, int amount, int[] dp) {
-        if (amount == 0) {
-            return 0;
-        }
-
+    private int coinChange(int[] coins, int[] dp, int amount) {
         if (amount < 0) {
             return -1;
         }
 
-        if (dp[amount] > 0) {
+        if (amount == 0) {
+            return 0;
+        }
+
+        if (dp[amount] != 0) {
             return dp[amount];
         }
 
-        int min = Integer.MAX_VALUE;
-        boolean canExchange = false;
+        dp[amount] = Integer.MAX_VALUE;
+        boolean canChange = false;
         for (int coin : coins) {
-            int tmpAmout = coinChange2(coins, amount - coin, dp);
-            if (tmpAmout >= 0) {
-                canExchange = true;
-                min = Math.min(tmpAmout + 1, min);
+            int changeNum = coinChange(coins, dp, amount - coin);
+            if (changeNum >= 0) {
+                canChange = true;
+                dp[amount] = Math.min(dp[amount], changeNum + 1);
             }
         }
 
-        if (!canExchange) {
-            min = -1;
-        }
-        dp[amount] = min;
-        return min;
+        dp[amount] = canChange ? dp[amount] : -1;
+        return dp[amount];
     }
 
 
@@ -205,35 +149,6 @@ public class CoinChange {
         count[rem - 1] = (min == Integer.MAX_VALUE) ? -1 : min;
         return count[rem - 1];
     }
-
-    /**
-     * 自己模仿官方解法一
-     **/
-    private int coinChange3ByMyself(int[] coins, int rem, int[] count) {
-
-        if (rem < 0) {
-            return -1;
-        }
-
-        if (rem == 0) {
-            return 0;
-        }
-
-        if (count[rem - 1] != 0) {
-            return count[rem - 1];
-        }
-
-        int minCoins = Integer.MAX_VALUE;
-        for (int coin : coins) {
-            int tempCoinsCount = coinChange3ByMyself(coins, rem - coin, count);
-            if (tempCoinsCount >= 0 && tempCoinsCount < minCoins) {
-                minCoins = tempCoinsCount + 1;
-            }
-        }
-
-        return minCoins == Integer.MAX_VALUE ? -1 : (count[rem - 1] = minCoins);
-    }
-
 
     /**
      * 官方解法：动态规划-自下而上
