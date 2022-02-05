@@ -1,4 +1,4 @@
-package com.lqb.leetcode.mark;
+package com.lqb.leetcode.mark.window;
 
 import org.junit.Test;
 
@@ -26,6 +26,18 @@ import java.util.Set;
  **/
 public class LengthOfLongestSubstring {
 
+    @Test
+    public void test1() {
+        System.out.println(lengthOfLongestSubstring3(""));//0
+        System.out.println(lengthOfLongestSubstring3(" "));//1
+        System.out.println(lengthOfLongestSubstring3("a"));//1
+        System.out.println(lengthOfLongestSubstring3("ab"));//2
+        System.out.println(lengthOfLongestSubstring3("abcabcbb"));//3
+        System.out.println(lengthOfLongestSubstring3("pwwkewck"));//4
+        System.out.println(lengthOfLongestSubstring3("bbbbb"));//1
+        System.out.println(lengthOfLongestSubstring3("abba"));//2
+    }
+
     /**
      * 官方解法二：优化的滑动窗口
      * 官方解法一最多需要执行 2n 个步骤。事实上，它可以被进一步优化为仅需要 n 个步骤。
@@ -40,13 +52,12 @@ public class LengthOfLongestSubstring {
 
         for (int j = 0, i = 0; j < n; j++) {
             if (map.containsKey(s.charAt(j))) {
-                //这里为何不直接取map.get(s.charAt(j)？测试用例见abba。
+                //这里为何不直接取map.get(s.charAt(j) + 1？测试用例见abba。
                 //当检测到abb时，i=3，检测到abba时，如果直接用map.get(s.charAt('a')则i=1，那么下面计算j-i+1=3-1+1=3就错了
-                i = Math.max(map.get(s.charAt(j)), i);
+                i = Math.max(map.get(s.charAt(j)) + 1, i);
             }
-            //不能j - i，考虑s="a"或"ab"这种不重复的用例，最后ans=s.length-1， 即为0或1
             ans = Math.max(ans, j - i + 1);
-            map.put(s.charAt(j), j + 1);
+            map.put(s.charAt(j), j);
         }
         return ans;
     }
@@ -117,18 +128,4 @@ public class LengthOfLongestSubstring {
 
         return maxLen;
     }
-
-
-    @Test
-    public void test1() {
-        System.out.println(lengthOfLongestSubstring3(""));//0
-        System.out.println(lengthOfLongestSubstring3(" "));//1
-        System.out.println(lengthOfLongestSubstring3("a"));//1
-        System.out.println(lengthOfLongestSubstring3("ab"));//2
-        System.out.println(lengthOfLongestSubstring3("abcabcbb"));//3
-        System.out.println(lengthOfLongestSubstring3("pwwkewck"));//4
-        System.out.println(lengthOfLongestSubstring3("bbbbb"));//1
-        System.out.println(lengthOfLongestSubstring3("abba"));//2
-    }
-
 }
