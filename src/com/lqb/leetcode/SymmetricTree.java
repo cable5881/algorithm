@@ -29,12 +29,6 @@ import org.junit.Test;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/symmetric-tree
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- *
- * 自己的思路：
- *  算法复杂度：O(n)，空间复杂度：O(n)
- *  ①递归中序遍历存入数组[3, 2, 4, 1, 4, 2, 3]
- *  ②判断数组是否对称
- *
  **/
 public class SymmetricTree {
 
@@ -85,23 +79,22 @@ public class SymmetricTree {
             return true;
         }
 
-        return isSymmetricCore(root, root);
+        return isSymmetric(root.left, root.right);
     }
 
-    public boolean isSymmetricCore(TreeNode leftTree, TreeNode rightTree) {
-
-        if (leftTree == null && rightTree == null) {
+    public boolean isSymmetric(TreeNode node1, TreeNode node2) {
+        if (node1 == null && node2 == null) {
             return true;
         }
 
-        if (leftTree != null && rightTree != null) {
-            if (leftTree.val == rightTree.val) {
-                return isSymmetricCore(leftTree.right, rightTree.left)
-                        && isSymmetricCore(leftTree.left, rightTree.right);
-            }
+        if (node1 == null || node2 == null) {
+            return false;
         }
 
-        return false;
-    }
+        if (node1.val != node2.val) {
+            return false;
+        }
 
+        return isSymmetric(node1.left, node2.right) && isSymmetric(node1.right, node2.left);
+    }
 }
