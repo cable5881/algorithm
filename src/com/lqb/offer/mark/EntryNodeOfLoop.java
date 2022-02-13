@@ -6,8 +6,7 @@ import org.junit.Test;
 /**
  * 一个链表中包含环，请找出该链表的环的入口结点。
  *
- * @author:JackBauer
- * @date:2016年6月25日 上午9:40:31
+ * https://leetcode-cn.com/problems/linked-list-cycle-ii/
  */
 public class EntryNodeOfLoop {
 
@@ -25,6 +24,16 @@ public class EntryNodeOfLoop {
         n4.next = n5;
         n5.next = n3;
 
+        ListNode node = entryNodeOfLoop2(n1);
+        System.out.println(node.val);
+    }
+
+    @Test
+    public void test2() {
+        ListNode n1 = new ListNode(1);
+        ListNode n2 = new ListNode(2);
+
+        n1.next = n2;
         ListNode node = entryNodeOfLoop2(n1);
         System.out.println(node.val);
     }
@@ -110,9 +119,8 @@ public class EntryNodeOfLoop {
     }
 
     /**
-     * @author liqibo
-     * @date 2020/2/24 15:12
-     * @description 发现自己还是不会，hhh
+     * 1.通过快慢指针找出相遇点
+     * 2.一个指针从相遇点触发，另一个从head开始出来，相遇时就是环的入口
      */
     public ListNode entryNodeOfLoop2(ListNode pHead) {
 
@@ -120,37 +128,22 @@ public class EntryNodeOfLoop {
             return null;
         }
 
-        if (pHead.next == null) {
-            return null;
-        }
-
         ListNode pSlow = pHead;
-        ListNode pFast = pHead.next.next;
+        ListNode pFast = pHead;
 
-        while (pFast != pSlow && pFast.next != pSlow) {
+        while (pFast != null && pFast.next != null) {
             pFast = pFast.next.next;
             pSlow = pSlow.next;
+            if (pFast == pSlow) {
+                ListNode p1 = pHead;
+                ListNode p2 = pFast;
+                while (p1 != p2) {
+                    p1 = p1.next;
+                    p2 = p2.next;
+                }
+                return p1;
+            }
         }
-
-        int lenOfLoop = 1;
-        ListNode p = pFast.next;
-        while (p != pFast) {
-            p = p.next;
-            lenOfLoop++;
-        }
-
-        ListNode p1 = pHead;
-        //注意是从0开始而不是1
-        for (int i = 0; i < lenOfLoop; i++) {
-            p1 = p1.next;
-        }
-
-        ListNode p2 = pHead;
-        while (p1 != p2) {
-            p1 = p1.next;
-            p2 = p2.next;
-        }
-
-        return p1;
+        return null;
     }
 }
