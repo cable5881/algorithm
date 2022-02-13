@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark.map;
 
 import org.junit.Test;
 
@@ -72,20 +72,20 @@ public class TwoSum {
             return null;
         }
 
-        Map<Integer, Integer> numMap = new HashMap<>();
-        int[] ans = new int[2];
-
+        int[] res = new int[2];
+        HashMap<Integer, Integer> map = new HashMap<>(nums.length);
         for (int i = 0; i < nums.length; i++) {
-            int j = target - nums[i];
-            if (numMap.containsKey(j)) {
-                ans[0] = numMap.get(j);
-                ans[1] = i + 1;
+            int key = target - nums[i];
+            if (map.containsKey(key)) {
+                res[0] = map.get(key);
+                res[1] = i;
                 break;
+            } else {
+                map.put(nums[i], i);
             }
-            numMap.put(nums[i], i + 1);
         }
 
-        return ans;
+        return res;
     }
 
 
