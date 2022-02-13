@@ -1,4 +1,4 @@
-package com.lqb.leetcode.mark;
+package com.lqb.leetcode.mark.binarysearch;
 
 import org.junit.Test;
 
