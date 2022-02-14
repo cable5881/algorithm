@@ -1,4 +1,4 @@
-package com.lqb.leetcode;
+package com.lqb.leetcode.mark.tree;
 
 import com.lqb.util.TreeNode;
 import org.junit.Test;
@@ -36,8 +36,7 @@ public class BinaryTreeLevelOrderTraversal {
     @Test
     public void test() {
         TreeNode root = TreeNode.getFullTree();
-        BinaryTreeLevelOrderTraversal demo = new BinaryTreeLevelOrderTraversal();
-        System.out.println(demo.levelOrder2(root));
+        System.out.println(levelOrder2(root));
     }
 
     /**
@@ -85,33 +84,28 @@ public class BinaryTreeLevelOrderTraversal {
     }
 
     public List<List<Integer>> levelOrder2(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
-            return Collections.emptyList();
+            return res;
         }
-
-        List<List<Integer>> levelOrder = new ArrayList<>();
         LinkedList<TreeNode> q = new LinkedList<>();
-        q.add(root);
-
+        q.addLast(root);
         while (!q.isEmpty()) {
-            List<Integer> levelNodes = new ArrayList<>();
-            levelOrder.add(levelNodes);
-            int levelSize = q.size();
-            for (int i = 0; i < levelSize; i++) {
+            List<Integer> level = new ArrayList<>();
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
                 TreeNode node = q.removeFirst();
-                levelNodes.add(node.val);
-
+                level.add(node.val);
                 if (node.left != null) {
                     q.addLast(node.left);
                 }
-
                 if (node.right != null) {
                     q.addLast(node.right);
                 }
             }
+            res.add(level);
         }
-
-        return levelOrder;
+        return res;
     }
 
 }
