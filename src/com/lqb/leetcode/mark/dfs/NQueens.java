@@ -36,10 +36,10 @@ public class NQueens {
             return n;
         }
 
-        Set<Integer> cols = new HashSet<>(n);
+        Set<Integer> rows = new HashSet<>(n);
         Set<Integer> pY = new HashSet<>(n);
         Set<Integer> nY = new HashSet<>(n);
-        totalNQueens(n, 0, cols, pY, nY);
+        totalNQueens(n, 0, rows, pY, nY);
         return cnt;
     }
 
