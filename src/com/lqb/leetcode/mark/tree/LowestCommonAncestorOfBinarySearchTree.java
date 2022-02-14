@@ -1,4 +1,4 @@
-package com.lqb.leetcode.mark;
+package com.lqb.leetcode.mark.tree;
 
 import com.lqb.util.TreeNode;
 
