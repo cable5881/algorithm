@@ -1,4 +1,4 @@
-package com.lqb.leetcode.mark;
+package com.lqb.leetcode.mark.dp;
 
 import org.junit.Test;
 
@@ -29,9 +29,26 @@ public class HouseRobber {
 
     @Test
     public void test() {
-        HouseRobber demo = new HouseRobber();
-        System.out.println(demo.rob2(new int[]{1, 2, 3, 1}));
-        System.out.println(demo.rob2(new int[]{2, 7, 9, 3, 1}));
+        System.out.println(rob3(new int[]{1, 2, 3, 1}));
+        System.out.println(rob3(new int[]{2, 7, 9, 3, 1}));
+    }
+
+
+    /**
+     * 动态规划
+     */
+    public int rob3(int[] nums) {
+
+        int[][] dp = new int[nums.length][2];
+        dp[0][0] = 0;
+        dp[0][1] = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1]);
+            dp[i][1] = dp[i - 1][0] + nums[i];
+        }
+
+        return Math.max(dp[nums.length - 1][0], dp[nums.length - 1][1]);
     }
 
     /**

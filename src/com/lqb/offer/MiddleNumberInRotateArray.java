@@ -11,12 +11,15 @@ public class MiddleNumberInRotateArray {
 
     @Test
     public void test() {
-        System.out.println(midNumberInRotateArray(new int[]{1, 2, 3, 4, 5}));//3
-        System.out.println(midNumberInRotateArray(new int[]{4, 5, 1, 2, 3}));//3
-        System.out.println(midNumberInRotateArray(new int[]{5, 1, 2, 3, 4}));//3
-        System.out.println(midNumberInRotateArray(new int[]{3, 4, 5, 1, 2}));//3
-        System.out.println(midNumberInRotateArray(new int[]{3, 4, 1, 2}));//(2+3)/2
-        System.out.println(midNumberInRotateArray(new int[]{5, 6, 1, 2, 3, 5}));//(3+5)/2=4
+        System.out.println(midNumberInRotateArray2(new int[]{1}));//1
+        System.out.println(midNumberInRotateArray2(new int[]{1, 2}));//1
+        System.out.println(midNumberInRotateArray2(new int[]{2, 1}));//1
+        System.out.println(midNumberInRotateArray2(new int[]{1, 2, 3, 4, 5}));//3
+        System.out.println(midNumberInRotateArray2(new int[]{4, 5, 1, 2, 3}));//3
+        System.out.println(midNumberInRotateArray2(new int[]{5, 1, 2, 3, 4}));//3
+        System.out.println(midNumberInRotateArray2(new int[]{3, 4, 5, 1, 2}));//3
+        System.out.println(midNumberInRotateArray2(new int[]{3, 4, 1, 2}));//(2+3)/2
+        System.out.println(midNumberInRotateArray2(new int[]{5, 6, 1, 2, 3, 5}));//(3+5)/2=4
     }
 
     public int midNumberInRotateArray(int[] a) {
@@ -45,5 +48,20 @@ public class MiddleNumberInRotateArray {
         return (a.length & 1) == 0 ? (a[mid] + a[(mid - 1) < 0 ? a.length - 1 : mid - 1]) / 2 : a[mid];
     }
 
+    public int midNumberInRotateArray2(int[] a) {
 
+        int l = 0;
+        int r = a.length - 1;
+        while (l < r) {
+            int mid = (l + r) / 2;
+            if (a[mid] < a[r]) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        int delta = (a.length % 2 == 0 ? a.length - 1 : a.length) / 2;
+        return a[(l + delta) % a.length];
+    }
 }

@@ -1,6 +1,7 @@
 package com.lqb.leetcode;
 
 import com.google.common.collect.Lists;
+import com.lqb.util.Trie;
 import org.junit.Test;
 
 import java.util.HashSet;

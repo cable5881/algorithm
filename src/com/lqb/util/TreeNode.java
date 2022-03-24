@@ -76,13 +76,13 @@ public class TreeNode {
         while (node != null || !s.isEmpty()) {
             //两种方法都可以
 
-            //if (node != null) {
-            //    System.out.print("#" + node.val);
-            //    s.push(node.right);
-            //    node = node.left;
-            //} else {
-            //    node = s.pop();
-            //}
+            // while (node != null) {
+            //     System.out.print("#" + node.val);
+            //     stack.push(node);
+            //     node = node.left;
+            // }
+            // node = stack.pop();
+            // node = node.right;
 
             if (node == null) {
                 node = s.pop();
@@ -173,6 +173,30 @@ public class TreeNode {
                 last = s.pop();
                 System.out.print("#" + node.val);
             }
+        }
+    }
+
+    public static void postOrder2(TreeNode node) {
+        LinkedList<TreeNode> stack = new LinkedList<>();
+        TreeNode last = null;
+        while (node != null) {
+            stack.push(node);
+            last = node;
+            node = node.left;
+        }
+
+        while (!stack.isEmpty()) {
+            node = stack.peek();
+            if (node.right != null && node.right != last) {
+                node = node.right;
+                while (node != null) {
+                    stack.push(node);
+                    last = node;
+                    node = node.left;
+                }
+            }
+            last = stack.pop();
+            System.out.print("#" + last.val);
         }
     }
 
@@ -271,8 +295,10 @@ public class TreeNode {
 
     public static void main(String[] args) {
         TreeNode node = getFullTree();
+        System.out.println("#####preorder start######");
         preOrderRecursively(node);
         System.out.println();
+        System.out.println("#####preorder end######");
         System.out.println("###########");
         inOrderRecursively(node);
         System.out.println();
@@ -289,6 +315,8 @@ public class TreeNode {
         System.out.println();
         System.out.println("###########");
         postOrder(node);
+        System.out.println();
+        postOrder2(node);
 
         System.out.println();
         System.out.println();

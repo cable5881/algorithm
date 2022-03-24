@@ -52,12 +52,12 @@ public class StringToIntegerAtoi {
 
     @Test
     public void test() {
-        System.out.println(myAtoi("42"));
-        System.out.println(myAtoi("  -42"));
-        System.out.println(myAtoi("4193 with words"));
-        System.out.println(myAtoi("words and 987"));
-        System.out.println(myAtoi("-91283472332"));
-        System.out.println(myAtoi("2147483648"));
+        System.out.println(myAtoi2("42"));
+        System.out.println(myAtoi2("  -42"));
+        System.out.println(myAtoi2("4193 with words"));
+        System.out.println(myAtoi2("words and 987"));
+        System.out.println(myAtoi2("-91283472332"));
+        System.out.println(myAtoi2("2147483648"));
     }
 
     /**
@@ -125,6 +125,51 @@ public class StringToIntegerAtoi {
             i++;
         }
         return i;
+    }
+
+    public int myAtoi2(String str) {
+
+        if (str == null || str.length() == 0) {
+            return 0;
+        }
+
+        int res = 0;
+        int start = 0;
+        boolean positive = true;
+        while (start < str.length()) {
+            char ch = str.charAt(start);
+            if (ch == ' ') {
+                start++;
+                continue;
+            }
+            if (ch == '-') {
+                positive = false;
+                start++;
+                break;
+            }
+            if (ch == '+') {
+                start++;
+                break;
+            }
+            if (ch >= '0' && ch <= '9') {
+                break;
+            }
+            return 0;
+        }
+
+        if (start >= str.length()) {
+            return 0;
+        }
+
+        for (int i = start; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch < '0' || ch > '9') {
+                break;
+            }
+            res = res * 10 + (ch - '0');
+        }
+
+        return positive ? res : -res;
     }
 
     public static void main(String[] args) {

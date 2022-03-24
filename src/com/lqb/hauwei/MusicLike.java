@@ -8,7 +8,7 @@ public class MusicLike {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         MusicLike main = new MusicLike();
-        while (in.hasNextInt()) {
+        while (in.hasNext()) {
             String op = in.next();
             String songName = in.next();
             if (ADD.equals(op)) {
